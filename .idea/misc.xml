@@ -3,14 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_gray_stroke_white_solid.xml" value="0.1235" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_purple_stroke_white_solid.xml" value="0.152" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/activity_main.xml" value="0.12158054711246201" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.264" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/activity_make_planning.xml" value="0.1" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/fragment_my_future_look.xml" value="0.264" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_gray_stroke_white_solid.xml" value="0.152" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.1" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_6dp_gray_stroke_white_solid.xml" value="0.152" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.1" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/fragment_plan_for_goal.xml" value="0.1" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/fragment_want_to_achieve.xml" value="0.2" />
-        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.264" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.1" />
+        <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/item_want_to_achieve.xml" value="0.1" />
       </map>
     </option>
   </component>

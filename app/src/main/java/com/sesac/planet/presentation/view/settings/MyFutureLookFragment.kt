@@ -67,7 +67,7 @@ class MyFutureLookFragment : Fragment() {
 
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
-            val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToWantToAchieveFragment("Test")
+            val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToWantToAchieveFragment()
             findNavController().navigate(action)
         }
     }

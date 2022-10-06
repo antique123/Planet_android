@@ -6,13 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentWantToAchieveBinding
+import com.sesac.planet.presentation.view.settings.adapter.WantToAchieveAdapter
 
 class WantToAchieveFragment : Fragment() {
     private var _binding: FragmentWantToAchieveBinding? = null
     private val binding get() = _binding!!
+    private lateinit var wantToAchieveAdapter: WantToAchieveAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,9 +34,35 @@ class WantToAchieveFragment : Fragment() {
     }
 
     private fun initialize() {
-        val args: WantToAchieveFragmentArgs by navArgs()
-        args.testArgument?.let {
-            Log.d("safeargs_test", it)
+        initWantToAchieveRecyclerView()
+        initViews()
+    }
+
+    private fun initWantToAchieveRecyclerView() {
+        val items = mutableListOf<String>().apply {
+            add("다이어트")
+            add("진로찾기")
+            add("책 읽기")
+            add("인간관계")
+            add("멘탈관리")
+            add("취미")
+            add("교양지식")
+            add("일")
+            add("취업")
+            add("not define")
+            add("not define")
+            add("not define")
+            add("not define")
+        }
+        wantToAchieveAdapter = WantToAchieveAdapter(items)
+        binding.wantToAchieveRecyclerView.layoutManager = GridLayoutManager(requireActivity(), 3, GridLayoutManager.VERTICAL, false)
+        binding.wantToAchieveRecyclerView.adapter = wantToAchieveAdapter
+    }
+
+    private fun initViews() {
+        binding.startNextPageButton.setOnClickListener {
+            val action = WantToAchieveFragmentDirections.actionWantToAchieveFragmentToPlanForGoalFragment()
+            findNavController().navigate(action)
         }
     }
 
