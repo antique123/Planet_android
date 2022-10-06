@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.settings.MyFutureLookFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_content_container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation_container">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/my_future_look_header_first_line_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginEnd="20dp"
+                android:text="내가 바라는"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/my_future_look_header_second_line_first_block_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="나의"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_header_first_line_text_view" />
+
+            <EditText
+                android:id="@+id/planning_week_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="26"
+                android:textSize="26sp"
+                app:layout_constraintStart_toEndOf="@id/my_future_look_header_second_line_first_block_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_header_first_line_text_view" />
+
+            <TextView
+                android:id="@+id/my_future_look_header_second_line_second_block_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="주 후"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toEndOf="@id/planning_week_edit_text"
+                app:layout_constraintTop_toTopOf="@id/my_future_look_header_second_line_first_block_text_view" />
+
+            <TextView
+                android:id="@+id/my_future_look_header_third_line_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:text="모습은 어떤가요?"
+                android:textColor="@color/black"
+                android:textSize="26sp"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_header_second_line_first_block_text_view" />
+
+            <TextView
+                android:id="@+id/my_future_look_description_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:text="위의 시간이 지난 후, 내가 보여지고 싶은 이미지나\n갖추고 싶은 능력, 불려지고 싶은 수식어를 설정해보세요"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_header_third_line_text_view" />
+
+            <TextView
+                android:id="@+id/my_future_look_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="성격/모습/능력"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="50dp"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_description_text_view"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/my_future_look_recycler_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_title_text_view" />
+
+            <EditText
+                android:id="@+id/add_future_look_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="20dp"
+                android:hint="원하는 이미지, 능력을 입력해 보세요"
+                android:paddingHorizontal="10dp"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@id/add_future_look_button"
+                app:layout_constraintEnd_toStartOf="@id/add_future_look_button"
+                app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
+                app:layout_constraintTop_toBottomOf="@id/my_future_look_recycler_view" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/add_future_look_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:background="@color/purple_896DF3"
+                android:text="확인"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/add_future_look_edit_text"
+                app:layout_constraintTop_toTopOf="@id/add_future_look_edit_text" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_navigation_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_896DF3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_prev_page_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이전으로"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_next_page_button"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="다음으로"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
