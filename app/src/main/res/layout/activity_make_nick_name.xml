@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.view.settings.MakeNickNameActivity">
+
+    <TextView
+        android:id="@+id/make_nick_name_header_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="20dp"
+        android:lineSpacingExtra="10dp"
+        android:text="안녕하세요 여행자님!\n여행자님의\n이름은 무엇인가요?"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/make_nick_name_description_text_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="미래에 불리고 싶은 이름이나 닉네임이 있다면\n작성해주세요 닉네임은 언제든 변경할 수 있답니다"
+        android:textColor="@color/gray_737373"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/make_nick_name_header_text_view"
+        app:layout_constraintTop_toBottomOf="@id/make_nick_name_header_text_view" />
+
+    <TextView
+        android:id="@+id/nick_name_title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이름"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/make_nick_name_description_text_view"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/nick_name_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/shape_rectangle_gray_stroke_white_solid"
+        android:hint="동그랑땡"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textSize="14sp"
+        android:textCursorDrawable="@null"
+        app:layout_constraintEnd_toStartOf="@id/check_this_nick_name_button"
+        app:layout_constraintStart_toStartOf="@id/nick_name_title_text_view"
+        app:layout_constraintTop_toBottomOf="@id/nick_name_title_text_view" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/check_this_nick_name_button"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="@color/gray_D9D9D9"
+        android:text="확인"
+        android:textColor="@color/gray_737373"
+        app:layout_constraintBottom_toBottomOf="@id/nick_name_edit_text"
+        app:layout_constraintEnd_toEndOf="@id/make_nick_name_header_text_view"
+        app:layout_constraintStart_toEndOf="@id/nick_name_edit_text"
+        app:layout_constraintTop_toTopOf="@id/nick_name_edit_text" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_navigation_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/purple_896DF3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_prev_page_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="이전으로"
+            android:textColor="@color/white"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/start_next_page_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textColor="@color/white"
+            android:text="다음으로"
+            style="@style/Widget.MaterialComponents.Button.TextButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
