@@ -26,7 +26,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="80dp"
                 android:layout_marginEnd="20dp"
-                android:lineSpacingExtra="10dp"
+                android:lineSpacingExtra="4dp"
                 android:text="26주 동안\n성장하고 싶은 분야,\n이루고 싶은 목표가 있나요?"
                 android:textColor="@color/black"
                 android:textSize="26sp"

@@ -4,8 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import com.sesac.planet.R
 import com.sesac.planet.databinding.ActivityMakeNickNameBinding
 import com.sesac.planet.utility.SystemUtility
 
