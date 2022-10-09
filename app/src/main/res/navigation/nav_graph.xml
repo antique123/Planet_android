@@ -41,5 +41,6 @@
         android:name="com.sesac.planet.presentation.view.settings.PreviewMyPlanningFragment"
         android:label="preview_my_planning_fragment"
         tools:layout="@layout/fragment_preview_my_planning">
+
     </fragment>
 </navigation>
