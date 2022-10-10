@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sesac.planet.databinding.FragmentPreviewMyPlanningBinding
@@ -76,6 +77,11 @@ class PreviewMyPlanningFragment : Fragment() {
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
             activity.startMainActivity()
+        }
+
+        binding.startPrevPageButton.setOnClickListener {
+            val action = PreviewMyPlanningFragmentDirections.actionPreviewMyPlanningFragmentToPlanForGoalFragment()
+            findNavController().navigate(action)
         }
     }
 

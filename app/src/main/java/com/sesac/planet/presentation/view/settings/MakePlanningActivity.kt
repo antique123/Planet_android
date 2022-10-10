@@ -23,6 +23,7 @@ class MakePlanningActivity : AppCompatActivity() {
     fun startMainActivity() {
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+
     }
 
 }

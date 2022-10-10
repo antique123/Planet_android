@@ -31,7 +31,7 @@ class MyFutureLookFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        
         initialize()
     }
 
@@ -68,6 +68,11 @@ class MyFutureLookFragment : Fragment() {
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
             val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToWantToAchieveFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.startPrevPageButton.setOnClickListener {
+            val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToMakeNickNameFragment()
             findNavController().navigate(action)
         }
     }
