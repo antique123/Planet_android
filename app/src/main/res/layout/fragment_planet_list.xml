@@ -28,8 +28,13 @@
             android:layout_weight="1"/>
 
         <TextView
+            android:id="@+id/planet_list_more_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="5dp"
             android:text="더보기"/>
     </LinearLayout>
 

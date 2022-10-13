@@ -23,7 +23,8 @@
                 android:layout_marginTop="14dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="3dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -37,10 +38,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
                     android:text="도비님"
                     android:textColor="@color/black"
                     android:textSize="22dp"
                     android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_launcher_background"/>
 
             </LinearLayout>
 
@@ -50,7 +57,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="20dp"
-                android:text="안녕하세요"
+                android:text="안녕하세요 :)"
                 android:textColor="@color/black"
                 android:textSize="22dp"
                 android:textStyle="bold" />
@@ -139,12 +146,12 @@
                 android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                 android:elevation="5dp"
                 android:orientation="vertical"
-                android:padding="18dp">
+                android:padding="15dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
+                    android:layout_marginBottom="5dp"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
@@ -161,34 +168,45 @@
                         android:layout_height="0dp"
                         android:layout_weight="1" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/img_down_arrow" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="12dp"
+                        android:background="@drawable/shape_rectangle_radius_20dp_gray_stroke">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="8dp"
+                            android:text="할 일 추가"/>
+
+                        <ImageView
+                            android:layout_width="18dp"
+                            android:layout_height="18dp"
+                            android:src="@drawable/ic_launcher_background"/>
+
+                   </LinearLayout>
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/today_plan_recycler_view"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="헬스장에서 근력운동"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
+                    android:layout_marginBottom="15dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_today_plan"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="4dp"
-                    android:text="스트레칭"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
+                <ImageView
+                    android:id="@+id/today_plan_see_button"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_launcher_background"
+                    android:layout_gravity="center"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="책 읽기"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -235,11 +253,10 @@
                             android:layout_height="0dp"
                             android:layout_weight="1"/>
 
-                        <TextView
-                            android:id="@+id/add_today_schedule_text_view"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="버튼"/>
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_launcher_background"/>
                     </LinearLayout>
 
 
