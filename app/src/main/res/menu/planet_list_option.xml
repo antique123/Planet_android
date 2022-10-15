@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_edit_position"
+        android:title="위치 편집"
+        app:showAsAction="collapseActionView"/>
+
+    <item android:id="@+id/menu_create_planet"
+        android:title="새로운 분야 만들기"
+        app:showAsAction="collapseActionView"/>
+
+    <item android:id="@+id/menu_delete_planet"
+        android:title="행성 삭제하기"
+        app:showAsAction="collapseActionView"/>
+
+</menu>
