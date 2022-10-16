@@ -29,12 +29,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.home_frame_container, fragment)
+            .replace(R.id.main_frame_container, fragment)
             .commit()
     }
 
     private fun navigationItemSelect() {
-        binding.homeBottomNavi.run {
+        binding.mainBottomNavi.run {
             setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.action_home -> replaceFragment(HomeFragment())

@@ -16,40 +16,49 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="3dp"
-                android:orientation="horizontal"
                 android:gravity="center_vertical">
 
                 <TextView
+                    android:id="@+id/home_ad_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
                     android:text="알잘딱깔센"
                     android:textColor="@color/black"
                     android:textSize="22dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/home_name_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
                     android:text="도비님"
                     android:textColor="@color/black"
                     android:textSize="22dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/home_ad_text_view"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/ic_launcher_background"/>
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@+id/home_name_text_view"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -62,82 +71,90 @@
                 android:textSize="22dp"
                 android:textStyle="bold" />
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="20dp"
-                android:orientation="horizontal">
+                android:layout_marginBottom="20dp">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/home_today_achieve_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="18dp"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical">
+                    android:text="오늘 할 일 8개 중 3개를 달성하였습니다"
+                    android:textColor="@color/purple_896DF3"
+                    android:textSize="12dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="8dp"
-                        android:text="오늘 할 일 8개 중 3개를 달성하였습니다"
-                        android:textColor="@color/purple_896DF3"
-                        android:textSize="12dp" />
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp"
+                    android:max="8"
+                    android:progress="3"
+                    android:progressDrawable="@drawable/layer_list_progress_bar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/home_today_achieve_text_view" />
 
-                    <ProgressBar
-                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-                        android:layout_width="280dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginBottom="8dp"
-                        android:max="8"
-                        android:progress="3"
-                        android:progressDrawable="@drawable/layer_list_progress_bar" />
-                </LinearLayout>
-
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:gravity="bottom"
-                    android:orientation="horizontal">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
                     <TextView
+                        android:id="@+id/home_today_success_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:layout_marginRight="8dp"
                         android:gravity="bottom"
                         android:text="3"
                         android:textColor="@color/black"
                         android:textSize="28dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
 
                     <TextView
+                        android:id="@+id/home_slash_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
-                        android:layout_marginRight="8dp"
+                        android:layout_marginLeft="8dp"
                         android:gravity="bottom"
                         android:text="/"
                         android:textColor="@color/gray_D9D9D9"
                         android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/home_today_success_text_view"/>
 
                     <TextView
+                        android:id="@+id/home_today_total_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
                         android:gravity="bottom"
+                        android:layout_marginLeft="8dp"
                         android:text="8"
                         android:textColor="@color/gray_D9D9D9"
                         android:textSize="28dp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@+id/home_slash_text_view" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -145,15 +162,16 @@
                 android:layout_marginBottom="18dp"
                 android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                 android:elevation="5dp"
-                android:orientation="vertical"
                 android:padding="15dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/home_today_growth_plan_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -161,53 +179,69 @@
                         android:text="오늘의 성장 계획"
                         android:textColor="@color/black"
                         android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent" />
 
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
-
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/add_to_do_list_layout"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
+                        android:background="@drawable/shape_rectangle_radius_20dp_gray_stroke"
                         android:paddingLeft="12dp"
+                        android:paddingTop="4dp"
                         android:paddingRight="12dp"
-                        android:background="@drawable/shape_rectangle_radius_20dp_gray_stroke">
+                        android:paddingBottom="4dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
 
                         <TextView
+                            android:id="@+id/home_add_to_do_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="8dp"
-                            android:text="할 일 추가"/>
+                            android:text="할 일 추가"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"/>
 
                         <ImageView
                             android:layout_width="18dp"
                             android:layout_height="18dp"
-                            android:src="@drawable/ic_launcher_background"/>
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/ic_launcher_background"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@+id/home_add_to_do_text_view"
+                            app:layout_constraintRight_toRightOf="parent"/>
 
-                   </LinearLayout>
-                </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/today_plan_recycler_view"
+                    android:id="@+id/home_today_plan_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    tools:listitem="@layout/item_today_plan"/>
+                    tools:listitem="@layout/item_today_plan"
+                    app:layout_constraintTop_toBottomOf="@+id/home_today_growth_plan_layout"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
 
                 <ImageView
                     android:id="@+id/today_plan_see_button"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
                     android:src="@drawable/ic_launcher_background"
-                    android:layout_gravity="center"/>
+                    app:layout_constraintTop_toBottomOf="@+id/home_today_plan_recycler_view"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"  />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -220,25 +254,25 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:orientation="vertical"
                     android:layout_marginRight="15dp"
+                    android:background="@drawable/shape_rectangle_radius_10dp_purple_solid"
+                    android:orientation="vertical"
                     android:padding="18dp"
-                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toLeftOf="@+id/daily_record_layout"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@drawable/shape_rectangle_radius_10dp_purple_solid">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <LinearLayout
                         android:id="@+id/today_schedule_title_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
                         android:gravity="center_vertical"
-                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent">
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -251,12 +285,12 @@
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:layout_weight="1"/>
+                            android:layout_weight="1" />
 
                         <ImageView
                             android:layout_width="20dp"
                             android:layout_height="20dp"
-                            android:src="@drawable/ic_launcher_background"/>
+                            android:src="@drawable/ic_launcher_background" />
                     </LinearLayout>
 
 
@@ -290,20 +324,21 @@
                         android:textColor="@color/white"
                         android:textSize="14dp"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/today_schedule_content2_text_view" />/>
+                        app:layout_constraintTop_toBottomOf="@+id/today_schedule_content2_text_view" />
+                    />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/daily_record_layout"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                     android:orientation="vertical"
                     android:padding="18dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid">
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -312,12 +347,12 @@
                         android:textColor="@color/black"
                         android:textSize="18dp"
                         android:textStyle="bold"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -325,15 +360,16 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                 android:elevation="5dp"
-                android:orientation="vertical"
                 android:padding="18dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/home_my_report_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="12dp"
                     android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -341,25 +377,31 @@
                         android:text="나의 리포트"
                         android:textColor="@color/black"
                         android:textSize="18dp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1" />
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="더보기"
                         android:textColor="@color/gray_D9D9D9"
-                        android:textSize="12dp" />
-                </LinearLayout>
+                        android:textSize="12dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.github.mikephil.charting.charts.LineChart
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/home_my_report_layout"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 

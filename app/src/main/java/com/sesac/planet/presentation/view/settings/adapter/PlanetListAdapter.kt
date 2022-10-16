@@ -9,7 +9,7 @@ import com.sesac.planet.databinding.ItemPlanetListBinding
 class PlanetListAdapter(private val items :  MutableList<String>) : RecyclerView.Adapter<PlanetListAdapter.PlanetListViewHolder>(){
     inner class PlanetListViewHolder(private val binding : ItemPlanetListBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.planetListPurposeTextView.text = items[position]
+            binding.itemPlanetListPurposeTextView.text = items[position]
         }
     }
 

@@ -8,7 +8,7 @@ import com.sesac.planet.databinding.ItemPlanDetailBinding
 class PlanDetailAdapter(private val items :  MutableList<String>) : RecyclerView.Adapter<PlanDetailAdapter.PlanDetailViewHolder>(){
     inner class PlanDetailViewHolder(private val binding : ItemPlanDetailBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.planDetailTextView.text = items[position]
+            binding.itemPlanDetailTextView.text = items[position]
         }
     }
 

@@ -8,7 +8,7 @@ import com.sesac.planet.databinding.ItemTodayPlanBinding
 class TodayPlanAdapter(private val items : MutableList<String>, val isTodayPlan : Boolean) : RecyclerView.Adapter<TodayPlanAdapter.TodayPlanViewHolder>(){
     inner class TodayPlanViewHolder(private val binding : ItemTodayPlanBinding) : RecyclerView.ViewHolder(binding.root){
        fun bind(position : Int){
-           binding.todayPlanTextView.text = items[position]
+           binding.itemTodayPlanTextView.text = items[position]
        }
     }
 
