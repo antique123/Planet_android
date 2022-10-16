@@ -21,4 +21,9 @@
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
 
     </style>
+
+    <style name="Theme.Planet.EditTextTheme">
+        <item name="colorControlActivated">@color/purple_896DF3</item>
+        <item name="colorControlHighlight">@color/purple_896DF3</item>
+    </style>
 </resources>

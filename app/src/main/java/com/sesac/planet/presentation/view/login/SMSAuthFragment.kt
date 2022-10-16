@@ -1,27 +1,27 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
-import androidx.navigation.fragment.findNavController
 import com.sesac.planet.R
-import com.sesac.planet.databinding.FragmentMakeNickNameBinding
+import com.sesac.planet.databinding.FragmentSMSAuthBinding
+import com.sesac.planet.presentation.view.settings.MakePlanningActivity
 import com.sesac.planet.utility.SystemUtility
 
-class MakeNickNameFragment : Fragment() {
-    private var _binding: FragmentMakeNickNameBinding? = null
+
+class SMSAuthFragment : Fragment() {
+    private var _binding: FragmentSMSAuthBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentMakeNickNameBinding.inflate(inflater, container, false)
-
+        _binding = FragmentSMSAuthBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,14 +39,13 @@ class MakeNickNameFragment : Fragment() {
 
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
-            val action = MakeNickNameFragmentDirections.actionMakeNickNameFragment2ToMyFutureLookFragment()
-            findNavController().navigate(action)
+            // TODO: 회원가입 과정이 끝났으므로 로그인 화면으로 다시 이동하도록 변경 필요
+            startActivity(Intent(requireActivity(), MakePlanningActivity::class.java))
         }
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-
         _binding = null
     }
 }

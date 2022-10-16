@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.login
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,20 +8,18 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.navigation.fragment.findNavController
 import com.sesac.planet.R
-import com.sesac.planet.databinding.FragmentMakeNickNameBinding
+import com.sesac.planet.databinding.FragmentSetPasswordBinding
 import com.sesac.planet.utility.SystemUtility
 
-class MakeNickNameFragment : Fragment() {
-    private var _binding: FragmentMakeNickNameBinding? = null
+class SetPasswordFragment : Fragment() {
+    private var _binding: FragmentSetPasswordBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
-        _binding = FragmentMakeNickNameBinding.inflate(inflater, container, false)
-
+        _binding = FragmentSetPasswordBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,14 +37,16 @@ class MakeNickNameFragment : Fragment() {
 
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
-            val action = MakeNickNameFragmentDirections.actionMakeNickNameFragment2ToMyFutureLookFragment()
+            val action = SetPasswordFragmentDirections.actionSetPasswordFragmentToSMSAuthFragment()
             findNavController().navigate(action)
         }
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
-
         _binding = null
     }
+
+
 }

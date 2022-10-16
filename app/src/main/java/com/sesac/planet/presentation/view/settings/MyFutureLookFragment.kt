@@ -36,7 +36,7 @@ class MyFutureLookFragment : Fragment() {
     }
 
     private fun initialize() {
-        SystemUtility.setSoftInputMode(requireActivity().window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+        SystemUtility.setSoftInputMode(requireActivity().window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         initMyFutureLookRecyclerView()
         initViews()
     }

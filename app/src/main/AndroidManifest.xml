@@ -14,13 +14,16 @@
         android:theme="@style/Theme.Planet"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.view.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.view.main.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Planet.NoActionBar"/>
+            android:theme="@style/Theme.Planet.NoActionBar" />
         <activity
             android:name=".presentation.view.settings.MakePlanningActivity"
             android:exported="false"
-            android:theme="@style/Theme.Planet.NoActionBar"/>
+            android:theme="@style/Theme.Planet.NoActionBar" />
         <activity
             android:name=".presentation.view.splash.SplashActivity"
             android:exported="true"
