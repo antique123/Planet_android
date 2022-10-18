@@ -5,20 +5,20 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.databinding.ActivityPlanetDetailBinding
+import com.sesac.planet.databinding.ActivityPlanDetailBinding
 import com.sesac.planet.presentation.view.settings.adapter.PlanDetailAdapter
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailActivity : AppCompatActivity() {
-    private val binding by lazy {ActivityPlanetDetailBinding.inflate(layoutInflater)}
+    private val binding by lazy { ActivityPlanDetailBinding.inflate(layoutInflater)}
     private lateinit var planDetailAdapter: PlanDetailAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.planetTitleTextView.text = "${intent.getStringExtra("key")} 행성"
-        binding.planetImgTextView.text = "${intent.getStringExtra("key")}\n행성 이미지"
+        binding.planDetailPlanetNameTextView.text = "${intent.getStringExtra("key")} 행성"
+        binding.planDetailImgTextView.text = "${intent.getStringExtra("key")}\n행성 이미지"
 
         initialize()
     }

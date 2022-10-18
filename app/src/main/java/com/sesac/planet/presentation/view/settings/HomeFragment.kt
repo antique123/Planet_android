@@ -1,10 +1,10 @@
 package com.sesac.planet.presentation.view.settings
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -34,6 +34,10 @@ class HomeFragment : Fragment()  {
             isTodayPlan = !isTodayPlan
             initTodayPlanRecyclerView()
         }
+
+        binding.addToDoListLayout.setOnClickListener {
+            Toast.makeText(requireContext(), "할 일 추가", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun initialize(){
@@ -54,8 +58,8 @@ class HomeFragment : Fragment()  {
         }
 
         todayPlanAdapter = TodayPlanAdapter(items, isTodayPlan)
-        binding.todayPlanRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.todayPlanRecyclerView.adapter = todayPlanAdapter
+        binding.homeTodayPlanRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        binding.homeTodayPlanRecyclerView.adapter = todayPlanAdapter
     }
 
     override fun onDestroyView() {
