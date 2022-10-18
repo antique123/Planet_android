@@ -14,20 +14,29 @@
         android:theme="@style/Theme.Planet"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.view.settings.MakePlanningActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.view.main.MainActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.Planet.NoActionBar"/>
         <activity
-            android:name=".presentation.view.settings.MakeNickNameActivity"
-            android:exported="true">
+            android:name=".presentation.view.settings.MakePlanningActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Planet.NoActionBar"/>
+        <activity
+            android:name=".presentation.view.splash.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Planet.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".presentation.view.settings.MakeNickNameActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.view.settings.PlanetDetailActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

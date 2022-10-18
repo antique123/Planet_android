@@ -31,6 +31,16 @@
         android:name="com.sesac.planet.presentation.view.settings.PlanForGoalFragment"
         android:label="plan_for_goal_fragment"
         tools:layout="@layout/fragment_plan_for_goal">
+        <action
+            android:id="@+id/action_plan_for_goal_fragment_to_preview_my_planning_fragment"
+            app:destination="@id/preview_my_planning_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/preview_my_planning_fragment"
+        android:name="com.sesac.planet.presentation.view.settings.PreviewMyPlanningFragment"
+        android:label="preview_my_planning_fragment"
+        tools:layout="@layout/fragment_preview_my_planning">
 
     </fragment>
 </navigation>
