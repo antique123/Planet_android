@@ -11,8 +11,10 @@
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_gray_stroke_white_solid.xml" value="0.1015" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_purple_stroke_white_solid.xml" value="0.1015" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1015" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_light_purple_solid.xml" value="0.1405" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_planet.xml" value="0.101" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_planet_solid.xml" value="0.155" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_e0dffe_solid.xml" value="0.1405" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.1015" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_20dp_gray_stroke.xml" value="0.1535" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectengle_gray_stroke_white_solid_shadow.xml" value="0.1" />
@@ -20,16 +22,17 @@
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_main.xml" value="0.2375" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_make_planning.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_plan_detail.xml" value="0.24947916666666667" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_plan_detail.xml" value="0.264" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_add_to_do_list.xml" value="0.1824074074074074" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_daily_record.xml" value="0.24461538461538462" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_home.xml" value="0.24166666666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_future_look.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.24461538461538462" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_plan_for_goal.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_planet_detail.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_planet_list.xml" value="0.24564102564102563" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_want_to_achieve.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.175" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_plan_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_planet_list.xml" value="0.24947916666666667" />

@@ -19,7 +19,7 @@
         <activity
             android:name=".presentation.view.main.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Planet.NoActionBar">
+            android:theme="@style/Theme.Planet.Custom">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
         <activity
             android:name=".presentation.view.settings.PlanetDetailActivity"
             android:exported="false"
-            android:theme="@style/Theme.Planet.NoActionBar" />
+            android:theme="@style/Theme.Planet.Custom"/>
     </application>
 
 </manifest>
