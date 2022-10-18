@@ -14,11 +14,5 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Planet.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
-
-    </style>
+    <style name="Theme.Planet.Custom" parent="Theme.AppCompat.Light.NoActionBar"/>
 </resources>

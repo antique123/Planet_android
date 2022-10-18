@@ -1,11 +1,13 @@
 package com.sesac.planet.presentation.view.settings
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
 import com.sesac.planet.presentation.view.settings.adapter.PlanDetailAdapter
+import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailActivity : AppCompatActivity() {
     private val binding by lazy {ActivityPlanetDetailBinding.inflate(layoutInflater)}
@@ -22,6 +24,7 @@ class PlanetDetailActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
+        SystemUtility.setLightStatusBar(window, Color.WHITE)
         initPlanDetailRecyclerView()
     }
 
