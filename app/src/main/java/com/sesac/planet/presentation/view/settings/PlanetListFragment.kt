@@ -1,11 +1,15 @@
 package com.sesac.planet.presentation.view.settings
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.settings.adapter.PlanetListAdapter
 
@@ -26,6 +30,17 @@ class PlanetListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         initialize()
+
+        binding.planetListMenuOptionBtn.setOnClickListener {
+            var popupMenu = PopupMenu(context, it)
+
+            activity?.menuInflater?.inflate(R.menu.menu_planet_list_option, popupMenu.menu)
+            popupMenu.show()
+            popupMenu.setOnMenuItemClickListener {
+                Toast.makeText(context, it.title, Toast.LENGTH_SHORT).show()
+                return@setOnMenuItemClickListener false
+            }
+        }
     }
 
     private fun initialize(){
@@ -49,6 +64,13 @@ class PlanetListFragment : Fragment() {
         planetListAdapter = PlanetListAdapter(items)
         binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
         binding.planetListRecyclerView.adapter = planetListAdapter
+
+        planetListAdapter.setItemClickListener(object : PlanetListAdapter.OnItemClickListener{
+            override fun onClick(v: View, position: Int) {
+                val intent = Intent(context, PlanetDetailActivity::class.java)
+                startActivity(intent)
+            }
+        })
     }
 
     override fun onDestroyView() {
