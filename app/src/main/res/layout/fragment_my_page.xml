@@ -119,11 +119,11 @@
                     app:layout_constraintBottom_toTopOf="@+id/my_page_manage_account_btn"
                     app:layout_constraintRight_toRightOf="parent"/>
 
-                <Button
+                <android.widget.Button
                     android:id="@+id/my_page_manage_account_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
+                    android:background="@drawable/shape_rectangle_radius_10dp_light_purple_solid"
                     android:text="계정관리"
                     android:textSize="12dp"
                     app:layout_constraintTop_toBottomOf="@+id/my_page_profile_setting_btn"
