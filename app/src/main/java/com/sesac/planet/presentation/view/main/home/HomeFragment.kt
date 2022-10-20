@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.home
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.FragmentHomeBinding
-import com.sesac.planet.presentation.view.settings.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
 
 class HomeFragment : Fragment()  {
     private var _binding: FragmentHomeBinding? = null

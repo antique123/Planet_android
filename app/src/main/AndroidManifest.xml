@@ -33,7 +33,7 @@
         </activity>
 
         <activity
-            android:name=".presentation.view.settings.PlanetDetailActivity"
+            android:name=".presentation.view.main.planet_list.PlanetDetailActivity"
             android:exported="false" />
     </application>
 

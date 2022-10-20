@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.planet_list
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
-import com.sesac.planet.presentation.view.settings.adapter.PlanetListAdapter
+import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
 
 class PlanetListFragment : Fragment() {
     private var _binding: FragmentPlanetListBinding? = null

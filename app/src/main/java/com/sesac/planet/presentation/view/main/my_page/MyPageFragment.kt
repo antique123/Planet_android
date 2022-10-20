@@ -1,14 +1,14 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.my_page
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.sesac.planet.databinding.FragmentDailyRecordBinding
+import com.sesac.planet.databinding.FragmentMyPageBinding
 
-class DailyRecordFragment : Fragment() {
-    private var _binding : FragmentDailyRecordBinding? = null
+class MyPageFragment : Fragment()  {
+    private var _binding : FragmentMyPageBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class DailyRecordFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentDailyRecordBinding.inflate(inflater, container, false)
+        _binding = FragmentMyPageBinding.inflate(inflater, container, false)
         return binding.root
     }
 
