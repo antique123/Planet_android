@@ -1,6 +1,7 @@
 package com.sesac.planet.presentation.view.settings
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -22,6 +23,7 @@ class HomeFragment : Fragment()  {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        Log.d("homefragementtest", "inflate")
         return binding.root
     }
 
