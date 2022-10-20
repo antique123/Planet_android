@@ -31,9 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".presentation.view.settings.MakeNickNameActivity"
-            android:exported="false" />
+
         <activity
             android:name=".presentation.view.settings.PlanetDetailActivity"
             android:exported="false" />
