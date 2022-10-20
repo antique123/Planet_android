@@ -10,16 +10,23 @@
         android:name="com.sesac.planet.presentation.view.main.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
+
     <fragment
         android:id="@+id/action_planet_list"
         android:name="com.sesac.planet.presentation.view.main.planet_list.PlanetListFragment"
         android:label="fragment_planet_list"
         tools:layout="@layout/fragment_planet_list" />
+
+    <!--
     <fragment
         android:id="@+id/action_daily_record"
         android:name="com.sesac.planet.presentation.view.main.daily_record.DailyRecordFragment"
         android:label="fragment_daily_record"
         tools:layout="@layout/fragment_daily_record" />
+        -->
+
+    <include app:graph="@navigation/daily_record_nav_graph" />
+
     <fragment
         android:id="@+id/action_my_page"
         android:name="com.sesac.planet.presentation.view.main.my_page.MyPageFragment"

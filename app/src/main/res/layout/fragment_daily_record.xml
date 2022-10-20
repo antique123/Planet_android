@@ -16,4 +16,23 @@
         android:text="하루 기록"
         android:textSize="20dp"/>
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/past_record_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="지난 기록"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="50dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/write_daily_record_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/past_record_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="작성" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

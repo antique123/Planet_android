@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_launcher_background"
         android:enabled="true" />
 
-    <item android:id="@+id/action_daily_record"
+    <item android:id="@+id/daily_record_nav_graph"
         android:title="하루기록"
         android:icon="@drawable/ic_launcher_background"
         android:enabled="true" />
