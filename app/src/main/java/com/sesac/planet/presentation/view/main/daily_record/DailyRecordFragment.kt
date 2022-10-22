@@ -1,12 +1,14 @@
 package com.sesac.planet.presentation.view.main.daily_record
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.sesac.planet.databinding.FragmentDailyRecordBinding
+import com.sesac.planet.utility.SystemUtility
 
 class DailyRecordFragment : Fragment() {
     private var _binding : FragmentDailyRecordBinding? = null
@@ -28,11 +30,11 @@ class DailyRecordFragment : Fragment() {
     }
 
     private fun initialize() {
+        binding.writeDailyRecordButton.setOnClickListener {
+            findNavController().navigate(DailyRecordFragmentDirections.actionDailyRecordFragmentToWriteDailyRecordFragment())
+        }
         binding.pastRecordButton.setOnClickListener {
             findNavController().navigate(DailyRecordFragmentDirections.actionDailyRecordFragmentToPastRecordActivity())
-        }
-        binding.writeDailyRecordButton.setOnClickListener {
-            findNavController().navigate(DailyRecordFragmentDirections.actionDailyRecordFragmentToWriteDailyRecordActivity())
         }
     }
 

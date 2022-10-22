@@ -21,7 +21,8 @@ class PlanetDetailActivity : AppCompatActivity()  {
     }
 
     private fun initialize() {
-        SystemUtility.setLightStatusBar(window, Color.WHITE)
+        SystemUtility.makeFullScreen(window, binding.root)
+        SystemUtility.applyWindowInsetsPadding(binding.root)
         initPlanetDetailRecyclerView()
     }
 

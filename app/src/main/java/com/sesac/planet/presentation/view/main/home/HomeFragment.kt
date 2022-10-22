@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment()  {
     private var _binding: FragmentHomeBinding? = null
@@ -29,6 +30,12 @@ class HomeFragment : Fragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initialize()
+    }
+
+    private fun initialize() {
+        SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
         initHomeTodayGrowthRecyclerView(isShowMore)
 

@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sesac.planet.databinding.FragmentMyPageBinding
+import com.sesac.planet.utility.SystemUtility
 
 class MyPageFragment : Fragment()  {
     private var _binding : FragmentMyPageBinding? = null
@@ -18,6 +19,11 @@ class MyPageFragment : Fragment()  {
     ): View? {
         _binding = FragmentMyPageBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
     }
 
     override fun onDestroyView() {

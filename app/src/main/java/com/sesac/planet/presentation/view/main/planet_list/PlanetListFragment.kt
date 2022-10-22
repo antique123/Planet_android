@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
+import com.sesac.planet.utility.SystemUtility
 
 class PlanetListFragment : Fragment() {
     private var _binding: FragmentPlanetListBinding? = null
@@ -44,6 +45,7 @@ class PlanetListFragment : Fragment() {
     }
 
     private fun initialize(){
+        SystemUtility.applyWindowInsetsTopPadding(binding.root)
         initPlanetListRecyclerView()
     }
 

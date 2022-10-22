@@ -4,7 +4,7 @@
     package="com.sesac.planet">
 
     <application
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -13,24 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Planet"
         tools:targetApi="31">
-        <activity
-            android:name=".presentation.view.main.daily_record.WriteDailyRecordActivity"
-            android:exported="false" />
+
         <activity
             android:name=".presentation.view.main.daily_record.PastRecordActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.main.MainActivity"
             android:exported="false"
-            android:theme="@style/Theme.Planet.NoActionBar" />
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.settings.MakePlanningActivity"
             android:exported="false"
-            android:theme="@style/Theme.Planet.NoActionBar" />
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.splash.SplashActivity"
             android:exported="true"
-            android:theme="@style/Theme.Planet.NoActionBar">
+            android:theme="@style/Theme.TransparentSystemUi">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -38,6 +37,7 @@
             </intent-filter>
         </activity>
         <activity
+            android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.planet_list.PlanetDetailActivity"
             android:exported="false" />
     </application>

@@ -11,11 +11,11 @@
         android:label="fragment_daily_record"
         tools:layout="@layout/fragment_daily_record" >
         <action
-            android:id="@+id/action_dailyRecordFragment_to_writeDailyRecordActivity"
-            app:destination="@id/writeDailyRecordActivity" />
-        <action
             android:id="@+id/action_dailyRecordFragment_to_pastRecordActivity"
             app:destination="@id/pastRecordActivity" />
+        <action
+            android:id="@+id/action_dailyRecordFragment_to_writeDailyRecordFragment"
+            app:destination="@id/writeDailyRecordFragment" />
     </fragment>
 
     <activity
@@ -23,12 +23,11 @@
         android:name="com.sesac.planet.presentation.view.main.daily_record.PastRecordActivity"
         android:label="activity_past_record"
         tools:layout="@layout/activity_past_record" />
-
-    <activity
-        android:id="@+id/writeDailyRecordActivity"
-        android:name="com.sesac.planet.presentation.view.main.daily_record.WriteDailyRecordActivity"
-        android:label="activity_write_daily_record"
-        tools:layout="@layout/activity_write_daily_record" />
+    <dialog
+        android:id="@+id/writeDailyRecordFragment"
+        android:name="com.sesac.planet.presentation.view.main.daily_record.WriteDailyRecordFragment"
+        android:label="fragment_write_daily_record"
+        tools:layout="@layout/fragment_write_daily_record" />
 
 
 </navigation>

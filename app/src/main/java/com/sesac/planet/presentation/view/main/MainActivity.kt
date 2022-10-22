@@ -1,6 +1,5 @@
 package com.sesac.planet.presentation.view.main
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.findNavController
@@ -20,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
-        SystemUtility.setLightStatusBar(window, Color.WHITE)
+        SystemUtility.makeFullScreen(window, binding.root)
         initBottomNavigationView()
     }
 

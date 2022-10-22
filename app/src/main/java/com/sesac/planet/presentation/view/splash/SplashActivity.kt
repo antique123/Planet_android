@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.sesac.planet.databinding.ActivitySplashBinding
 import com.sesac.planet.presentation.view.settings.MakePlanningActivity
 import com.sesac.planet.utility.Constant
+import com.sesac.planet.utility.SystemUtility
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -22,6 +23,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
+        SystemUtility.makeFullScreen(window, binding.root)
         makeSplash()
     }
 
