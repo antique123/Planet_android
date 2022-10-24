@@ -28,6 +28,7 @@ class PastRecordActivity : AppCompatActivity() {
 
     private fun initTabs() {
         binding.fragmentContainerView.adapter = pastRecordAdapter
+        binding.fragmentContainerView.isUserInputEnabled = false
 
         TabLayoutMediator(binding.tabs, binding.fragmentContainerView) { tab, position ->
             tab.text = pastRecordAdapter.getCurrentTabTitle(position)
