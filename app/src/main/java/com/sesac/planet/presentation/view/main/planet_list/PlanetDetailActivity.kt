@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.planet_list
 
 import android.graphics.Color
 import android.os.Bundle
@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
-import com.sesac.planet.presentation.view.settings.adapter.PlanetDetailAdapter
+import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailAdapter
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailActivity : AppCompatActivity()  {
@@ -21,7 +21,8 @@ class PlanetDetailActivity : AppCompatActivity()  {
     }
 
     private fun initialize() {
-        SystemUtility.setLightStatusBar(window, Color.WHITE)
+        SystemUtility.makeFullScreen(window, binding.root)
+        SystemUtility.applyWindowInsetsPadding(binding.root)
         initPlanetDetailRecyclerView()
     }
 

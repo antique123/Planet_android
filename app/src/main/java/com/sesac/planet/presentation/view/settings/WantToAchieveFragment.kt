@@ -64,6 +64,11 @@ class WantToAchieveFragment : Fragment() {
             val action = WantToAchieveFragmentDirections.actionWantToAchieveFragmentToPlanForGoalFragment()
             findNavController().navigate(action)
         }
+
+        binding.startPrevPageButton.setOnClickListener {
+            val action = WantToAchieveFragmentDirections.actionWantToAchieveFragmentToMyFutureLookFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {

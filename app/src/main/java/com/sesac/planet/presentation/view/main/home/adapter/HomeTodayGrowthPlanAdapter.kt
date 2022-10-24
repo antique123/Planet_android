@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings.adapter
+package com.sesac.planet.presentation.view.main.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
