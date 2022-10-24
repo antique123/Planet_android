@@ -1,6 +1,7 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.FragmentHomeBinding
-import com.sesac.planet.presentation.view.settings.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment()  {
     private var _binding: FragmentHomeBinding? = null
@@ -22,11 +24,18 @@ class HomeFragment : Fragment()  {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        Log.d("homefragementtest", "inflate")
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        initialize()
+    }
+
+    private fun initialize() {
+        SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
         initHomeTodayGrowthRecyclerView(isShowMore)
 

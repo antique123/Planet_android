@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.view.settings.adapter
+package com.sesac.planet.presentation.view.main.planet_list.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,12 +15,12 @@ class PlanetDetailAdapter (private val items: MutableList<String>) : RecyclerVie
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): PlanetDetailAdapter.PlanDetailViewHolder {
+    ): PlanDetailViewHolder {
         val binding = ItemPlanetDetailDetailsPlanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PlanDetailViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: PlanetDetailAdapter.PlanDetailViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: PlanDetailViewHolder, position: Int) {
         holder.bind(position)
     }
 

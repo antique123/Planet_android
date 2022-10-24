@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item android:id="@+id/action_home"
         android:title="홈"
         android:icon="@drawable/ic_launcher_background"
@@ -10,7 +11,7 @@
         android:icon="@drawable/ic_launcher_background"
         android:enabled="true" />
 
-    <item android:id="@+id/action_daily_record"
+    <item android:id="@+id/daily_record_nav_graph"
         android:title="하루기록"
         android:icon="@drawable/ic_launcher_background"
         android:enabled="true" />

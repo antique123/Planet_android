@@ -14,12 +14,24 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.Planet.NoActionBar">
+    <!--<style name="Theme.Planet.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
+    </style>-->
 
+    <style name="Theme.TransparentSystemUi" parent="Theme.Planet">
+        <item name="android:statusBarColor">#B3FFFFFF</item>
+        <item name="android:navigationBarColor">#B3FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
+    </style>
+
+    <style name="Theme.DialogActivity" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false
+        </item>
     </style>
 
     <style name="Theme.Planet.EditTextTheme">

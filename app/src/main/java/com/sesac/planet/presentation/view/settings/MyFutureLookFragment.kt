@@ -70,7 +70,6 @@ class MyFutureLookFragment : Fragment() {
             val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToWantToAchieveFragment()
             findNavController().navigate(action)
         }
-
         binding.startPrevPageButton.setOnClickListener {
             val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToMakeNickNameFragment()
             findNavController().navigate(action)

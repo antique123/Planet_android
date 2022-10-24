@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/daily_record_nav_graph"
+    app:startDestination="@id/dailyRecordFragment">
+
+    <fragment
+        android:id="@+id/dailyRecordFragment"
+        android:name="com.sesac.planet.presentation.view.main.daily_record.DailyRecordFragment"
+        android:label="fragment_daily_record"
+        tools:layout="@layout/fragment_daily_record" >
+        <action
+            android:id="@+id/action_dailyRecordFragment_to_pastRecordActivity"
+            app:destination="@id/pastRecordActivity" />
+        <action
+            android:id="@+id/action_dailyRecordFragment_to_writeDailyRecordFragment"
+            app:destination="@id/writeDailyRecordFragment" />
+    </fragment>
+
+    <activity
+        android:id="@+id/pastRecordActivity"
+        android:name="com.sesac.planet.presentation.view.main.daily_record.PastRecordActivity"
+        android:label="activity_past_record"
+        tools:layout="@layout/activity_past_record" />
+    <dialog
+        android:id="@+id/writeDailyRecordFragment"
+        android:name="com.sesac.planet.presentation.view.main.daily_record.WriteDailyRecordFragment"
+        android:label="fragment_write_daily_record"
+        tools:layout="@layout/fragment_write_daily_record" />
+
+
+</navigation>

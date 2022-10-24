@@ -11,6 +11,7 @@ import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentMakeNickNameBinding
 import com.sesac.planet.utility.SystemUtility
 
+
 class MakeNickNameFragment : Fragment() {
     private var _binding: FragmentMakeNickNameBinding? = null
     private val binding get() = _binding!!
