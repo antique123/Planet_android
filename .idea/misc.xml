@@ -3,13 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_rectangle_left_radius_10dp_gray_stroke.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_oval_radio_button.xml" value="0.1355" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_radio_button.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_radio_text.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_custom_dialog.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_left_radius_10dp_gray_stroke.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_purple_stroke_white_solid.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_light_purple_solid.xml" value="0.124" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_planet_solid.xml" value="0.124" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.194" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_white_solid.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_white_stroke.xml" value="0.1" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_right_radius_10dp_gray_stroke.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.21944444444444444" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_my_page.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_plant_detail.xml" value="0.2484375" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_home_add_to_do.xml" value="0.20462962962962963" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_home.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.24564102564102563" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_planet_list.xml" value="0.264" />
