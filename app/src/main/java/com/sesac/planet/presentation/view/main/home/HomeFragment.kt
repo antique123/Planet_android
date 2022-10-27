@@ -1,17 +1,19 @@
-package com.sesac.planet.presentation.view.settings
+package com.sesac.planet.presentation.view.main.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.databinding.DialogHomeAddToDoBinding
 import com.sesac.planet.databinding.FragmentHomeBinding
-import com.sesac.planet.presentation.view.settings.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
+import com.sesac.planet.utility.SystemUtility
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment()  {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var homeTodayGrowthPlanAdapter: HomeTodayGrowthPlanAdapter
@@ -23,6 +25,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        Log.d("homefragementtest", "inflate")
         return binding.root
     }
 
@@ -32,7 +35,12 @@ class HomeFragment : Fragment() {
         initViews()
     }
 
-    private fun initViews() {
+    private fun initViews(){
+        initialize()
+    }
+
+    private fun initialize(){
+        SystemUtility.applyWindowInsetsTopPadding(binding.root)
         initHomeTodayGrowthRecyclerView(isShowMore)
 
         binding.homeShowMoreBtn.setOnClickListener {
@@ -45,7 +53,7 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun initHomeTodayGrowthRecyclerView(isShowMore: Boolean) {
+    private fun initHomeTodayGrowthRecyclerView(isShowMore:Boolean){
         val items = mutableListOf<String>().apply {
             add("포폴만들기")
             add("채용정보 확인하기")
@@ -59,8 +67,7 @@ class HomeFragment : Fragment() {
         }
 
         homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(items, isShowMore)
-        binding.homeAddToDoRecyclerView.layoutManager =
-            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        binding.homeAddToDoRecyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         binding.homeAddToDoRecyclerView.adapter = homeTodayGrowthPlanAdapter
     }
 
