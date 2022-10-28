@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.view.main.daily_record.WriteDailyRecordFragment">
+    -->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".presentation.view.main.daily_record.WriteDailyRecordFragment">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/today_evaluation_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="하루평가"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/daily_record_title_text_view" />
+
+            <View
+                android:id="@+id/today_evaluation_dot_line_view"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_dot_line_horizontal"
+                android:layerType="software"
+                app:layout_constraintBottom_toBottomOf="@id/today_evaluation_title_text_view"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/input_emotion_edit_text"
+                app:layout_constraintTop_toTopOf="@id/today_evaluation_title_text_view" />
+
+            <TextView
+                android:id="@+id/one_point_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:gravity="center"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                android:padding="5dp"
+                android:text="1"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintBottom_toBottomOf="@id/today_evaluation_title_text_view"
+                app:layout_constraintEnd_toStartOf="@id/two_point_text_view"
+                app:layout_constraintStart_toStartOf="@id/today_evaluation_dot_line_view"
+                app:layout_constraintTop_toTopOf="@id/today_evaluation_title_text_view" />
+
+            <TextView
+                android:id="@+id/two_point_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="2"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintEnd_toStartOf="@id/three_point_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/one_point_text_view"
+                app:layout_constraintStart_toEndOf="@id/one_point_text_view"
+                app:layout_constraintTop_toTopOf="@id/one_point_text_view" />
+
+            <TextView
+                android:id="@+id/three_point_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="3"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintEnd_toStartOf="@id/four_point_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/one_point_text_view"
+                app:layout_constraintStart_toEndOf="@id/two_point_text_view"
+                app:layout_constraintTop_toTopOf="@id/one_point_text_view" />
+
+            <TextView
+                android:id="@+id/four_point_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="4"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintEnd_toStartOf="@id/five_point_text_view"
+                app:layout_constraintBottom_toBottomOf="@id/one_point_text_view"
+                app:layout_constraintStart_toEndOf="@id/three_point_text_view"
+                app:layout_constraintTop_toTopOf="@id/one_point_text_view" />
+
+            <TextView
+                android:id="@+id/five_point_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_oval"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="5"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintEnd_toEndOf="@id/today_evaluation_dot_line_view"
+                app:layout_constraintBottom_toBottomOf="@id/one_point_text_view"
+                app:layout_constraintStart_toEndOf="@id/four_point_text_view"
+                app:layout_constraintTop_toTopOf="@id/one_point_text_view" />
+
+            <TextView
+                android:id="@+id/daily_record_title_text_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_896DF3"
+                android:gravity="start"
+                android:paddingVertical="10dp"
+                android:paddingStart="20dp"
+                android:text="2022.09.17 보고서"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/input_emotion_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="감정과 기분"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/one_point_text_view" />
+
+            <EditText
+                android:id="@+id/input_emotion_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_rectangle_radius_10dp"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:paddingVertical="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/input_emotion_title_text_view"
+                app:layout_constraintTop_toTopOf="@id/input_emotion_title_text_view" />
+
+            <TextView
+                android:id="@+id/input_short_review_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="짧은 평"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_emotion_edit_text" />
+
+            <EditText
+                android:id="@+id/input_short_review_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_rectangle_radius_10dp"
+                android:backgroundTint="@color/gray_F2F2F2"
+                android:lines="4"
+                android:gravity="start"
+                android:padding="6dp"
+                app:layout_constraintEnd_toEndOf="@id/input_emotion_edit_text"
+                app:layout_constraintStart_toStartOf="@id/input_emotion_edit_text"
+                app:layout_constraintTop_toTopOf="@id/input_short_review_title_text_view" />
+
+            <TextView
+                android:id="@+id/best_cut_title_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:text="오늘의 베스트컷"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/input_short_review_edit_text" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/first_selected_image_container"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toEndOf="@id/best_cut_title_text_view"
+                app:layout_constraintTop_toTopOf="@id/best_cut_title_text_view">
+
+                <ImageView
+                    android:id="@+id/first_selected_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_896DF3" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/second_selected_image_container"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:visibility="gone"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="0dp"
+                app:layout_constraintStart_toEndOf="@id/first_selected_image_container"
+                app:layout_constraintTop_toTopOf="@id/first_selected_image_container">
+
+                <ImageView
+                    android:id="@+id/second_selected_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/purple_896DF3" />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/select_image_button_container"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintStart_toEndOf="@id/second_selected_image_container"
+                app:layout_constraintTop_toTopOf="@id/first_selected_image_container">
+
+                <ImageView
+                    android:id="@+id/select_image_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_F2F2F2"
+                    android:src="@drawable/ic_add_gray_24dp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="저장하기"
+                android:textColor="@color/gray_737373"
+                app:cardElevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/input_emotion_edit_text"
+                app:layout_constraintTop_toBottomOf="@id/select_image_button_container" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/temporary_save_button"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="임시저장"
+                android:textColor="@color/gray_737373"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/save_button"
+                app:layout_constraintTop_toTopOf="@id/save_button" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    -->

@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.view.settings.DailyRecordFragment">
+    tools:context=".presentation.view.main.daily_record.DailyRecordFragment">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/write_daily_record_button"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/shape_rectangle_purple_gradient"
+        android:gravity="start"
+        android:paddingVertical="40dp"
+        android:paddingStart="30dp"
+        android:text="오늘 하루 기록하기"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/past_record_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/past_record_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_rectangle_purple_gradient"
+        android:gravity="start"
+        android:paddingVertical="40dp"
+        android:paddingStart="30dp"
+        android:text="지난기록 확인하기"
+        android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="하루 기록"
-        android:textSize="20dp"/>
+        app:layout_constraintEnd_toEndOf="@id/write_daily_record_button"
+        app:layout_constraintStart_toStartOf="@id/write_daily_record_button"
+        app:layout_constraintTop_toBottomOf="@id/write_daily_record_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

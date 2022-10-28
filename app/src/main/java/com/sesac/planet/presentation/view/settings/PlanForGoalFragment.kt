@@ -59,6 +59,11 @@ class PlanForGoalFragment : Fragment() {
             val action = PlanForGoalFragmentDirections.actionPlanForGoalFragmentToPreviewMyPlanningFragment()
             findNavController().navigate(action)
         }
+
+        binding.startPrevPageButton.setOnClickListener {
+            val action = PlanForGoalFragmentDirections.actionPlanForGoalFragmentToWantToAchieveFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
