@@ -125,7 +125,7 @@
                         android:layout_height="wrap_content"
                         android:text="3"
                         android:textColor="@color/black"
-                        android:textSize="28dp"
+                        android:textSize="30dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -151,7 +151,7 @@
                         android:layout_marginLeft="8dp"
                         android:text="8"
                         android:textColor="@color/gray_D9D9D9"
-                        android:textSize="28dp"
+                        android:textSize="30dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toRightOf="@+id/home_slash_text_view"
@@ -301,7 +301,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/add_today_schedule_text_view"
+                            android:id="@+id/add_today_schedule_btn"
                             android:layout_width="18dp"
                             android:layout_height="18dp"
                             android:src="@drawable/ic_launcher_background"

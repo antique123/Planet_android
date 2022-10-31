@@ -8,16 +8,24 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
+import com.sesac.planet.presentation.viewmodel.main.PlanetInfoViewModel
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetListFragment : Fragment() {
     private var _binding: FragmentPlanetListBinding? = null
     private val binding get() = _binding!!
     private lateinit var planetListAdapter: PlanetListAdapter
+
+    private val viewModel = ViewModelProvider(this)[PlanetInfoViewModel::class.java]
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,22 +58,11 @@ class PlanetListFragment : Fragment() {
     }
 
     private fun initPlanetListRecyclerView(){
-        val items = mutableListOf<String>().apply {
-            add("취업준비")
-            add("다이어트")
-            add("인간관계")
-            add("교양 지식")
-            add("건강")
-            add("인간관계")
-            add("취업준비")
-            add("다이어트")
-            add("인간관계")
-            add("교양 지식")
-        }
-
-        planetListAdapter = PlanetListAdapter(items)
-        binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.planetListRecyclerView.adapter = planetListAdapter
+        viewModel.itemList.observe(viewLifecycleOwner, Observer {
+            planetListAdapter = PlanetListAdapter(it)
+            binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            binding.planetListRecyclerView.adapter = planetListAdapter
+        })
 
         planetListAdapter.setItemClickListener(object : PlanetListAdapter.OnItemClickListener{
             override fun onClick(v: View, position: Int) {
