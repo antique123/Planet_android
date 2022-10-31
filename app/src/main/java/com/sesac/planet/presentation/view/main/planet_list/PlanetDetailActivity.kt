@@ -1,5 +1,6 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -13,10 +14,9 @@ import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAda
 import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailActivity : AppCompatActivity(), ItemDragListener {
+class PlanetDetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
-    private lateinit var itemTouchHelper: ItemTouchHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,12 @@ class PlanetDetailActivity : AppCompatActivity(), ItemDragListener {
 
         binding.planetDetailAddPlansBtn.setOnClickListener {
             HomeAddToDoDialog(this).show()
+        }
+
+        binding.planetDetailModifyBtn.setOnClickListener {
+            val intent = Intent(this, PlanetDetailModifyActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -44,25 +50,10 @@ class PlanetDetailActivity : AppCompatActivity(), ItemDragListener {
             add("소식하기")
         }
 
-        planetDetailAdapter = PlanetDetailAdapter(items, this)
+        planetDetailAdapter = PlanetDetailAdapter(items)
         binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
         binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
 
-        //수정 시 진행할 수 있는 부분으로 변경 필요
-        //버튼 클릭 시 삭제
-        planetDetailAdapter.setItemClickListener(object : PlanetDetailAdapter.OnItemClickListener{
-            override fun onDeleteClick(v: View, position: Int) {
-                items.removeAt(position)
-                planetDetailAdapter.notifyItemRemoved(position)
-            }
-        })
-
-        //드래그 해서 위치 변경
-        itemTouchHelper = ItemTouchHelper(ItemTouchHelperCallback(planetDetailAdapter))
-        itemTouchHelper.attachToRecyclerView(binding.planetDetailDetailsPlanRecyclerView)
     }
 
-    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
-        itemTouchHelper.startDrag(viewHolder)
-    }
 }
