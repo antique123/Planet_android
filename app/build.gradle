@@ -40,6 +40,9 @@ android {
 }
 
 dependencies {
+    //material calendar view sdk
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.1'
+
     //jetpack navigation sdk
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
     implementation "androidx.navigation:navigation-ui-ktx:2.5.2"
