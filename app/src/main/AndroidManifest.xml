@@ -22,6 +22,7 @@
             android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.login.LoginActivity"
+            android:theme="@style/Theme.TransparentSystemUi"
             android:exported="false" />
         <activity
             android:name=".presentation.view.main.MainActivity"

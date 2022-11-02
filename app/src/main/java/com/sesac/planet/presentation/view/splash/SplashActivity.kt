@@ -33,8 +33,8 @@ class SplashActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 delay(Constant.SPLASH_ANIMATION_MILLIS)
                 //TODO 로그인 한 사용자일 경우 MainActivity 로 이동하고 로그인 하지 않은 사용자일 경우 LoginActivity 로 이동하도록 수정 필요
-                //startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
-                startActivity(Intent(this@SplashActivity, MakePlanningActivity::class.java))
+                startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
+                //startActivity(Intent(this@SplashActivity, MakePlanningActivity::class.java))
                 finish()
             }
         }
