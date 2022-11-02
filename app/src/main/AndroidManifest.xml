@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sesac.planet">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,6 +21,9 @@
             android:exported="false"
             android:theme="@style/Theme.TransparentSystemUi" />
         <activity
+            android:name=".presentation.view.login.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.view.main.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.TransparentSystemUi" />
@@ -26,6 +31,7 @@
             android:name=".presentation.view.settings.MakePlanningActivity"
             android:exported="false"
             android:theme="@style/Theme.TransparentSystemUi" />
+
         <activity
             android:name=".presentation.view.splash.SplashActivity"
             android:exported="true"
@@ -36,6 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.planet_list.PlanetDetailActivity"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_nav_graph"
+    app:startDestination="@id/signUpFragment">
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.sesac.planet.presentation.view.login.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_signUpFragment_to_emailCertifyFragment"
+            app:destination="@id/emailCertifyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailCertifyFragment"
+        android:name="com.sesac.planet.presentation.view.login.EmailAuthFragment"
+        android:label="fragment_email_certify"
+        tools:layout="@layout/fragment_email_auth" >
+        <action
+            android:id="@+id/action_emailCertifyFragment_to_setPasswordFragment"
+            app:destination="@id/setPasswordFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/setPasswordFragment"
+        android:name="com.sesac.planet.presentation.view.login.SetPasswordFragment"
+        android:label="fragment_set_password"
+        tools:layout="@layout/fragment_set_password" >
+        <action
+            android:id="@+id/action_setPasswordFragment_to_SMSAuthFragment"
+            app:destination="@id/SMSAuthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SMSAuthFragment"
+        android:name="com.sesac.planet.presentation.view.login.SMSAuthFragment"
+        android:label="fragment_s_m_s_auth"
+        tools:layout="@layout/fragment_s_m_s_auth" />
+</navigation>
