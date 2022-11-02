@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initialize() {
         SystemUtility.setSoftInputMode(window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
+
     }
 
 
