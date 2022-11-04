@@ -1,5 +1,6 @@
 package com.sesac.planet.presentation.view.main.my_page
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,7 +24,12 @@ class MyPageFragment : Fragment()  {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
+        binding.myPageReportLayout.setOnClickListener {
+            val intent = Intent(requireContext(), ReportActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {

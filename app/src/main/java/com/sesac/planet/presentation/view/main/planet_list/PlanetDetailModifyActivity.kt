@@ -21,6 +21,13 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener {
         setContentView(binding.root)
 
         initialize()
+
+        binding.planetDetailModifyBackImageView.setOnClickListener {
+            finish()
+        }
+
+        binding.planetDetailModifyPlanetNameTv.text = intent.getStringExtra("keyword").toString()
+        binding.planetDetailModifyImgNameTv.text = "${intent.getStringExtra("keyword").toString()}\n 행성 이미지"
     }
 
     private fun initialize() {

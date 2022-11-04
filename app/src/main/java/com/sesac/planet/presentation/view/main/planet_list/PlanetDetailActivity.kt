@@ -18,6 +18,8 @@ class PlanetDetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
+    lateinit var keyword: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -28,10 +30,19 @@ class PlanetDetailActivity : AppCompatActivity() {
             HomeAddToDoDialog(this).show()
         }
 
+        binding.planetDetailBackImageView.setOnClickListener{
+            finish()
+        }
+
+        keyword = intent.getStringExtra("keyword").toString()
+
+        binding.planetDetailPlanetNameTv.text = keyword
+        binding.planetDetailImgNameTv.text = "$keyword \n행성 이미지"
+
         binding.planetDetailModifyBtn.setOnClickListener {
             val intent = Intent(this, PlanetDetailModifyActivity::class.java)
+            intent.putExtra("keyword",keyword)
             startActivity(intent)
-            finish()
         }
     }
 

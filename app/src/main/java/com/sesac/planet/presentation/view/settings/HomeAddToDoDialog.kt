@@ -10,10 +10,14 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.DialogHomeAddToDoBinding
+import com.sesac.planet.presentation.view.settings.adapter.DialogSelectAdapter
 
 class HomeAddToDoDialog(context: Context) : Dialog(context) {
     private lateinit var binding: DialogHomeAddToDoBinding
+    private lateinit var dialogSelectAdapter: DialogSelectAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +26,8 @@ class HomeAddToDoDialog(context: Context) : Dialog(context) {
 
         context.dialogResize(this@HomeAddToDoDialog, 0.9f)
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        setCanceledOnTouchOutside(false)
-        setCancelable(false)
+        //setCanceledOnTouchOutside(true)
+        //setCancelable(false)
 
         binding.dialogHomeChoiceRadioBtn.setOnCheckedChangeListener { button, b ->
             if (button.isChecked) {
@@ -33,6 +37,23 @@ class HomeAddToDoDialog(context: Context) : Dialog(context) {
                 initWeekGroup()
             }
         }
+
+        initSelectPlanet()
+    }
+
+    private fun initSelectPlanet(){
+        val items = mutableListOf<String>().apply {
+            add("해당없음")
+            add("취업준비")
+            add("다이어트")
+            add("인간관계")
+            add("교양지식")
+            add("건강관리")
+        }
+
+        dialogSelectAdapter = DialogSelectAdapter(items)
+        binding.dialogHomeSelectPlanetRecycler.layoutManager = LinearLayoutManager(context,RecyclerView.HORIZONTAL, false )
+        binding.dialogHomeSelectPlanetRecycler.adapter = dialogSelectAdapter
     }
 
     //디바이스 가로의 90% 사이즈
@@ -62,7 +83,7 @@ class HomeAddToDoDialog(context: Context) : Dialog(context) {
 
     }
 
-    fun initWeekGroup(){
+    private fun initWeekGroup(){
         binding.dialogHomeMonCheckBtn.isChecked = false
         binding.dialogHomeTueCheckBtn.isChecked = false
         binding.dialogHomeWedCheckBtn.isChecked = false
