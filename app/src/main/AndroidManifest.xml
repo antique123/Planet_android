@@ -47,6 +47,10 @@
             android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.planet_list.PlanetDetailModifyActivity"
             android:exported="false" />
+        <activity
+            android:theme="@style/Theme.TransparentSystemUi"
+            android:name=".presentation.view.main.my_page.ReportActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
