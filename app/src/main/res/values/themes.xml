@@ -26,4 +26,9 @@
         <item name="windowActionBar">false
         </item>
     </style>
+
+    <style name="Theme.Planet.EditTextTheme">
+        <item name="colorControlActivated">@color/purple_896DF3</item>
+        <item name="colorControlHighlight">@color/purple_896DF3</item>
+    </style>
 </resources>
