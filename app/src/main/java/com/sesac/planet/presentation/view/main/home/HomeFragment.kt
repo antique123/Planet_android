@@ -10,19 +10,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
-import com.sesac.planet.data.model.TodayGrowthPlanData
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeScheduleAdapter
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
 import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
 import com.sesac.planet.presentation.viewmodel.main.PlanViewModel
+import com.sesac.planet.presentation.viewmodel.main.PlanViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var viewModel: PlanViewModel
+    private val viewModel by lazy { ViewModelProvider(this, PlanViewModelFactory())[PlanViewModel::class.java] }
     private lateinit var homeTodayGrowthPlanAdapter: HomeTodayGrowthPlanAdapter
     private lateinit var homeScheduleAdapter: HomeScheduleAdapter
 
@@ -53,9 +53,6 @@ class HomeFragment : Fragment() {
     private fun initialize() {
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
-        //뷰모델 초기화
-        //viewModel = ViewModelProvider(this)[PlanViewModel::class.java]
-
         //기본적인 성장 계획 리사이클러뷰로 보여주기
         initHomeTodayGrowthRcv(isShowMore)
         initHomeScheduleRcv()
@@ -78,31 +75,18 @@ class HomeFragment : Fragment() {
     }
 
     private fun initHomeTodayGrowthRcv(isShowMore: Boolean) {
-        val items = arrayListOf(
-            TodayGrowthPlanData(R.drawable.ic_planet_purple, "포폴만들기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_basic, "채용정보 확인하기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_yellow, "인스파이어드 한 섹션 읽기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_yellow, "인프런 강의듣기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_navy, "명상하기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_basic, "연합동아리 모임"),
-            TodayGrowthPlanData(R.drawable.ic_planet_basic, "산책시키며 걷기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_basic, "친구 만나기"),
-            TodayGrowthPlanData(R.drawable.ic_planet_basic, "물 하루 2L 마시기")
-        )
+        initObservers()
+        viewModel.getPlan("eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ", 4)
+    }
 
-        homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(items, isShowMore)
-        binding.homeAddToDoRcv.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-        binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
-
-
-        /*
-        viewModel.data.observe(viewLifecycleOwner, Observer {
-            homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(it, isShowMore)
-        })
-
-        viewModel.setData()
-        */
-
+    private fun initObservers(){
+        viewModel.planData.observe(viewLifecycleOwner){ response ->
+            response.body()?.result.let { body ->
+                homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(body, isShowMore)
+                binding.homeAddToDoRcv.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
+            }
+        }
     }
 
     private fun initHomeScheduleRcv() {
