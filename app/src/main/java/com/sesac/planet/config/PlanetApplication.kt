@@ -2,6 +2,7 @@ package com.sesac.planet.config
 
 import android.app.Application
 import android.content.SharedPreferences
+import com.kakao.sdk.common.KakaoSdk
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -36,5 +37,12 @@ class PlanetApplication : Application() {
             }
             return instance!!
         }
+    }
+
+    override fun onCreate() {
+        super.onCreate()
+
+        //카카오 로그인 sdk 초기화
+        KakaoSdk.init(this, "35566e7214f726dff89f6addb3b88c1e")
     }
 }

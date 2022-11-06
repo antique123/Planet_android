@@ -3,54 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_calendar.xml" value="0.1605" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_home.xml" value="0.1605" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_mypage.xml" value="0.1605" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_planet_list.xml" value="0.1605" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_my_page_bottom_gray_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_my_page_inside_gray_stroke.xml" value="0.1245" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_my_page_outside_gray_stroke.xml" value="0.1245" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_rectangle_left_radius_10dp_gray_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/layer_list_report_filter_layout.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_oval_radio_button.xml" value="0.1355" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_radio_button.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_home_radio_text.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_custom_dialog.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_dot_line_horizontal.xml" value="0.1255" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_my_page_gray_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_left_radius_10dp_gray_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_purple_stroke_white_solid.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_light_purple_solid.xml" value="0.124" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_planet_solid.xml" value="0.124" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.194" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_white_solid.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_white_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_right_radius_10dp_gray_stroke.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.21944444444444444" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_my_page.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail_modify.xml" value="0.24947916666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_plant_detail.xml" value="0.2484375" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_report.xml" value="0.264" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_home_add_to_do.xml" value="0.20462962962962963" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_home.xml" value="0.2021950189953567" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.23055555555555557" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_planet_list.xml" value="0.264" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_detail_modify_plan.xml" value="0.24461538461538462" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_detail_plan.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_dialog_add_to_do_planet.xml" value="0.225" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_home_today_growth_plan.xml" value="0.23425925925925925" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_home_today_schedule.xml" value="0.24461538461538462" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.1" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_my_page_setting_menu.xml" value="0.21666666666666667" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_planet_detail_details_modify_plan.xml" value="0.2074074074074074" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_planet_detail_details_plan.xml" value="0.2074074074074074" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_planet_list.xml" value="0.264" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/menu/home_bottom_navigation.xml" value="0.2021950189953567" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/menu/menu_planet_list_option.xml" value="0.2484375" />
-        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/xml/network_security_config.xml" value="0.1" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_gray_stroke_white_solid.xml" value="0.152" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1" />
@@ -61,57 +13,15 @@
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/fragment_want_to_achieve.xml" value="0.2" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.1" />
         <entry key="..\:/Users/chair/Desktop/github/Planet_android/app/src/main/res/layout/item_want_to_achieve.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/drawable/shape_rectangle.xml" value="0.202" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.202" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_24dp_purple_solid.xml" value="0.202" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/activity_login.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/activity_make_nick_name.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/activity_make_planning.xml" value="0.36633663366336633" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/activity_sign_up.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/activity_splash.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_email_auth.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_email_certify.xml" value="0.22" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_make_nick_name.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_my_future_look.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_plan_for_goal.xml" value="0.18981481481481483" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_preview_my_planning.xml" value="0.13518518518518519" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_s_m_s_auth.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_set_password.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_sign_up.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/fragment_want_to_achieve.xml" value="0.18981481481481483" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_detail_plan.xml" value="0.2916666666666667" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_my_future_look.xml" value="0.33" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_plan_for_goal.xml" value="0.25" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_preview_my_future_look.xml" value="0.3651041666666667" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_preview_plan_for_goal.xml" value="0.3651041666666667" />
-        <entry key="..\:/repo/Planet_android/app/src/main/res/layout/item_want_to_achieve.xml" value="0.36614583333333334" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/selector_tab.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_oval.xml" value="0.197" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_purple_stroke_white_solid.xml" value="0.197" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_light_purple_solid.xml" value="0.2515" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_planet_solid.xml" value="0.2515" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_purple_solid.xml" value="0.2515" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_round_10dp_stroke_2dp.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_rectangle_round_15dp.xml" value="0.196" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_tab_selected.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/drawable/shape_tab_unselected.xml" value="0.1" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/activity_past_record.xml" value="0.33" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/activity_planet_detail.xml" value="0.25" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_daily.xml" value="0.19114583333333332" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_home.xml" value="0.1890625" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_monthly.xml" value="0.19114583333333332" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_range.xml" value="0.18802083333333333" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_weekly.xml" value="0.19114583333333332" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/item_plan_for_goal.xml" value="0.1890625" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/item_planet_list.xml" value="0.33" />
-        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/item_want_to_achieve.xml" value="0.19114583333333332" />
+        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/activity_splash.xml" value="0.1796875" />
+        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_email_auth.xml" value="0.33" />
+        <entry key="..\:/repo/Planet_android_fork/Planet_android/app/src/main/res/layout/fragment_sign_up.xml" value="0.36614583333333334" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
