@@ -3,7 +3,6 @@ package com.sesac.planet.utility
 import android.os.Build
 import android.view.View
 import android.view.Window
-import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowCompat
 import androidx.core.view.updatePadding

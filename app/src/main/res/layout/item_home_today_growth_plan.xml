@@ -7,9 +7,9 @@
 
     <ImageView
         android:id="@+id/item_home_today_growth_plan_image_view"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:src="@drawable/ic_launcher_background"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:src="@drawable/ic_planet_purple"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
@@ -18,9 +18,9 @@
         android:id="@+id/item_home_today_growth_plan_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
+        android:layout_marginLeft="8dp"
         android:text="포폴만들기"
-        android:textSize="15dp"
+        android:textSize="14dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toRightOf="@+id/item_home_today_growth_plan_image_view"/>

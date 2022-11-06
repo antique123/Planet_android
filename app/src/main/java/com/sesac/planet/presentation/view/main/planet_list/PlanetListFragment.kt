@@ -8,16 +8,21 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
+import com.sesac.planet.presentation.viewmodel.main.PlanetInfoViewModel
+import com.sesac.planet.presentation.viewmodel.main.PlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetListFragment : Fragment() {
     private var _binding: FragmentPlanetListBinding? = null
     private val binding get() = _binding!!
     private lateinit var planetListAdapter: PlanetListAdapter
+
+    private val viewModel by lazy { ViewModelProvider(this,PlanetViewModelFactory())[PlanetInfoViewModel::class.java] }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,35 +49,33 @@ class PlanetListFragment : Fragment() {
         }
     }
 
-    private fun initialize(){
+    private fun initialize() {
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
         initPlanetListRecyclerView()
     }
 
-    private fun initPlanetListRecyclerView(){
-        val items = mutableListOf<String>().apply {
-            add("취업준비")
-            add("다이어트")
-            add("인간관계")
-            add("교양 지식")
-            add("건강")
-            add("인간관계")
-            add("취업준비")
-            add("다이어트")
-            add("인간관계")
-            add("교양 지식")
-        }
+    private fun initPlanetListRecyclerView() {
+        initObservers()
+        viewModel.getPlanet("eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ", 4)
+    }
 
-        planetListAdapter = PlanetListAdapter(items)
-        binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.planetListRecyclerView.adapter = planetListAdapter
+    private fun initObservers(){
+        viewModel.planetData.observe(viewLifecycleOwner){ response ->
+            response.body()?.result.let { body ->
+                planetListAdapter = PlanetListAdapter(body)
+                binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+                binding.planetListRecyclerView.adapter = planetListAdapter
 
-        planetListAdapter.setItemClickListener(object : PlanetListAdapter.OnItemClickListener{
-            override fun onClick(v: View, position: Int) {
-                val intent = Intent(context, PlanetDetailActivity::class.java)
-                startActivity(intent)
+                planetListAdapter.setItemClickListener(
+                    object : PlanetListAdapter.OnItemClickListener {
+                        override fun onClick(v: View, position: Int) {
+                            val intent = Intent(requireContext(), PlanetDetailActivity::class.java)
+                            intent.putExtra("keyword", body?.get(position)?.planet_name)
+                            startActivity(intent)
+                        }
+                    })
             }
-        })
+        }
     }
 
     override fun onDestroyView() {
@@ -80,4 +83,5 @@ class PlanetListFragment : Fragment() {
 
         _binding = null
     }
+
 }

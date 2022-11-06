@@ -18,17 +18,18 @@
         android:background="@drawable/shape_rectangle_radius_10dp_planet_solid">
 
         <ImageView
-            android:id="@+id/planet_list_img"
+            android:id="@+id/item_planet_list_img"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/planet_list_layout"/>
+            app:layout_constraintBottom_toTopOf="@+id/item_planet_list_layout"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/planet_list_layout"
+            android:id="@+id/item_planet_list_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"

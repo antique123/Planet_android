@@ -22,4 +22,8 @@
     <color name="black_overlay">#66000000</color>
     <color name="yellow_FFE500">#FFE500</color>
     <color name="green_00C73C">#00C73C</color>
+    <color name="green_7AE3AA">#7AE3AA</color>
+    <color name="apricot_F8CBB6">#F8CBB6</color>
+    <color name="yellow_FFC212">#FFC212</color>
+    <color name="gray_E1E1E1">#E1E1E1</color>
 </resources>

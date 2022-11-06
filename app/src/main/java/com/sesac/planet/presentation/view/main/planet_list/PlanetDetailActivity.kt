@@ -1,28 +1,55 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailAdapter
+import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
+import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailActivity : AppCompatActivity()  {
+class PlanetDetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
+
+    lateinit var keyword: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         initialize()
+
+        binding.planetDetailAddPlansBtn.setOnClickListener {
+            HomeAddToDoDialog(this).show()
+        }
+
+        binding.planetDetailBackImageView.setOnClickListener{
+            finish()
+        }
+
+        keyword = intent.getStringExtra("keyword").toString()
+
+        binding.planetDetailPlanetNameTv.text = keyword
+        binding.planetDetailImgNameTv.text = "$keyword \n행성 이미지"
+
+        binding.planetDetailModifyBtn.setOnClickListener {
+            val intent = Intent(this, PlanetDetailModifyActivity::class.java)
+            intent.putExtra("keyword",keyword)
+            startActivity(intent)
+        }
     }
 
     private fun initialize() {
         SystemUtility.makeFullScreen(window, binding.root)
         SystemUtility.applyWindowInsetsPadding(binding.root)
+
         initPlanetDetailRecyclerView()
     }
 
@@ -37,5 +64,7 @@ class PlanetDetailActivity : AppCompatActivity()  {
         planetDetailAdapter = PlanetDetailAdapter(items)
         binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
         binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
+
     }
+
 }
