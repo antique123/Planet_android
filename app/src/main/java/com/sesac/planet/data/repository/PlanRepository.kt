@@ -2,17 +2,20 @@ package com.sesac.planet.data.repository
 
 import com.sesac.planet.data.model.TodayGrowthPlansResponse
 import com.sesac.planet.network.PlanAPI
-import com.sesac.planet.network.RetrofitClient
-import retrofit2.Call
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+import retrofit2.Response
 
-class PlanRepository() {
-    private val retrofit = RetrofitClient.getInstance()
-    private val service: PlanAPI = retrofit.create(PlanAPI::class.java)
+object PlanRepository {
+    lateinit var planService: PlanAPI
 
-    fun getTodayGrowthPlans(): Call<TodayGrowthPlansResponse> {
-        return service.getTodayGrowthPlans(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            4
-        )
+    suspend fun getPlan(token: String, journeyId: Int): Response<TodayGrowthPlansResponse>{
+        val response: Response<TodayGrowthPlansResponse>
+
+        withContext(Dispatchers.IO){
+            response = planService.getTodayGrowthPlans(token, journeyId)
+        }
+
+        return response
     }
 }

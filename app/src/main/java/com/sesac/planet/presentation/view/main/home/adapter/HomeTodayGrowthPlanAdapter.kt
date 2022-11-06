@@ -2,14 +2,11 @@ package com.sesac.planet.presentation.view.main.home.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.data.model.ResultPlanetInfo
 import com.sesac.planet.data.model.ResultTodayGrowthPlans
-import com.sesac.planet.data.model.TodayGrowthPlanData
 import com.sesac.planet.databinding.ItemHomeTodayGrowthPlanBinding
 
-class HomeTodayGrowthPlanAdapter(val items: ArrayList<TodayGrowthPlanData>, private val isShowMore: Boolean) : RecyclerView.Adapter<HomeTodayGrowthPlanAdapter.HomeTodayGrowthPlanViewHolder>(){
+class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, private val isShowMore: Boolean) : RecyclerView.Adapter<HomeTodayGrowthPlanAdapter.HomeTodayGrowthPlanViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,7 +22,7 @@ class HomeTodayGrowthPlanAdapter(val items: ArrayList<TodayGrowthPlanData>, priv
     override fun getItemCount(): Int {
         var returnAmount: Int = 0
         if(isShowMore){
-            returnAmount = items.size
+            returnAmount = items!!.size
         } else if(!isShowMore){
             returnAmount = 3
         }
@@ -35,8 +32,8 @@ class HomeTodayGrowthPlanAdapter(val items: ArrayList<TodayGrowthPlanData>, priv
 
     inner class HomeTodayGrowthPlanViewHolder(private val binding : ItemHomeTodayGrowthPlanBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.itemHomeTodayGrowthPlanImageView.setImageResource(items[position].planetImage)
-            binding.itemHomeTodayGrowthPlanTextView.text = items[position].planContent
+            //binding.itemHomeTodayGrowthPlanImageView.setImageResource(items[position].)
+            binding.itemHomeTodayGrowthPlanTextView.text = items!![position].plan_content
         }
     }
 

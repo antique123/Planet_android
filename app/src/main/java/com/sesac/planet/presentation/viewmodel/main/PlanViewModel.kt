@@ -1,35 +1,26 @@
 package com.sesac.planet.presentation.viewmodel.main
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import com.sesac.planet.data.model.ResultTodayGrowthPlans
+import androidx.lifecycle.*
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.TodayGrowthPlansResponse
 import com.sesac.planet.data.repository.PlanRepository
-import retrofit2.Call
-import retrofit2.Callback
+import com.sesac.planet.domain.usecase.GetPlanUseCase
+import com.sesac.planet.network.PlanAPI
+import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class PlanViewModel: ViewModel() {
-    private val repository: PlanRepository = PlanRepository()
+class PlanViewModel(private val getPlanUseCase: GetPlanUseCase): ViewModel() {
+    private val _planData = MutableLiveData<Response<TodayGrowthPlansResponse>>()
+    val planData: LiveData<Response<TodayGrowthPlansResponse>> get() = _planData
 
-    private val _data: MutableLiveData<List<ResultTodayGrowthPlans>> = MutableLiveData()
-    val data: LiveData<List<ResultTodayGrowthPlans>> get() = _data
+    init {
+        PlanRepository.planService = PlanetApplication.getInstance().create(PlanAPI::class.java)
+    }
 
-    fun setData() {
-        repository.getTodayGrowthPlans().enqueue(object : Callback<TodayGrowthPlansResponse>{
-            override fun onResponse(
-                call: Call<TodayGrowthPlansResponse>,
-                response: Response<TodayGrowthPlansResponse>
-            ) {
-                _data.value = response.body()?.result
-            }
-
-            override fun onFailure(call: Call<TodayGrowthPlansResponse>, t: Throwable) {
-                t.stackTrace
-            }
-        })
+    fun getPlan(token: String, journeyId: Int){
+        viewModelScope.launch {
+            val response = getPlanUseCase(token, journeyId)
+            _planData.value = response
+        }
     }
 }
