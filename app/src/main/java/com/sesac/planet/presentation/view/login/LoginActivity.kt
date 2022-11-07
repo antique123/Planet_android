@@ -1,10 +1,13 @@
 package com.sesac.planet.presentation.view.login
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.ActivityLoginBinding
+import com.sesac.planet.presentation.view.settings.MakePlanningActivity
 import com.sesac.planet.utility.SystemUtility
 
 /*
@@ -23,8 +26,18 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initialize() {
         SystemUtility.setSoftInputMode(window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
-
     }
 
+    fun startNextPage() {
+        startActivity(Intent(this, MakePlanningActivity::class.java))
+        finish()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(PlanetApplication.isLoginUser()) {
+            startNextPage()
+        }
+    }
 
 }
