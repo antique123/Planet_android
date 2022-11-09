@@ -6,8 +6,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:allowBackup="false"
         android:name=".config.PlanetApplication"
+        android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -24,8 +24,8 @@
             android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.login.LoginActivity"
-            android:theme="@style/Theme.TransparentSystemUi"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
             android:name=".presentation.view.main.MainActivity"
             android:exported="false"
@@ -47,32 +47,38 @@
         </activity>
 
         <activity
-            android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.planet_list.PlanetDetailActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
-            android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.planet_list.PlanetDetailModifyActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TransparentSystemUi" />
         <activity
-            android:theme="@style/Theme.TransparentSystemUi"
             android:name=".presentation.view.main.my_page.ReportActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.TransparentSystemUi" />
 
         <activity
             android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <!-- Redirect URI: "kakao${NATIVE_APP_KEY}://oauth" -->
-                <data android:host="oauth"
+                <data
+                    android:host="oauth"
                     android:scheme="kakao35566e7214f726dff89f6addb3b88c1e" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:theme="@style/Theme.TransparentSystemUi"
+            android:name=".presentation.view.main.planet_list.CreatePlanetActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
