@@ -19,6 +19,7 @@
     <color name="light_blue_900">#FF01579B</color>
     <color name="light_blue_A200">#FF40C4FF</color>
     <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="light_blue_b4c9ff">#B4C9FF</color>
     <color name="black_overlay">#66000000</color>
     <color name="yellow_FFE500">#FFE500</color>
     <color name="green_00C73C">#00C73C</color>
@@ -26,4 +27,13 @@
     <color name="apricot_F8CBB6">#F8CBB6</color>
     <color name="yellow_FFC212">#FFC212</color>
     <color name="gray_E1E1E1">#E1E1E1</color>
+    <color name="gray_8C8C8C">#8C8C8C</color>
+    <color name="gray_C4C4C4">#C4C4C4</color>
+    <color name="green_63F3C8">#63F3C8</color>
+    <color name="red_F2606A">#F2606A</color>
+    <color name="green_E0FC4E">#E0FC4E</color>
+
+    <color name="gray_basic_font">#737373</color>
+    <color name="gray_edit_font">#C4C4C4</color>
+    <color name="gray_top_font">#8E8E8E</color>
 </resources>

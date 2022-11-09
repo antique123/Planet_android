@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_item_planet_detail_details"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="6dp"
@@ -28,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/item_planet_detail_duration_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
@@ -47,18 +49,19 @@
         android:layout_height="20dp"
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/item_planet_detail_drag_image_view"
+        app:layout_constraintEnd_toStartOf="@+id/item_planet_detail_check_box"
         app:layout_constraintHorizontal_weight="1"
         app:layout_constraintStart_toEndOf="@+id/item_planet_detail_duration_layout"
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="invisible"/>
 
-    <ImageView
-        android:id="@+id/item_planet_detail_drag_image_view"
+    <CheckBox
+        android:id="@+id/item_planet_detail_check_box"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginLeft="15dp"
-        android:src="@drawable/ic_launcher_background"
+        android:button="@null"
+        android:background="@drawable/selector_detail_planet_list_checkbox"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_weight="1"
