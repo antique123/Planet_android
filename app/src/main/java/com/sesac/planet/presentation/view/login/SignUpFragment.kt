@@ -21,6 +21,7 @@ import com.sesac.planet.databinding.FragmentSignUpBinding
 import com.sesac.planet.presentation.view.settings.MakePlanningActivity
 import com.sesac.planet.presentation.viewmodel.login.LoginViewModel
 import com.sesac.planet.presentation.viewmodel.login.LoginViewModelFactory
+import com.sesac.planet.utility.Constant
 
 
 class SignUpFragment : Fragment() {
@@ -86,8 +87,9 @@ class SignUpFragment : Fragment() {
                     // 로그인 성공
                     PlanetApplication.sharedPreferences.edit {
                         it.body()?.result?.let { response ->
-                            putString(PlanetApplication.X_ACCESS_TOKEN, response.jwt)
-                            putInt(PlanetApplication.USER_ID, response.user_id)
+                            putString(Constant.X_ACCESS_TOKEN, response.jwt)
+                            putInt(Constant.USER_ID, response.user_id)
+                            putInt(Constant.LOGIN_TYPE, Constant.KAKAO_LOGIN)
                             commit()
                         }
                     }
