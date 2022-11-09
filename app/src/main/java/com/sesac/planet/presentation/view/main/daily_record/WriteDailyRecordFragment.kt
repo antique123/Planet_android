@@ -1,16 +1,26 @@
 package com.sesac.planet.presentation.view.main.daily_record
 
+import android.Manifest
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Point
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
+import androidx.core.content.ContextCompat
 
 import androidx.fragment.app.DialogFragment
+import com.bumptech.glide.Glide
+import com.google.android.material.snackbar.Snackbar
+import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentWriteDailyRecordBinding
 
 
@@ -18,6 +28,10 @@ class WriteDailyRecordFragment : DialogFragment() {
 
     private var _binding: FragmentWriteDailyRecordBinding? = null
     private val binding get() = _binding!!
+    private var point: Int = 0
+    private lateinit var requestPermissionLauncher: ActivityResultLauncher<String>
+    private lateinit var startGalleryActivityResultLauncher: ActivityResultLauncher<Intent>
+    private lateinit var selectedImageUri: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +59,140 @@ class WriteDailyRecordFragment : DialogFragment() {
     }
 
     private fun initialize() {
+        requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
+            if(isGranted) {
+                startGallery()
+            } else {
+                Snackbar.make(binding.root, "사진을 불러오기 위해서는 저장소 읽기 권한이 필요합니다.", Snackbar.LENGTH_SHORT).show()
+            }
+
+        }
+
+
+        startGalleryActivityResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            selectedImageUri = result.data?.getStringExtra("selected_image_uri")?.let {
+                it
+            } ?: ""
+            Log.d("selected_uri", selectedImageUri)
+            binding.firstSelectedImageContainer.visibility = View.VISIBLE
+            Glide.with(binding.firstSelectedImageView.context)
+                .load(selectedImageUri)
+                .into(binding.firstSelectedImageView)
+        }
         binding.saveButton.setOnClickListener {
             Toast.makeText(requireActivity(), "Dialog Fragment Dismiss", Toast.LENGTH_LONG).show()
             dialog?.dismiss()
         }
+
+        binding.onePointTextView.setOnClickListener {
+            point = 1
+            binding.onePointTextView.backgroundTintList = resources.getColorStateList(R.color.purple_896DF3, null)
+            binding.onePointTextView.setTextColor(resources.getColor(R.color.white, null))
+
+            binding.twoPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.twoPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.threePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.threePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fourPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fourPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fivePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fivePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+        }
+
+        binding.twoPointTextView.setOnClickListener {
+            point = 2
+            binding.twoPointTextView.backgroundTintList = resources.getColorStateList(R.color.purple_896DF3, null)
+            binding.twoPointTextView.setTextColor(resources.getColor(R.color.white, null))
+
+            binding.onePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.onePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.threePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.threePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fourPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fourPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fivePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fivePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+        }
+
+        binding.threePointTextView.setOnClickListener {
+            point = 3
+            binding.threePointTextView.backgroundTintList = resources.getColorStateList(R.color.purple_896DF3, null)
+            binding.threePointTextView.setTextColor(resources.getColor(R.color.white, null))
+
+            binding.onePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.onePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.twoPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.twoPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fourPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fourPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fivePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fivePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+        }
+
+        binding.fourPointTextView.setOnClickListener {
+            point = 4
+            binding.fourPointTextView.backgroundTintList = resources.getColorStateList(R.color.purple_896DF3, null)
+            binding.fourPointTextView.setTextColor(resources.getColor(R.color.white, null))
+
+            binding.onePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.onePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.twoPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.twoPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.threePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.threePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fivePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fivePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+        }
+
+        binding.fivePointTextView.setOnClickListener {
+            point = 5
+            binding.fivePointTextView.backgroundTintList = resources.getColorStateList(R.color.purple_896DF3, null)
+            binding.fivePointTextView.setTextColor(resources.getColor(R.color.white, null))
+
+            binding.onePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.onePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.twoPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.twoPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.threePointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.threePointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+
+            binding.fourPointTextView.backgroundTintList = resources.getColorStateList(R.color.gray_F2F2F2, null)
+            binding.fourPointTextView.setTextColor(resources.getColor(R.color.gray_737373, null))
+        }
+
+        binding.selectImageButton.setOnClickListener {
+            //권한 확인
+            checkPermission()
+        }
+
     }
 
+    private fun checkPermission() {
+        if(ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+            startGallery()
+        } else {
+            requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+    }
+
+    private fun startGallery() {
+        val intent = Intent(requireActivity(), GalleryActivity::class.java)
+        startGalleryActivityResultLauncher.launch(intent)
+    }
 
     override fun onResume() {
         super.onResume()
