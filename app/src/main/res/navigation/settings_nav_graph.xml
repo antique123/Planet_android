@@ -18,6 +18,7 @@
             app:popUpToInclusive="true"
             app:popUpTo="@id/make_nick_name_fragment"
             app:destination="@id/make_nick_name_fragment" />
+
     </fragment>
 
     <fragment
@@ -33,6 +34,7 @@
             app:destination="@id/my_future_look_fragment"
             app:popUpToInclusive="true"
             app:popUpTo="@id/my_future_look_fragment"/>
+
     </fragment>
 
 
@@ -49,6 +51,7 @@
             app:destination="@id/want_to_achieve_fragment"
             app:popUpToInclusive="true"
             app:popUpTo="@id/want_to_achieve_fragment"/>
+
     </fragment>
 
     <fragment
@@ -62,6 +65,7 @@
             app:destination="@id/plan_for_goal_fragment"
             app:popUpToInclusive="true"
             app:popUpTo="@id/plan_for_goal_fragment"/>
+
     </fragment>
     <fragment
         android:id="@+id/make_nick_name_fragment"

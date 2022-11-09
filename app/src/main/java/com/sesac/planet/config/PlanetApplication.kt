@@ -3,6 +3,7 @@ package com.sesac.planet.config
 import android.app.Application
 import android.content.SharedPreferences
 import com.kakao.sdk.common.KakaoSdk
+import com.sesac.planet.utility.Constant
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -15,8 +16,8 @@ class PlanetApplication : Application() {
     companion object{
         // 테스트 서버 주소
         val BASE_URL = "https://dev.wogus4048.shop/"
-        val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
-        val USER_ID = "USER_ID"
+
+
 
         private var instance: Retrofit? = null
         lateinit var sharedPreferences: SharedPreferences
@@ -42,9 +43,10 @@ class PlanetApplication : Application() {
         }
 
         fun isLoginUser(): Boolean {
-            val jwt = sharedPreferences.getString(X_ACCESS_TOKEN, "")
+            val jwt = sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
             return jwt != null
         }
+
     }
 
     override fun onCreate() {

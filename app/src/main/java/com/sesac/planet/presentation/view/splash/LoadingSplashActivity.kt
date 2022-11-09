@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.kakao.sdk.common.util.Utility
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.ActivityLoadingSplashBinding
 import com.sesac.planet.presentation.view.login.LoginActivity
 import com.sesac.planet.utility.Constant
@@ -29,6 +30,11 @@ class LoadingSplashActivity : AppCompatActivity() {
     private fun initialize() {
         SystemUtility.makeFullScreen(window, binding.root)
         makeSplash()
+        val jwt = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+        val userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
+        Log.d("userInfo", "${jwt}")
+        Log.d("userInfo", "${userId}")
+
     }
 
     private fun makeSplash() {
