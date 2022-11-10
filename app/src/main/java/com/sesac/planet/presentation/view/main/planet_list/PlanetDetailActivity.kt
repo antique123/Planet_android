@@ -1,43 +1,55 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailAdapter
-import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
-import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
+import com.sesac.planet.presentation.viewmodel.main.*
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailActivity : AppCompatActivity() {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
-    lateinit var keyword: String
+    private val planetDetailViewModel by lazy {
+        ViewModelProvider(
+            this,
+            PlanetDetailViewModelFactory()
+        )[PlanetDetailViewModel::class.java]
+    }
+
+    private var keyword: Int= 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         initialize()
+        initView()
+    }
 
+    private fun initialize() {
+        SystemUtility.makeFullScreen(window, binding.root)
+        SystemUtility.applyWindowInsetsPadding(binding.root)
+
+        setData()
+    }
+
+    private fun initView(){
         binding.planetDetailAddPlansBtn.setOnClickListener {
-            HomeAddToDoDialog(this).show()
+            //HomeAddToDoDialog(this).show()
         }
 
         binding.planetDetailBackImageView.setOnClickListener{
             finish()
         }
-
-        keyword = intent.getStringExtra("keyword").toString()
-
-        binding.planetDetailPlanetNameTv.text = keyword
-        binding.planetDetailImgNameTv.text = "$keyword \n행성 이미지"
 
         binding.planetDetailModifyBtn.setOnClickListener {
             val intent = Intent(this, PlanetDetailModifyActivity::class.java)
@@ -46,25 +58,37 @@ class PlanetDetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun initialize() {
-        SystemUtility.makeFullScreen(window, binding.root)
-        SystemUtility.applyWindowInsetsPadding(binding.root)
+    private fun setData(){
+        keyword = intent.getIntExtra("planet_id",0)
+        Log.d("받아온 키 값", keyword.toString())
 
-        initPlanetDetailRecyclerView()
+        initPlanetDetailInfoObservers()
+        planetDetailViewModel.getPlanetDetailInfo(
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
+            keyword
+        )
     }
 
-    private fun initPlanetDetailRecyclerView(){
-        val items = mutableListOf<String>().apply {
-            add("헬스장 알아보러 가기")
-            add("스트레칭")
-            add("물 하루 2L 마시기")
-            add("소식하기")
+    private fun initPlanetDetailInfoObservers(){
+        planetDetailViewModel.planetDetailData.observe(this){ response ->
+            if(response.isSuccessful){
+                response.body()?.result.let { body ->
+                    if(body == null){
+                    } else {
+                        binding.planetDetailPlanetImg.imageTintList = ColorStateList.valueOf(Color.parseColor(body.color))
+                        binding.planetDetailPlanetNameTv.text = body.planet_name
+                        binding.planetDetailExplainPlanetTextView.text = body.planet_intro
+                        binding.planetDetailGrowthLevelTextView.text = "LV.${body.planet_level}"
+                        binding.itemPlanetListLevelProgressBar.progress = body.planet_exp
+                        binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(body.color))
+
+                        planetDetailAdapter = PlanetDetailAdapter(body.plans)
+                        binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
+                        binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
+                    }
+                }
+            }
         }
-
-        planetDetailAdapter = PlanetDetailAdapter(items)
-        binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
-        binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
-
     }
 
 }

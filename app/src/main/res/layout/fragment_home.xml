@@ -35,23 +35,11 @@
                         android:id="@+id/home_express_with_adj_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="알잘딱깔센"
+                        android:text="알잘딱깔센 도비님"
                         android:textColor="@color/black"
                         android:textSize="24dp"
                         android:textStyle="bold"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/home_nickname_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:text="도비님"
-                        android:textColor="@color/black"
-                        android:textSize="24dp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toRightOf="@+id/home_express_with_adj_text_view"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <ImageView
@@ -61,7 +49,7 @@
                         android:layout_marginLeft="8dp"
                         android:src="@drawable/ic_home_question"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@+id/home_nickname_text_view"
+                        app:layout_constraintLeft_toRightOf="@+id/home_express_with_adj_text_view"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -70,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:text="안녕하세요 :)"
                     android:textColor="@color/black"
-                    android:textSize="22dp"
+                    android:textSize="24dp"
                     android:textStyle="bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/home_nickname_layout" />
@@ -169,10 +157,10 @@
                 android:layout_marginRight="15dp"
                 android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                 android:elevation="5dp"
-                android:paddingLeft="18dp"
-                android:paddingTop="10dp"
-                android:paddingRight="18dp"
-                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="18dp"
+                android:paddingBottom="8dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/home_target_amount_layout">
@@ -200,12 +188,10 @@
                         android:id="@+id/home_add_to_do_btn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
-                        android:elevation="5dp"
-                        android:paddingLeft="12dp"
+                        android:paddingLeft="10dp"
                         android:paddingTop="4dp"
-                        android:paddingRight="12dp"
+                        android:paddingRight="10dp"
                         android:paddingBottom="4dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
@@ -218,6 +204,7 @@
                             android:text="할 일 추가"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toLeftOf="@+id/home_add_to_do_image_view"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
@@ -238,12 +225,25 @@
                     android:id="@+id/home_add_to_do_rcv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="10dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/home_today_growth_plan_title_layout"
                     tools:listitem="@layout/item_home_today_growth_plan" />
+
+                <TextView
+                    android:id="@+id/home_no_result_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="30dp"
+                    android:paddingBottom="30dp"
+                    android:text="현재 작성된 오늘의 성장 계획이 없습니다."
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/home_today_growth_plan_title_layout"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/home_show_more_layout"
@@ -268,100 +268,6 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/home_plan_memory_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_today_growth_plan_layout">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginRight="15dp"
-                    android:background="@drawable/shape_rectangle_radius_10dp"
-                    android:backgroundTint="@color/purple_896DF3"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/daily_record_layout"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/today_schedule_title_layout"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="오늘 일정"
-                            android:textColor="@color/white"
-                            android:textSize="18dp"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/add_today_schedule_btn"
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/ic_white_plus"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/home_schedule_rcv"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_marginTop="15dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/today_schedule_title_layout"
-                        app:layout_constraintTop_toBottomOf="@+id/today_schedule_title_layout"
-                        tools:listitem="@layout/item_home_today_schedule" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/daily_record_layout"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
-                    android:orientation="vertical"
-                    android:padding="18dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="어제의 기록"
-                        android:textColor="@color/black"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -374,7 +280,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/home_plan_memory_layout">
+                app:layout_constraintTop_toBottomOf="@+id/home_today_growth_plan_layout">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/home_my_report_title_layout"
@@ -395,21 +301,12 @@
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="더보기"
-                        android:textColor="@color/gray_D9D9D9"
-                        android:textSize="12dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/home_my_report_chart"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_marginTop="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"

@@ -80,7 +80,10 @@
             android:name=".presentation.view.main.daily_record.GalleryActivity"
             android:exported="false"
             android:theme="@style/Theme.TransparentSystemUi"/>
+
+        <activity
+            android:theme="@style/Theme.TransparentSystemUi"
+            android:name=".presentation.view.main.planet_list.CreatePlanetActivity"
+            android:exported="false" />
     </application>
-
-
 </manifest>

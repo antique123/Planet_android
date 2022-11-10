@@ -12,5 +12,6 @@ data class ResultTodayGrowthPlans(
     @SerializedName("plan_content") val plan_content: String,
     @SerializedName("type") val type: String,
     @SerializedName("is_completed") val is_completed: Int,
-    @SerializedName("detailed_plan_id") val detailed_plan_id: Int
+    @SerializedName("detailed_plan_id") val detailed_plan_id: Int,
+    @SerializedName("color") val color: String
 )
