@@ -47,6 +47,10 @@ class PlanetApplication : Application() {
             } ?: return false
         }
 
+        fun getLoginType(): Int {
+            return sharedPreferences.getInt(Constant.LOGIN_TYPE, -1)
+        }
+
     }
 
     override fun onCreate() {
