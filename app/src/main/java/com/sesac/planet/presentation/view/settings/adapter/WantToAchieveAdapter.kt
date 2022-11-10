@@ -8,7 +8,7 @@ import com.sesac.planet.databinding.ItemWantToAchieveBinding
 
 class WantToAchieveAdapter(private val items: MutableList<String>) : RecyclerView.Adapter<WantToAchieveAdapter.WantToAchieveViewHolder>() {
     private val checkedFlags = MutableList<Boolean>(items.size) { false }
-
+    private val checkedItems = mutableListOf<String>()
     inner class WantToAchieveViewHolder(private val binding: ItemWantToAchieveBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             binding.wantToAchieveItemTextView.text = items[position]
@@ -19,11 +19,13 @@ class WantToAchieveAdapter(private val items: MutableList<String>) : RecyclerVie
                     binding.wantToAchieveItemTextView.setBackgroundResource(R.drawable.shape_rectangle_radius_10dp_purple_solid)
                     binding.wantToAchieveItemTextView.setTextColor(binding.wantToAchieveItemTextView.resources.getColor(R.color.white, null))
                     checkedFlags[position] = true
+                    checkedItems.add(items[position])
                 } else {
                     //클릭 됨
                     binding.wantToAchieveItemTextView.setBackgroundResource(R.drawable.shape_rectangle_radius_10dp_gray_stroke_white_solid)
                     binding.wantToAchieveItemTextView.setTextColor(binding.wantToAchieveItemTextView.resources.getColor(R.color.gray_737373, null))
                     checkedFlags[position] = false
+                    checkedItems.remove(items[position])
                 }
             }
         }
@@ -39,4 +41,6 @@ class WantToAchieveAdapter(private val items: MutableList<String>) : RecyclerVie
     }
 
     override fun getItemCount() = items.size
+
+    fun getCheckedItems() = checkedItems
 }

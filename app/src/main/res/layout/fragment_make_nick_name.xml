@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.view.settings.MakeNickNameFragment">
 
-
     <TextView
         android:id="@+id/make_nick_name_header_text_view"
         android:layout_width="0dp"
@@ -55,7 +54,7 @@
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:textSize="14sp"
-        android:textCursorDrawable="@null"
+        android:textCursorDrawable="@drawable/custom_cursor"
         app:layout_constraintEnd_toStartOf="@id/check_this_nick_name_button"
         app:layout_constraintStart_toStartOf="@id/nick_name_title_text_view"
         app:layout_constraintTop_toBottomOf="@id/nick_name_title_text_view" />

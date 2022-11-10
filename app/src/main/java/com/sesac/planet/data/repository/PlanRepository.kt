@@ -1,5 +1,6 @@
 package com.sesac.planet.data.repository
 
+import com.sesac.planet.data.model.MakeJourneyRequest
 import com.sesac.planet.data.model.BaseResponse
 import com.sesac.planet.data.model.PostDetailPlanRequest
 import com.sesac.planet.data.model.TodayGrowthPlansResponse
@@ -21,6 +22,10 @@ object PlanRepository {
         }
 
         return response
+    }
+
+    suspend fun makeJourney(journeyRequest: MakeJourneyRequest, token: String, userId: Int) = withContext(Dispatchers.IO) {
+        planService.makeJourney(userId, token, journeyRequest)
     }
 
     suspend fun postPlan(token: String, journeyId: Int, planetId: Int, postDetailPlanRequest: PostDetailPlanRequest): Response<BaseResponse>{

@@ -37,11 +37,12 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
             binding.itemHomeTodayGrowthPlanTextView.text = items!![position].plan_content
 
             when(items!![position].color){
+                "#896DF3" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_purple)
                 "#7AE3AA" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mint)
                 "#E1E1E1" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mono)
                 "#E0DFFE" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_navy)
-                "#FDFE00" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_yellow)
-                "#F8CBB6" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_apricot)
+                "#FFC212" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_yellow)
+                "#F2606A" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_apricot)
                 else -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_basic)
             }
 

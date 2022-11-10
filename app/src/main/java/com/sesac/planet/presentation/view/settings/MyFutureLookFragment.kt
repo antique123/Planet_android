@@ -7,18 +7,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentMyFutureLookBinding
 import com.sesac.planet.presentation.view.settings.adapter.MyFutureLookAdapter
+import com.sesac.planet.presentation.viewmodel.SettingsViewModel
+import com.sesac.planet.presentation.viewmodel.settings.SettingsViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 
 class MyFutureLookFragment : Fragment() {
     private var _binding: FragmentMyFutureLookBinding? = null
     private val binding get() = _binding!!
+    private val viewModel by lazy { ViewModelProvider(requireActivity(), SettingsViewModelFactory()).get(SettingsViewModel::class.java)}
     private lateinit var myFutureLookAdapter: MyFutureLookAdapter
 
     override fun onCreateView(
@@ -67,6 +72,7 @@ class MyFutureLookFragment : Fragment() {
 
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
+            viewModel.myFutureLookItems.addAll(myFutureLookAdapter.getCheckedItems())
             val action = MyFutureLookFragmentDirections.actionMyFutureLookFragmentToWantToAchieveFragment()
             findNavController().navigate(action)
         }

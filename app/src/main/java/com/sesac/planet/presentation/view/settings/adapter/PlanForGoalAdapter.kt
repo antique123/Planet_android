@@ -1,19 +1,23 @@
 package com.sesac.planet.presentation.view.settings.adapter
 
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sesac.planet.data.model.Goal
 import com.sesac.planet.databinding.ItemPlanForGoalBinding
 
-class PlanForGoalAdapter(private val items: MutableList<String>) : RecyclerView.Adapter<PlanForGoalAdapter.PlanForGoalViewHolder>(){
-
+class PlanForGoalAdapter(private val items: MutableList<Goal>) : RecyclerView.Adapter<PlanForGoalAdapter.PlanForGoalViewHolder>(){
+    lateinit var addDetails: (String, String, Int) -> Unit
     inner class PlanForGoalViewHolder(private val binding: ItemPlanForGoalBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
-            binding.planTitleTextView.text = items[position]
+            binding.planTitleTextView.text = items[position].field
             binding.addDetailPlanButton.setOnClickListener {
                 binding.detailPlanRecyclerView.adapter?.let { adapter ->
-                    (adapter as DetailPlanAdapter).addDetailPlan("동적 추가 테스트")
+                    (adapter as DetailPlanAdapter).key = items[position].field
+                    adapter.addDetails = addDetails
+                    adapter.addDetailPlan(position, "")
                 }
             }
         }

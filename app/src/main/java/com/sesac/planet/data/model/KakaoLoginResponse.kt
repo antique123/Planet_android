@@ -4,10 +4,10 @@ data class KakaoLoginResponse(
     val code: Int,
     val isSuccess: Boolean,
     val message: String,
-    val result: Result
+    val result: LoginResult
 )
 
-data class Result(
+data class LoginResult(
     val jwt: String,
     val user_id: Int
 )

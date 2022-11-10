@@ -12,4 +12,6 @@ object AuthRepository {
     suspend fun requestKakaoLogin(accessToken: String) = withContext(Dispatchers.IO) {
         loginAPI.requestKakaoLogin(accessToken)
     }
+
+
 }
