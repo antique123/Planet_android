@@ -1,6 +1,8 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -73,10 +75,12 @@ class PlanetDetailActivity : AppCompatActivity() {
                 response.body()?.result.let { body ->
                     if(body == null){
                     } else {
+                        binding.planetDetailPlanetImg.imageTintList = ColorStateList.valueOf(Color.parseColor(body.color))
                         binding.planetDetailPlanetNameTv.text = body.planet_name
                         binding.planetDetailExplainPlanetTextView.text = body.planet_intro
                         binding.planetDetailGrowthLevelTextView.text = "LV.${body.planet_level}"
                         binding.itemPlanetListLevelProgressBar.progress = body.planet_exp
+                        binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(body.color))
 
                         planetDetailAdapter = PlanetDetailAdapter(body.plans)
                         binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)

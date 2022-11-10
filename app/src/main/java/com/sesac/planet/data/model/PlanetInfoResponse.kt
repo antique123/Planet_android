@@ -12,7 +12,7 @@ data class ResultPlanetInfo(
     @SerializedName("planet_intro") val planet_intro: String?,
     @SerializedName("planet_exp") val planet_exp: Int,
     @SerializedName("planet_level") val planet_level: Int,
-    @SerializedName("color") val color: String?
+    @SerializedName("color_rgb") val color: String?
 )
 
 data class PlanetDetailInfoResponse(
@@ -26,6 +26,7 @@ data class ResultPlanetDetailInfo(
     @SerializedName("planet_exp") val planet_exp: Int,
     @SerializedName("planet_level") val planet_level: Int,
     @SerializedName("planet_image") val planet_image: String?,
+    @SerializedName("color") val color: String?,
     @SerializedName("plans") val plans: ArrayList<ResultPlanetDetailPlan>
 )
 

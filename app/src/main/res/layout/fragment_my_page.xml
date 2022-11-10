@@ -10,8 +10,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/my_page_profile_total_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_896DF3"
+        android:layout_height="280dp"
+        android:background="@drawable/ic_background"
         android:padding="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -30,403 +30,142 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/my_page_title_text_view">
 
             <ImageView
                 android:id="@+id/my_page_profile_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:src="@drawable/shape_profile"
                 app:layout_constraintDimensionRatio="1:1"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/my_page_profile_layout"
+            <TextView
+                android:id="@+id/my_page_profile_nick_name_text_view"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/my_page_profile_image_view"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <TextView
-                    android:id="@+id/my_page_profile_nick_name_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="동그랑땡 님"
-                    android:textColor="@color/white"
-                    android:textSize="18dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/my_page_profile_email_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="ksh70125@naver.com"
-                    android:textColor="@color/white"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toTopOf="@+id/my_page_profile_birth_text_view"
-                    app:layout_constraintLeft_toLeftOf="parent" />
-
-                <TextView
-                    android:id="@+id/my_page_profile_birth_text_view"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="9999.02.02"
-                    android:textColor="@color/white"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toTopOf="@+id/textView"
-                    app:layout_constraintLeft_toLeftOf="parent" />
-
-                <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="경기도 의왕시 내손동"
-                    android:textColor="@color/white"
-                    android:textSize="14dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:text="동그랑땡 님"
+                android:textColor="@color/gray_basic_font"
+                android:textSize="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/my_page_profile_image_view" />
 
-                <TextView
-                    android:id="@+id/my_page_profile_setting_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
-                    android:gravity="center"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="12dp"
-                    android:paddingBottom="5dp"
-                    android:text="프로필 설정"
-                    android:textColor="@color/black"
-                    android:textSize="12dp"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/my_page_profile_email_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="ksh70125@naver.com"
+                android:textColor="@color/gray_basic_font"
+                android:textSize="14dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_page_profile_nick_name_text_view" />
 
-                <TextView
-                    android:id="@+id/my_page_manage_account_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:background="@drawable/shape_rectangle_radius_10dp_white_stroke"
-                    android:gravity="center"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="12dp"
-                    android:paddingBottom="5dp"
-                    android:text="계정관리"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toTopOf="@+id/my_page_logout_btn"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/my_page_profile_setting_btn" />
 
-                <TextView
-                    android:id="@+id/my_page_logout_btn"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/shape_rectangle_radius_10dp_white_stroke"
-                    android:gravity="center"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="12dp"
-                    android:paddingBottom="5dp"
-                    android:text="로그아웃"
-                    android:textColor="@color/white"
-                    android:textSize="12dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/my_page_logout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_rectangle_radius_10dp_white_stroke"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingTop="5dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="5dp"
+                android:text="로그아웃"
+                android:textColor="@color/gray_basic_font"
+                android:textSize="12dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/my_page_profile_email_text_view" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <GridLayout
-        android:id="@+id/my_page_menu_grid_layout"
+    <TextView
+        android:id="@+id/my_page_manage_goal_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="15dp"
+        android:text="목표관리"
+        android:textColor="@color/black"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_page_profile_total_layout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/my_page_see_init_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:columnCount="4"
-        app:layout_constraintBottom_toTopOf="@+id/my_page_setting_text_view"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="18dp"
+        android:background="@drawable/shape_rectangle_radius_10dp_purple_solid"
+        android:backgroundTint="@color/purple_896DF3"
+        android:paddingLeft="24dp"
+        android:paddingTop="15dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="15dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_page_profile_total_layout">
+        app:layout_constraintTop_toBottomOf="@+id/my_page_manage_goal_tv">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_report_layout"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/layer_list_my_page_outside_gray_stroke"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/my_page_report_image_view"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toTopOf="@+id/my_page_report_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/my_page_report_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="리포트"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_page_report_image_view" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/layer_list_my_page_inside_gray_stroke"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/my_page_manage_goal_image_view"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toTopOf="@+id/my_page_manage_goal_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/my_page_manage_goal_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="목표관리"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_page_manage_goal_image_view" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/layer_list_my_page_inside_gray_stroke"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/my_page_lab_image_view"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toTopOf="@+id/my_page_lab_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/my_page_lab_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="연구소"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_page_lab_image_view" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:background="@drawable/layer_list_my_page_outside_gray_stroke"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:id="@+id/my_page_story_image_view"
-                android:layout_width="42dp"
-                android:layout_height="42dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toTopOf="@+id/my_page_story_text_view"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/my_page_story_text_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="스토리"
-                android:textColor="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/my_page_story_image_view" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </GridLayout>
+            android:text="초기설정 목표보기"
+            android:textColor="@color/white"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/my_page_setting_text_view"
+        android:id="@+id/my_page_setting_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="30dp"
         android:text="설정"
         android:textColor="@color/black"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/my_page_setting_menu_layout"
+        android:textSize="18dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_page_menu_grid_layout" />
+        app:layout_constraintTop_toBottomOf="@+id/my_page_see_init_setting" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/my_page_setting_menu_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="18dp"
-        android:layout_marginRight="18dp"
         android:layout_marginTop="10dp"
+        android:layout_marginRight="18dp"
         android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/my_page_setting_text_view">
+        app:layout_constraintTop_toBottomOf="@+id/my_page_setting_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_alarm_menu_layout"
+            android:id="@+id/my_page_official_menu_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="15dp"
             android:layout_marginTop="15dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent">
-
-            <ImageView
-                android:id="@+id/ic_my_page_alarm"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/my_page_alarm_tv_layout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/my_page_alarm_tv_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:background="@drawable/layer_list_my_page_bottom_gray_stroke"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                app:layout_constraintLeft_toRightOf="@+id/ic_my_page_alarm"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
-
-                <TextView
-                    android:id="@+id/my_page_alarm_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="알림 설정"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_display_menu_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:paddingLeft="25dp"
             android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/layer_list_my_page_bottom_gray_stroke"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_page_alarm_menu_layout">
-
-            <ImageView
-                android:id="@+id/ic_my_page_display"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/my_page_display_tv_layout"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/my_page_display_tv_layout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:background="@drawable/layer_list_my_page_bottom_gray_stroke"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                app:layout_constraintLeft_toRightOf="@+id/ic_my_page_display"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
-
-                <TextView
-                    android:id="@+id/my_page_display_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="화면 설정 - 색, 다크, 글자크기 조절"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_official_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="25dp"
-            android:paddingRight="15dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_page_display_menu_layout">
+            app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/ic_my_page_official"
@@ -435,82 +174,85 @@
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/my_page_official_tv_layout"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/my_page_official_tv_layout"
+            <TextView
+                android:id="@+id/my_page_official_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:background="@drawable/layer_list_my_page_bottom_gray_stroke"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
+                android:gravity="center_vertical"
+                android:text="공지사항"
                 app:layout_constraintLeft_toRightOf="@+id/ic_my_page_official"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
-
-                <TextView
-                    android:id="@+id/my_page_official_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="공지사항"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/my_page_feedback_layout"
+            android:id="@+id/my_page_send_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:paddingLeft="25dp"
             android:paddingRight="15dp"
-            android:layout_marginBottom="15dp"
+            android:paddingBottom="15dp"
+            android:background="@drawable/layer_list_my_page_bottom_gray_stroke"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/my_page_official_layout"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/my_page_official_menu_layout">
 
             <ImageView
-                android:id="@+id/ic_my_page_feedback"
+                android:id="@+id/ic_my_page_send"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ic_launcher_background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/my_page_feedback_tv_layout"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/my_page_feedback_tv_layout"
+            <TextView
+                android:id="@+id/my_page_send_tv"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="25dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                app:layout_constraintLeft_toRightOf="@+id/ic_my_page_feedback"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_weight="1">
+                android:gravity="center_vertical"
+                android:text="의견보내기"
+                app:layout_constraintLeft_toRightOf="@+id/ic_my_page_send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/my_page_feedback_tv"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:text="의견보내기"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/my_page_open_source_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="25dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/my_page_send_layout">
+
+            <ImageView
+                android:id="@+id/ic_my_page_open_source"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/my_page_open_source_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:gravity="center_vertical"
+                android:text="오픈소스 라이센스"
+                app:layout_constraintLeft_toRightOf="@+id/ic_my_page_open_source"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

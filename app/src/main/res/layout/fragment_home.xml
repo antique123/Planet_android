@@ -303,19 +303,6 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-                <TextView
-                    android:id="@+id/home_no_report_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="15dp"
-                    android:paddingBottom="15dp"
-                    android:text="아직 생성된 리포트가 없습니다"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/home_my_report_title_layout"/>
-
                 <com.github.mikephil.charting.charts.LineChart
                     android:id="@+id/home_my_report_chart"
                     android:layout_width="match_parent"

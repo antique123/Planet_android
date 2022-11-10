@@ -3,6 +3,7 @@ package com.sesac.planet.presentation.view.main.planet_list.adapter
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.PorterDuff
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,11 +30,12 @@ class PlanetListAdapter(val items: List<ResultPlanetInfo>?) : RecyclerView.Adapt
 
     inner class PlanetListViewHolder(private val binding : ItemPlanetListBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
+            binding.itemPlanetListImg.imageTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
             binding.itemPlanetListPlanetTextView.text = items!![position].planet_name
             binding.itemPlanetListExplainPlanetTextView.text = items!![position].planet_intro
             binding.itemPlanetListLevelTextView.text = "LV.${items!![position].planet_level}"
             binding.itemPlanetListLevelProgressBar.progress = items!![position].planet_exp
-            binding.itemPlanetListLevelProgressBar.indeterminateDrawable.setColorFilter(Color.parseColor("${items!![position].color}"), PorterDuff.Mode.MULTIPLY)
+            binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
         }
     }
 

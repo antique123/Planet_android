@@ -57,8 +57,9 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
     ): View? {
         binding = DialogHomeAddToDoBinding.inflate(inflater, container, false)
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        dialog?.setCancelable(true)
         dialog?.setCanceledOnTouchOutside(true)
-        dialog?.setCancelable(false)
+
         return binding.root
     }
 
@@ -79,10 +80,12 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
         initPlanetRcv()
 
         //계획 저장하기
+        /*
         binding.dialogHomeOkBtn.setOnClickListener {
             initPostDetailPlan()
             dismiss()
         }
+         */
     }
 
     override fun onResume() {

@@ -30,5 +30,9 @@ class CreatePlanetActivity : AppCompatActivity() {
         binding.planetDetailPlanetImg.setOnClickListener {
             SelectColorDialog().show(supportFragmentManager, "Dialog")
         }
+
+        binding.planetDetailAddPlansBtn.setOnClickListener {
+            CreatePlanetPlanDialog().show(supportFragmentManager, "CreatePlanetPlanDialog")
+        }
     }
 }

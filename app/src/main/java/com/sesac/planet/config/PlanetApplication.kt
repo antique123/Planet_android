@@ -17,8 +17,6 @@ class PlanetApplication : Application() {
         // 테스트 서버 주소
         val BASE_URL = "https://dev.wogus4048.shop/"
 
-
-
         private var instance: Retrofit? = null
         lateinit var sharedPreferences: SharedPreferences
 

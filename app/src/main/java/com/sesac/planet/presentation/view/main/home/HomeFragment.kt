@@ -22,25 +22,43 @@ import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
 import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
+import com.sesac.planet.presentation.viewmodel.factory.GetTodayInfoViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.*
+import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModel
 import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
+    private val entry1 = ArrayList<Entry>() //차트 1
+    private val entry2 = ArrayList<Entry>() //차트 2
+
+    private val chartData = LineData()
+
+    lateinit var keyword: MutableList<String>
+
+    //...님 안녕하세요 :)
+    private val keywordViewModel by lazy {
+        ViewModelProvider(
+            this,
+            KeywordViewModelFactory()
+        )[KeywordViewModel::class.java]
+    }
+
+    //오늘 달성한 프로그레스바 뷰모델
+    private val getTodayInfoViewModel by lazy{
+        ViewModelProvider(
+            this,
+            GetTodayInfoViewModelFactory()
+        )[GetTodayInfoViewModel::class.java]
+    }
+
     private val viewModel by lazy {
         ViewModelProvider(
             this,
             PlanViewModelFactory()
         )[PlanViewModel::class.java]
-    }
-
-    private val keywordViewModel by lazy{
-        ViewModelProvider(
-            this,
-            KeywordViewModelFactory()
-        )[KeywordViewModel::class.java]
     }
 
     private val reportViewModel by lazy {
@@ -59,13 +77,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
         initViews()
+        return binding.root
     }
 
     private fun initViews() {
@@ -75,9 +88,11 @@ class HomeFragment : Fragment() {
     private fun initialize() {
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
-
         //키워드 데이터 세팅
         initKeyword()
+
+        //프로그레스바 세팅
+        initGetTodayInfo()
 
         //기본적인 성장 계획 리사이클러뷰로 보여주기
         initHomeTodayGrowthRcv()
@@ -102,27 +117,21 @@ class HomeFragment : Fragment() {
         setChart()
     }
 
-
-    private fun initKeyword(){
+    //뷰모델
+    private fun initKeyword() {
         initKeywordObservers()
-        keywordViewModel.getKeyword("eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            4)
+        keywordViewModel.getKeyword(
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
+            4
+        )
     }
 
-    private fun initKeywordObservers(){
-        keywordViewModel.keywordData.observe(viewLifecycleOwner){ response ->
-            if(response.isSuccessful){
-                response.body()?.result.let { body ->
-                    if(body == null){
-
-                    } else {
-                        binding.homeExpressWithAdjTextView.text = body.keyword_name
-                    }
-                }
-            } else {
-
-            }
-        }
+    private fun initGetTodayInfo(){
+        initGetTodayInfoObservers()
+        getTodayInfoViewModel.getTodayInfo(
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
+            1
+        )
     }
 
     private fun initHomeTodayGrowthRcv() {
@@ -133,22 +142,59 @@ class HomeFragment : Fragment() {
         )
     }
 
-    private fun initObservers() {
-        viewModel.planData.observe(viewLifecycleOwner) { response ->
+    //옵저버
+    private fun initKeywordObservers() {
+        keywordViewModel.keywordData.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.result.let { body ->
+                    if (body == null) {
+                    } else {
+                        binding.homeExpressWithAdjTextView.text = body.keyword_name
+                    }
+                }
+            } else {
+
+            }
+        }
+    }
+
+    private fun initGetTodayInfoObservers(){
+        getTodayInfoViewModel.getTodayInfoData.observe(viewLifecycleOwner){ response ->
             if(response.isSuccessful){
                 response.body()?.result.let { body ->
                     if(body == null){
+
+                    } else{
+                        binding.homeAccomplishTextView.text = "오늘 할 일 ${body.totalPlan}개 중 ${body.completedCount}개를 달성하였습니다"
+                        binding.homeAccomplishProgressBar.max = body.totalPlan
+                        binding.homeAccomplishProgressBar.progress = body.completedCount
+                        binding.homeAccomplishedAmountTextView.text = body.completedCount.toString()
+                        binding.homeTargetAmountTextView.text = body.totalPlan.toString()
+                    }
+                }
+            } else{
+
+            }
+        }
+    }
+
+    private fun initObservers() {
+        viewModel.planData.observe(viewLifecycleOwner) { response ->
+            if (response.isSuccessful) {
+                response.body()?.result.let { body ->
+                    if (body == null) {
                         binding.homeNoResultTv.visibility = View.VISIBLE
                         binding.homeShowMoreBtn.visibility = View.GONE
                     } else {
                         homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(body, isShowMore)
-                        binding.homeAddToDoRcv.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                        binding.homeAddToDoRcv.layoutManager =
+                            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                         binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
                     }
                 }
             } else {
                 //서버에 문제가 생겼을 때
-                Toast.makeText(requireContext(),"문제가 생겼습니다.",Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "문제가 생겼습니다.", Toast.LENGTH_LONG).show()
                 binding.homeNoResultTv.visibility = View.VISIBLE
                 binding.homeNoResultTv.text = "개발자에게 문의해주세요"
                 binding.homeShowMoreBtn.visibility = View.GONE
@@ -157,12 +203,12 @@ class HomeFragment : Fragment() {
     }
 
     //차트
-    private fun setChart(){
+    private fun setChart() {
         configureChartAppearance(binding.homeMyReportChart)
         initReport()
     }
 
-    private fun configureChartAppearance(lineChart: LineChart){
+    private fun configureChartAppearance(lineChart: LineChart) {
         val labels = ArrayList<String>() //라벨
 
         labels.add("")
@@ -199,7 +245,6 @@ class HomeFragment : Fragment() {
         yAxisLeft.setDrawLabels(false)
         yAxisLeft.setDrawGridLines(false)
         yAxisLeft.axisMinimum = 0f //최솟값
-        yAxisLeft.axisMaximum = 7f //최댓값
 
         //YAxis (오른쪽) - 선 유무, 데이터 최솟값/최댓값, 색상
         val yAxis: YAxis = lineChart.axisRight
@@ -207,12 +252,15 @@ class HomeFragment : Fragment() {
         yAxis.setDrawAxisLine(false)
         yAxis.setDrawGridLines(false)
 
-        val markerData= ArrayList<Float>()
+        /*
+        val markerData = ArrayList<Float>()
         markerData.add(4f)
         markerData.add(2f)
         markerData.add(3f)
         markerData.add(5f)
         markerData.add(4f)
+
+         */
 
         //val marker = MyMarkerView(this, layoutResource = R.layout.custom_marker_view)
         //binding.lineChart.marker = marker
@@ -224,74 +272,62 @@ class HomeFragment : Fragment() {
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
             1
         )
+        binding.homeMyReportChart.invalidate()
     }
 
     private fun initReportObservers() {
-        val entry1 = ArrayList<Entry>() //차트 1
-        val entry2 = ArrayList<Entry>() //차트 2
-
-        val chartData = LineData()
-
         reportViewModel.reportData.observe(viewLifecycleOwner) { response ->
-            if(response.isSuccessful){
+            if (response.isSuccessful) {
                 response.body()?.result.let { body ->
-                    if(body == null){
+                    if (body == null) {
 
                     } else {
-                        if(body.completed_five_weeks_ago > 0 || body.completed_four_weeks_ago > 0 || body.completed_three_weeks_ago > 0 || body.completed_two_weeks_ago > 0 || body.completed_last_weeks_ago > 0){
-                            binding.homeMyReportChart.visibility = View.VISIBLE
-                            binding.homeNoReportTv.visibility = View.GONE
+                        entry1.add(Entry(1f, body.completed_five_weeks_ago.toFloat()))
+                        entry1.add(Entry(2f, body.completed_four_weeks_ago.toFloat()))
+                        entry1.add(Entry(3f, body.completed_three_weeks_ago.toFloat()))
+                        entry1.add(Entry(4f, body.completed_two_weeks_ago.toFloat()))
+                        entry1.add(Entry(5f, body.completed_last_weeks_ago.toFloat()))
 
-                            entry1.add(Entry(1f, body.completed_five_weeks_ago.toFloat()))
-                            entry1.add(Entry(2f, body.completed_four_weeks_ago.toFloat()))
-                            entry1.add(Entry(3f, body.completed_three_weeks_ago.toFloat()))
-                            entry1.add(Entry(4f, body.completed_two_weeks_ago.toFloat()))
-                            entry1.add(Entry(5f, body.completed_last_weeks_ago.toFloat()))
+                        entry2.add(Entry(1f, body.total_five_weeks_ago.toFloat()))
+                        entry2.add(Entry(2f, body.total_four_weeks_ago.toFloat()))
+                        entry2.add(Entry(3f, body.total_three_weeks_ago.toFloat()))
+                        entry2.add(Entry(4f, body.total_two_weeks_ago.toFloat()))
+                        entry2.add(Entry(5f, body.total_last_weeks_ago.toFloat()))
 
-                            entry2.add(Entry(1f, body.total_five_weeks_ago.toFloat()))
-                            entry2.add(Entry(2f, body.total_four_weeks_ago.toFloat()))
-                            entry2.add(Entry(3f, body.total_three_weeks_ago.toFloat()))
-                            entry2.add(Entry(4f, body.total_two_weeks_ago.toFloat()))
-                            entry2.add(Entry(5f, body.total_last_weeks_ago.toFloat()))
+                        //Dataset 추가 및 선 커스텀
+                        val lineDataSet1 = LineDataSet(entry1, "첫번째 차트")
+                        chartData.addDataSet(lineDataSet1)
 
-                            //Dataset 추가 및 선 커스텀
-                            val lineDataSet1 = LineDataSet(entry1,"첫번째 차트")
-                            chartData.addDataSet(lineDataSet1)
+                        lineDataSet1.lineWidth = 1.5f
+                        lineDataSet1.circleRadius = 4f
+                        lineDataSet1.setDrawValues(false)
+                        lineDataSet1.setDrawCircleHole(false)
+                        lineDataSet1.setDrawCircles(true)
+                        lineDataSet1.setDrawFilled(true)
+                        lineDataSet1.setDrawHighlightIndicators(false)
+                        lineDataSet1.setDrawHorizontalHighlightIndicator(false)
+                        lineDataSet1.color = resources.getColor(R.color.purple_896DF3)
+                        lineDataSet1.setCircleColors(resources.getColor(R.color.purple_896DF3))
+                        lineDataSet1.fillDrawable =
+                            resources.getDrawable(R.drawable.shape_chart_fill)
 
-                            lineDataSet1.lineWidth = 1.5f
-                            lineDataSet1.circleRadius = 4f
-                            lineDataSet1.setDrawValues(false)
-                            lineDataSet1.setDrawCircleHole(false)
-                            lineDataSet1.setDrawCircles(true)
-                            lineDataSet1.setDrawFilled(true)
-                            lineDataSet1.setDrawHighlightIndicators(false)
-                            lineDataSet1.setDrawHorizontalHighlightIndicator(false)
-                            lineDataSet1.color = resources.getColor(R.color.purple_896DF3)
-                            lineDataSet1.setCircleColors(resources.getColor(R.color.purple_896DF3))
-                            lineDataSet1.fillDrawable = resources.getDrawable(R.drawable.shape_chart_fill)
+                        val lineDataSet2 = LineDataSet(entry2, "두번째 차트")
+                        chartData.addDataSet(lineDataSet2)
 
-                            val lineDataSet2 = LineDataSet(entry2,"두번째 차트")
-                            chartData.addDataSet(lineDataSet2)
+                        lineDataSet2.lineWidth = 1.5f
+                        lineDataSet2.circleRadius = 4f
+                        lineDataSet2.setDrawValues(false)
+                        lineDataSet2.setDrawCircleHole(false)
+                        lineDataSet2.setDrawCircles(true)
+                        lineDataSet2.setDrawHighlightIndicators(false)
+                        lineDataSet2.setDrawHorizontalHighlightIndicator(false)
+                        lineDataSet2.color = resources.getColor(R.color.green_63F3C8)
+                        lineDataSet2.setCircleColors(resources.getColor(R.color.green_63F3C8))
 
-                            lineDataSet2.lineWidth = 1.5f
-                            lineDataSet2.circleRadius = 4f
-                            lineDataSet2.setDrawValues(false)
-                            lineDataSet2.setDrawCircleHole(false)
-                            lineDataSet2.setDrawCircles(true)
-                            lineDataSet2.setDrawHighlightIndicators(false)
-                            lineDataSet2.setDrawHorizontalHighlightIndicator(false)
-                            lineDataSet2.color = resources.getColor(R.color.green_63F3C8)
-                            lineDataSet2.setCircleColors(resources.getColor(R.color.green_63F3C8))
-
-                            binding.homeMyReportChart.data = chartData
-                            binding.homeMyReportChart.invalidate()
-                        } else{
-                            binding.homeMyReportChart.visibility = View.GONE
-                            binding.homeNoReportTv.visibility = View.VISIBLE
-                        }
-
-
+                        binding.homeMyReportChart.data = chartData
+                        binding.homeMyReportChart.invalidate()
                     }
+
                 }
             } else {
                 //서버에 문제가 생겼을 때
