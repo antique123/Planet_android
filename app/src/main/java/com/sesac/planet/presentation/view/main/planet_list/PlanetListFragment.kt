@@ -5,16 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
+import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
-import com.sesac.planet.presentation.viewmodel.main.PlanetInfoViewModel
-import com.sesac.planet.presentation.viewmodel.main.PlanetViewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.planet.PlanetInfoViewModel
+import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetListFragment : Fragment() {
@@ -48,7 +47,7 @@ class PlanetListFragment : Fragment() {
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
     }
 
-    private fun initView(){
+    private fun initView() {
         initPlanetListRecyclerView()
         binding.planetListMenuOptionBtn.setOnClickListener {
             val intent = Intent(requireContext(), CreatePlanetActivity::class.java)
@@ -59,18 +58,19 @@ class PlanetListFragment : Fragment() {
     private fun initPlanetListRecyclerView() {
         initObservers()
         viewModel.getPlanet(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            4
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            6
         )
     }
 
     private fun initObservers() {
         viewModel.planetData.observe(viewLifecycleOwner) { response ->
-            if(response.isSuccessful){
+            if (response.isSuccessful) {
                 response.body()?.result.let { body ->
                     if (body == null) {
                         //연결은 됐지만 값이 없을 때
-                        Toast.makeText(requireContext(), "연결은 됐지만 값이 없습니다.", Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), "연결은 됐지만 값이 없습니다.", Toast.LENGTH_LONG)
+                            .show()
                     } else {
                         planetListAdapter = PlanetListAdapter(body)
                         binding.planetListRecyclerView.layoutManager =
@@ -86,9 +86,10 @@ class PlanetListFragment : Fragment() {
                                     startActivity(intent)
                                 }
                             })
+
                     }
                 }
-            } else{
+            } else {
                 //서버에 문제가 생겼을 때
                 Toast.makeText(requireContext(), "서버 문제가 생겼습니다.", Toast.LENGTH_LONG).show()
             }

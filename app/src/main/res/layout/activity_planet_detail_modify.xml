@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".presentation.view.main.planet_list.PlanetDetailModifyActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/planet_detail_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/planet_detail_modify_back_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/planet_detail_modify_planet_name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:hint="다이어트 행성"
+            android:textColorHint="@color/gray_C4C4C4"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:textCursorDrawable="@drawable/custom_cursor"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/planet_detail_modify_back_image_view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_rectangle_radius_10dp_purple_stroke"
+            android:paddingLeft="12dp"
+            android:paddingTop="4dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/planet_detail_modify_finish_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수정완료"
+                android:textColor="@color/purple_896DF3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/planet_detail_title_layout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/planet_detail_title_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="15dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <ImageView
-                    android:id="@+id/planet_detail_modify_back_image_view"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
-
-                <TextView
-                    android:id="@+id/planet_detail_modify_planet_name_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="다이어트 행성"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintLeft_toRightOf="@+id/planet_detail_modify_back_image_view"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="4dp"
-                    android:paddingRight="12dp"
-                    android:paddingBottom="4dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/planet_detail_modify_menu_image_view"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <TextView
-                        android:id="@+id/planet_detail_modify_finish_btn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="수정완료"
-                        android:textColor="@color/black"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <ImageView
-                    android:id="@+id/planet_detail_modify_menu_image_view"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/planet_detail_modify_image_layout"
@@ -87,39 +87,65 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/planet_detail_title_layout">
+                app:layout_constraintTop_toTopOf="parent">
 
-                <ImageView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintDimensionRatio="1:1"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/planet_detail_modify_img_name_tv"
-                    android:layout_width="wrap_content"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/planet_detail_image_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="다이어트\n행성 이미지"
-                    android:textColor="@color/white"
-                    android:textSize="20dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintRight_toRightOf="parent">
+
+                    <ImageView
+                        android:id="@+id/planet_detail_modify_planet_img"
+                        android:layout_width="230dp"
+                        android:layout_height="230dp"
+                        android:src="@drawable/shape_oval_planet"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <ImageView
+                            android:id="@+id/create_planet_img"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:src="@drawable/ic_plus_gray"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="행성 색 편집하기"
+                            android:textColor="@color/gray_basic_font"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/create_planet_img"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/planet_detail_modify_explain_planet_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="20dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                 android:elevation="5dp"
@@ -144,7 +170,10 @@
                     android:layout_marginLeft="30dp"
                     android:background="@null"
                     android:hint="반년간 OO키로 빼서 수영장 갈 것.\n목표체중은 OOkg이다~!!!"
-                    android:textSize="15dp"
+                    android:textSize="14dp"
+                    android:gravity="top"
+                    android:textCursorDrawable="@drawable/custom_cursor"
+                    android:textColor="@color/gray_C4C4C4"
                     app:layout_constraintLeft_toRightOf="@+id/planet_detail_modify_explain_planet_title_text_view"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -155,9 +184,9 @@
                 android:id="@+id/planet_detail_modify_growth_level_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/planet_detail_modify_explain_planet_layout">
@@ -167,7 +196,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="성장단계"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray_basic_font"
                     android:textSize="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -185,6 +214,7 @@
                     android:paddingRight="12dp"
                     android:paddingBottom="1dp"
                     android:text="LV.1"
+                    android:textSize="12dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/planet_detail_modify_growth_level_title_text_view"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -194,9 +224,9 @@
                 android:id="@+id/planet_detail_modify_achievement_rate_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="15dp"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="20dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/planet_detail_modify_growth_level_layout">
@@ -206,7 +236,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="성취율"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray_basic_font"
                     android:textSize="16dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -239,9 +269,9 @@
                     android:id="@+id/planet_detail_modify_details_plan_title_text_view"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:text="세부계획"
-                    android:textColor="@color/black"
+                    android:textColor="@color/gray_basic_font"
                     android:textSize="16dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -250,36 +280,50 @@
                     android:id="@+id/planet_detail_modify_details_plan_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
                     android:elevation="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/planet_detail_modify_details_plan_title_text_view"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintTop_toBottomOf="@+id/planet_detail_modify_details_plan_title_text_view">
+
+                    <TextView
+                        android:id="@+id/planet_detail_modify_details_plan_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="현재 만든 세부 계획이 없습니다"
+                        android:textColor="@color/gray_C4C4C4"
+                        android:textSize="14dp"
+                        android:gravity="center"
+                        android:padding="20dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toTopOf="@+id/planet_detail_modify_add_plans_btn"
+                        android:visibility="gone"/>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/planet_detail_modify_details_plan_recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:layout_marginTop="5dp"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        tools:listitem="@layout/item_planet_detail_details_modify_plan"/>
+                        app:layout_constraintBottom_toTopOf="@+id/planet_detail_modify_add_plans_btn"
+                        tools:listitem="@layout/item_planet_detail_details_modify_plan" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/planet_detail_add_plans_btn"
+                        android:id="@+id/planet_detail_modify_add_plans_btn"
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:background="@drawable/shape_rectangle_radius_10dp"
                         android:backgroundTint="@color/purple_E0DFFE"
-                        app:layout_constraintTop_toBottomOf="@+id/planet_detail_modify_details_plan_recycler_view"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent">
@@ -288,12 +332,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+"
-                            android:textSize="28dp"
                             android:textColor="@color/white"
-                            app:layout_constraintTop_toTopOf="parent"
+                            android:textSize="28dp"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintRight_toRightOf="parent"/>
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>

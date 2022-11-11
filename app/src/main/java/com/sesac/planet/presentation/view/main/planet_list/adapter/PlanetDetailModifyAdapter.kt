@@ -6,13 +6,14 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.sesac.planet.data.model.ResultPlanetDetailPlan
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsModifyPlanBinding
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsPlanBinding
 import com.sesac.planet.presentation.view.main.planet_list.ItemActionListener
 import com.sesac.planet.presentation.view.main.planet_list.ItemDragListener
 
 class PlanetDetailModifyAdapter(
-    private val items: MutableList<String>,
+    private val items: MutableList<ResultPlanetDetailPlan>,
     private val listener: ItemDragListener
 ): RecyclerView.Adapter<PlanetDetailModifyAdapter.PlanDetailModifyViewHolder>(), ItemActionListener {
     @SuppressLint("ClickableViewAccessibility")
@@ -30,16 +31,19 @@ class PlanetDetailModifyAdapter(
 
             binding.itemPlanetDetailModifyDeleteImageView.setOnClickListener {
                 val position: Int = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    if (itemClickListener != null) {
-                        itemClickListener.onDeleteClick(it, position)
-                    }
-                }
+                //삭제
             }
         }
 
         fun bind(position: Int) {
-            //binding.itemPlanetDetailModifyToDoTextView.text = items[position]
+            binding.itemPlanetDetailModifyToDoTextView.hint = items!![position].plan_name
+
+            if(items!![position].type.contains(":")){
+                binding.itemPlanetDetailModifyDurationTextView.text = items!![position].type.substring(5)
+            } else{
+                binding.itemPlanetDetailModifyDurationTextView.text = items!![position].type
+            }
+
         }
     }
 

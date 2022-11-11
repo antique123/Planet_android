@@ -279,6 +279,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dialog_home_ok_btn"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/shape_rectangle_radius_10dp_gray_solid"

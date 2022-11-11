@@ -8,9 +8,9 @@ import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.Goal
 import com.sesac.planet.data.model.MakeJourneyRequest
 import com.sesac.planet.data.model.MakeJourneyResponse
-import com.sesac.planet.data.repository.PlanRepository
+import com.sesac.planet.data.repository.main.plan.PlanRepository
 import com.sesac.planet.domain.usecase.MakeJourneyUseCase
-import com.sesac.planet.network.PlanAPI
+import com.sesac.planet.network.main.plan.PlanAPI
 import kotlinx.coroutines.launch
 import retrofit2.Response
 

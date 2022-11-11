@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.report.GetTodayInfoResponse
-import com.sesac.planet.data.repository.report.GetTodayInfoRepository
-import com.sesac.planet.domain.usecase.report.GetTodayInfoUseCase
-import com.sesac.planet.network.report.GetTodayInfoAPI
+import com.sesac.planet.data.repository.main.report.GetTodayInfoRepository
+import com.sesac.planet.domain.usecase.main.report.GetTodayInfoUseCase
+import com.sesac.planet.network.main.report.GetTodayInfoAPI
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
@@ -21,9 +21,11 @@ class GetTodayInfoViewModel(private val getTodayInfoUseCase: GetTodayInfoUseCase
     }
 
     fun getTodayInfo(token: String, userId: Int){
-        viewModelScope.launch {
-            val response = getTodayInfoUseCase(token, userId)
-            _getTodayInfoData.value = response
+        if(_getTodayInfoData.value == null){
+            viewModelScope.launch {
+                val response = getTodayInfoUseCase(token, userId)
+                _getTodayInfoData.value = response
+            }
         }
     }
 }
