@@ -2,6 +2,7 @@ package com.sesac.planet.presentation.view.main.home
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,16 +19,18 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.sesac.planet.R
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
+import com.sesac.planet.presentation.viewmodel.main.KeywordViewModel
 import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModelFactory
-import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModel
 import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PlanViewModel
 import com.sesac.planet.presentation.viewmodel.main.plan.PlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModel
 import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModel
 import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModelFactory
+import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment() {

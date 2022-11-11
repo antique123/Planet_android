@@ -111,6 +111,7 @@ class EmailAuthFragment : Fragment() {
             when(response.body()?.code) {
                 1000 -> {
                     binding.startNextPageButton.isEnabled = true
+                    viewModel.userEmail = binding.inputEmailEditText.text.toString().trim()
                     Snackbar.make(binding.root, "이메일 인증에 성공하였습니다.", Snackbar.LENGTH_SHORT).show()
 
                 } else -> {

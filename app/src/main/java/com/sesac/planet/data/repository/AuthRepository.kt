@@ -1,9 +1,6 @@
 package com.sesac.planet.data.repository
 
-import com.sesac.planet.data.model.AuthCodeVerifyRequest
-import com.sesac.planet.data.model.AuthCodeVerifyResponse
-import com.sesac.planet.data.model.KakaoLoginResponse
-import com.sesac.planet.data.model.RequestEmailAuthCodeResponse
+import com.sesac.planet.data.model.*
 import com.sesac.planet.network.LoginAPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -32,4 +29,19 @@ object AuthRepository {
         return response
     }
 
+    suspend fun requestEmailSignUp(request: EmailSignUpRequest): Response<EmailSignUpResponse> {
+        val response: Response<EmailSignUpResponse>
+        withContext(Dispatchers.IO) {
+            response = loginAPI.requestEmailSignUp(request)
+        }
+        return response
+    }
+
+    suspend fun requestEmailSignIn(request: EmailSignInRequest): Response<EmailSignInResponse> {
+        val response: Response<EmailSignInResponse>
+        withContext(Dispatchers.IO) {
+            response = loginAPI.requestEmailSignIn(request)
+        }
+        return response
+    }
 }

@@ -1,9 +1,6 @@
 package com.sesac.planet.network
 
-import com.sesac.planet.data.model.AuthCodeVerifyRequest
-import com.sesac.planet.data.model.AuthCodeVerifyResponse
-import com.sesac.planet.data.model.KakaoLoginResponse
-import com.sesac.planet.data.model.RequestEmailAuthCodeResponse
+import com.sesac.planet.data.model.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.Header
@@ -27,4 +24,14 @@ interface LoginAPI {
         @Header("X-ACCESS-TOKEN") token: String,
         @Body request: AuthCodeVerifyRequest
     ): Response<AuthCodeVerifyResponse>
+
+    @POST("/users/create")
+    suspend fun requestEmailSignUp(
+        @Body request: EmailSignUpRequest
+    ): Response<EmailSignUpResponse>
+
+    @POST("/users/logIn")
+    suspend fun requestEmailSignIn(
+        @Body request: EmailSignInRequest
+    ): Response<EmailSignInResponse>
 }
