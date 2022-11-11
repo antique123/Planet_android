@@ -1,5 +1,6 @@
-package com.sesac.planet.presentation.viewmodel.main.home
+package com.sesac.planet.presentation.viewmodel.main
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,14 +13,21 @@ import com.sesac.planet.network.main.home.KeywordAPI
 import kotlinx.coroutines.launch
 import retrofit2.Response
 
-class KeywordViewModel(private val getKeywordUseCase: GetKeywordUseCase): ViewModel() {
+class KeywordViewModel(private val getKeywordUseCase: GetKeywordUseCase) : ViewModel() {
     private val _keywordData = MutableLiveData<Response<KeywordResponse>>()
     val keywordData: LiveData<Response<KeywordResponse>> get() = _keywordData
 
     init {
-        KeywordRepository.keywordService = PlanetApplication.getInstance().create(KeywordAPI::class.java)
+        KeywordRepository.keywordService =
+            PlanetApplication.getInstance().create(KeywordAPI::class.java)
     }
 
+    fun getKeyword(token: String, journeyId: Int) {
+        if (_keywordData.value == null) {
+            viewModelScope.launch {
+                val response = getKeywordUseCase(token, journeyId)
+                _keywordData.value = response
+            }
     fun getKeyword(token: String, journeyId: Int){
         if(_keywordData.value == null){
             viewModelScope.launch {
