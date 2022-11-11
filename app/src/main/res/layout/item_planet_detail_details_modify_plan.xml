@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:hint="헬스장 알아보러가기"
         android:textSize="14dp"
+        android:textColor="@color/gray_737373"
         android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/item_planet_detail_modify_duration_layout"
@@ -30,6 +31,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/item_planet_detail_modify_duration_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
@@ -38,6 +40,7 @@
             android:paddingRight="10dp"
             android:paddingBottom="2dp"
             android:text="1회성"
+            android:textColor="@color/gray_737373"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

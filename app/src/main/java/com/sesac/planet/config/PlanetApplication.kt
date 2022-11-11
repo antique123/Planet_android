@@ -1,5 +1,6 @@
 package com.sesac.planet.config
 
+import android.app.Activity
 import android.app.Application
 import android.content.SharedPreferences
 import com.kakao.sdk.common.KakaoSdk
@@ -60,6 +61,4 @@ class PlanetApplication : Application() {
     private fun initSharedPreferences() {
         sharedPreferences = applicationContext.getSharedPreferences("PLANET_SF", MODE_PRIVATE)
     }
-
-
 }

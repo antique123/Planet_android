@@ -2,7 +2,6 @@ package com.sesac.planet.presentation.view.main.home
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,10 +20,14 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.sesac.planet.R
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
-import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
-import com.sesac.planet.presentation.viewmodel.factory.GetTodayInfoViewModelFactory
-import com.sesac.planet.presentation.viewmodel.main.*
+import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModel
+import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.plan.PlanViewModel
+import com.sesac.planet.presentation.viewmodel.main.plan.PlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModel
+import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModel
+import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 class HomeFragment : Fragment() {
@@ -121,24 +124,24 @@ class HomeFragment : Fragment() {
     private fun initKeyword() {
         initKeywordObservers()
         keywordViewModel.getKeyword(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            4
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            6
         )
     }
 
     private fun initGetTodayInfo(){
         initGetTodayInfoObservers()
         getTodayInfoViewModel.getTodayInfo(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            1
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            11
         )
     }
 
     private fun initHomeTodayGrowthRcv() {
         initObservers()
         viewModel.getPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            4
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            6
         )
     }
 
@@ -259,8 +262,7 @@ class HomeFragment : Fragment() {
         markerData.add(3f)
         markerData.add(5f)
         markerData.add(4f)
-
-         */
+        */
 
         //val marker = MyMarkerView(this, layoutResource = R.layout.custom_marker_view)
         //binding.lineChart.marker = marker
@@ -269,8 +271,8 @@ class HomeFragment : Fragment() {
     private fun initReport() {
         initReportObservers()
         reportViewModel.getReport(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxLCJpYXQiOjE2NjY1OTQwOTcsImV4cCI6MTY2ODA2NTMyNn0.Ro1EyIxo44NIi1Jos7ssbCvkDdlSWhYPIBaMfabY7QQ",
-            1
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            11
         )
         binding.homeMyReportChart.invalidate()
     }
@@ -327,7 +329,6 @@ class HomeFragment : Fragment() {
                         binding.homeMyReportChart.data = chartData
                         binding.homeMyReportChart.invalidate()
                     }
-
                 }
             } else {
                 //서버에 문제가 생겼을 때
