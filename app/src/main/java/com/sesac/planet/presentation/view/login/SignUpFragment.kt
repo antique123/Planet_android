@@ -59,6 +59,7 @@ class SignUpFragment : Fragment() {
     private fun initialize() {
         initViews()
         initObservers()
+
     }
 
     private fun initViews() {

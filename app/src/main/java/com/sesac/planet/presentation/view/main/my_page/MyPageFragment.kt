@@ -32,15 +32,6 @@ class MyPageFragment : Fragment()  {
         super.onViewCreated(view, savedInstanceState)
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
         initialize()
-        /*
-        binding.myPageReportLayout.setOnClickListener {
-            val intent = Intent(requireContext(), ReportActivity::class.java)
-            startActivity(intent)
-        }
-
-         */
-
-
     }
 
     private fun initialize() {
