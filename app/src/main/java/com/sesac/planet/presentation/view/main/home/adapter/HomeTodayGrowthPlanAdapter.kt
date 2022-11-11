@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
-import com.sesac.planet.data.model.ResultTodayGrowthPlans
+import com.sesac.planet.data.model.plan.ResultTodayGrowthPlans
 import com.sesac.planet.databinding.ItemHomeTodayGrowthPlanBinding
 
 class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, private val isShowMore: Boolean) : RecyclerView.Adapter<HomeTodayGrowthPlanAdapter.HomeTodayGrowthPlanViewHolder>(){

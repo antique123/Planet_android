@@ -3,7 +3,6 @@ package com.sesac.planet.presentation.view.main.planet_list
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.sesac.planet.databinding.ActivityCreatePlanetBinding
-import com.sesac.planet.presentation.view.settings.HomeAddToDoDialog
 import com.sesac.planet.utility.SystemUtility
 
 class CreatePlanetActivity : AppCompatActivity() {
