@@ -139,6 +139,7 @@ class PreviewMyPlanningFragment : Fragment() {
                     Snackbar.make(binding.root, "여정을 등록했습니다.", Snackbar.LENGTH_SHORT).show()
                     PlanetApplication.sharedPreferences.edit {
                         putBoolean(Constant.IS_ALREADY_CREATED_JOURNEY, true)
+                        putInt(Constant.JOURNEY_ID, response.body()?.result?.journey_id!!)
                     }
                     activity.startMainActivity()
                 }
