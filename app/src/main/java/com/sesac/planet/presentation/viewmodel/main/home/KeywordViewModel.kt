@@ -20,9 +20,9 @@ class KeywordViewModel(private val getKeywordUseCase: GetKeywordUseCase) : ViewM
         KeywordRepository.keywordService =
             PlanetApplication.getInstance().create(KeywordAPI::class.java)
     }
-
-    fun getKeyword(token: String, journeyId: Int) {
-        if (_keywordData.value == null) {
+    
+    fun getKeyword(token: String, journeyId: Int){
+        if(_keywordData.value == null){
             viewModelScope.launch {
                 val response = getKeywordUseCase(token, journeyId)
                 _keywordData.value = response
