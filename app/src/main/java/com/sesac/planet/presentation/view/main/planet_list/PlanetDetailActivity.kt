@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +18,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailActivity : AppCompatActivity()  {
+class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch  {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
@@ -102,7 +103,7 @@ class PlanetDetailActivity : AppCompatActivity()  {
                             binding.planetDetailDetailsPlanRecyclerView.visibility = View.VISIBLE
                             binding.planetDetailDetailsPlanTextView.visibility = View.GONE
 
-                            planetDetailAdapter = PlanetDetailAdapter(body.plans)
+                            planetDetailAdapter = PlanetDetailAdapter(body.plans, this)
                             binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                             binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
                         } else{
@@ -115,4 +116,11 @@ class PlanetDetailActivity : AppCompatActivity()  {
         }
     }
 
+    override fun getDetailPlansIdForPatch(detailedId: Int?) {
+        if(detailedId != null){
+            //Toast.makeText(this, "$detailedId", Toast.LENGTH_SHORT).show()
+            //여기서 API 연결
+
+        }
+    }
 }

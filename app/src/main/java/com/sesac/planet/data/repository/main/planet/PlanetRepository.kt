@@ -1,6 +1,6 @@
 package com.sesac.planet.data.repository.main.planet
 
-import com.sesac.planet.data.model.PlanetInfoResponse
+import com.sesac.planet.data.model.planet.PlanetInfoResponse
 import com.sesac.planet.network.main.planet.PlanetInfoAPI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
