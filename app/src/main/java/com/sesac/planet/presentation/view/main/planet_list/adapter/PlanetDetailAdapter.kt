@@ -9,7 +9,7 @@ import com.sesac.planet.data.model.ResultPlanetDetailPlan
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsPlanBinding
 import com.sesac.planet.presentation.view.main.planet_list.DetailPlansIdForPatch
 
-class PlanetDetailAdapter(val items: List<ResultPlanetDetailPlan>) :
+class PlanetDetailAdapter(val items: List<ResultPlanetDetailPlan>, private val patchDetailPlan: DetailPlansIdForPatch) :
     RecyclerView.Adapter<PlanetDetailAdapter.PlanetDetailViewHolder>() {
 
     override fun onCreateViewHolder(
@@ -49,10 +49,8 @@ class PlanetDetailAdapter(val items: List<ResultPlanetDetailPlan>) :
             binding.itemPlanetDetailCheckBox.isChecked = isCompleted
 
             binding.itemPlanetDetailCheckBox.setOnCheckedChangeListener { buttonView, isChecked ->
-                Toast.makeText(binding.root.context, "${items!![position].detailed_plan_id}", Toast.LENGTH_LONG).show()
-
-                //API 연결
-                //patchDetailPlan.getDetailPlansIdForPatch(items!![position].detailed_plan_id)
+                //세부계획 완료, 미완료 처리를 위해 Activity로 데이터 전달
+                patchDetailPlan.getDetailPlansIdForPatch(items!![position].detailed_plan_id)
             }
         }
     }
