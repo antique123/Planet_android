@@ -1,6 +1,5 @@
-package com.sesac.planet.presentation.viewmodel.main
+package com.sesac.planet.presentation.viewmodel.main.home
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -24,12 +23,6 @@ class KeywordViewModel(private val getKeywordUseCase: GetKeywordUseCase) : ViewM
 
     fun getKeyword(token: String, journeyId: Int) {
         if (_keywordData.value == null) {
-            viewModelScope.launch {
-                val response = getKeywordUseCase(token, journeyId)
-                _keywordData.value = response
-            }
-    fun getKeyword(token: String, journeyId: Int){
-        if(_keywordData.value == null){
             viewModelScope.launch {
                 val response = getKeywordUseCase(token, journeyId)
                 _keywordData.value = response

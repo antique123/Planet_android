@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
-import com.sesac.planet.data.model.ResultPlanetInfo
+import com.sesac.planet.data.model.planet.ResultPlanetInfo
 import com.sesac.planet.databinding.ItemDialogAddToDoPlanetBinding
 import com.sesac.planet.presentation.view.main.home.OnSelectPlanetResult
 

@@ -1,6 +1,7 @@
-package com.sesac.planet.data.model
+package com.sesac.planet.data.model.planet
 
 import com.google.gson.annotations.SerializedName
+import com.sesac.planet.data.model.BaseResponse
 
 data class PlanetInfoResponse(
     @SerializedName("result") val result: List<ResultPlanetInfo>
