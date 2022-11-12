@@ -287,6 +287,9 @@ class HomeFragment : Fragment() {
                     if (body == null) {
 
                     } else {
+                        entry1.clear()
+                        entry2.clear()
+
                         entry1.add(Entry(1f, body.completed_five_weeks_ago.toFloat()))
                         entry1.add(Entry(2f, body.completed_four_weeks_ago.toFloat()))
                         entry1.add(Entry(3f, body.completed_three_weeks_ago.toFloat()))

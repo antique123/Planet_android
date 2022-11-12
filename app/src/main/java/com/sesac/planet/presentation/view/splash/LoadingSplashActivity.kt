@@ -7,7 +7,6 @@ import android.util.Log
 import com.kakao.sdk.common.util.Utility
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.ActivityLoadingSplashBinding
-import com.sesac.planet.presentation.view.login.LoginActivity
 import com.sesac.planet.presentation.view.main.MainActivity
 import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
@@ -43,9 +42,9 @@ class LoadingSplashActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.Main).launch {
                 delay(Constant.SPLASH_ANIMATION_MILLIS)
                 //ToDO
-                startActivity(Intent(this@LoadingSplashActivity, LoginActivity::class.java))
+                //startActivity(Intent(this@LoadingSplashActivity, LoginActivity::class.java))
                 //startActivity(Intent(this@SplashActivity, MakePlanningActivity::class.java))
-                //startActivity(Intent(this@LoadingSplashActivity, MainActivity::class.java))
+                startActivity(Intent(this@LoadingSplashActivity, MainActivity::class.java))
                 finish()
             }
         }
