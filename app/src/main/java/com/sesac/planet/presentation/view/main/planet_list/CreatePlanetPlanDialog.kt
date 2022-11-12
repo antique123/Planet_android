@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import com.sesac.planet.R
-import com.sesac.planet.data.model.plan.CreatePlanetPlanData
 import com.sesac.planet.databinding.DialogCreatePlanetPlanBinding
 
 class CreatePlanetPlanDialog(private val onGetCreatePlanetPlanResult: OnGetCreatePlanetPlanResult) : DialogFragment() {
@@ -45,8 +44,7 @@ class CreatePlanetPlanDialog(private val onGetCreatePlanetPlanResult: OnGetCreat
             }
         }
 
-        //planList.add(CreatePlanetPlanData(planContent, getType()))
-        binding.createPlanetSaveBtn.setOnClickListener {
+        binding.createPlanetPlanSaveBtn.setOnClickListener {
             onGetCreatePlanetPlanResult.onGetCreatePlanetPlanResult(binding.dialogCreateToDoEditText.text.toString(), getType())
             dismiss()
         }

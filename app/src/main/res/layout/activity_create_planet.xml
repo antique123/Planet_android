@@ -46,6 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/create_planet_save_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/shape_rectangle_radius_10dp_gray_stroke_white_solid"
@@ -156,11 +157,11 @@
                     android:text="행성설명"
                     android:textColor="@color/gray_basic_font"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toLeftOf="@+id/planet_detail_explain_planet_text_view"
+                    app:layout_constraintRight_toLeftOf="@+id/create_planet_explain_planet_text_view"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
-                    android:id="@+id/planet_detail_explain_planet_text_view"
+                    android:id="@+id/create_planet_explain_planet_text_view"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="24dp"

@@ -3,10 +3,10 @@ package com.sesac.planet.presentation.view.main.planet_list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.data.model.plan.CreatePlanetPlanData
+import com.sesac.planet.data.model.planet.CreateNewPlanetPlanListRequest
 import com.sesac.planet.databinding.ItemCreatePlanetPlanBinding
 
-class CreateDetailPlanAdapter(val items: List<CreatePlanetPlanData>?): RecyclerView.Adapter<CreateDetailPlanAdapter.ViewHolder>() {
+class CreateDetailPlanAdapter(val items: List<CreateNewPlanetPlanListRequest>?): RecyclerView.Adapter<CreateDetailPlanAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding = ItemCreatePlanetPlanBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
