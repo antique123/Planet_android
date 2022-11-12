@@ -7,6 +7,7 @@ import android.util.Log
 import com.kakao.sdk.common.util.Utility
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.ActivityLoadingSplashBinding
+import com.sesac.planet.presentation.view.login.LoginActivity
 import com.sesac.planet.presentation.view.main.MainActivity
 import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
