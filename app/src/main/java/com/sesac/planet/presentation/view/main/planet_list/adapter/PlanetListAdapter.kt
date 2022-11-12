@@ -2,15 +2,12 @@ package com.sesac.planet.presentation.view.main.planet_list.adapter
 
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.PorterDuff
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.progressindicator.IndeterminateDrawable
-import com.sesac.planet.data.model.ResultPlanetInfo
+import com.sesac.planet.data.model.planet.ResultPlanetInfo
 import com.sesac.planet.databinding.ItemPlanetListBinding
 
 class PlanetListAdapter(val items: List<ResultPlanetInfo>?) : RecyclerView.Adapter<PlanetListAdapter.PlanetListViewHolder>(){

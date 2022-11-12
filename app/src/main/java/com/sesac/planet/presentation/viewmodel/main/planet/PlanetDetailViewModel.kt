@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sesac.planet.config.PlanetApplication
-import com.sesac.planet.data.model.PlanetDetailInfoResponse
+import com.sesac.planet.data.model.planet.PlanetDetailInfoResponse
 import com.sesac.planet.data.repository.main.planet.PlanetDetailRepository
 import com.sesac.planet.domain.usecase.main.planet.GetPlanetDetailInfoUseCase
 import com.sesac.planet.network.main.planet.PlanetDetailAPI
