@@ -23,7 +23,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactor
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
 
-class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
+class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : DialogFragment(), OnSelectPlanetResult {
     private lateinit var binding: DialogHomeAddToDoBinding
 
     private lateinit var dialogSelectAdapter: DialogSelectAdapter
@@ -34,13 +34,6 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
             this,
             PlanetViewModelFactory()
         )[PlanetInfoViewModel::class.java]
-    }
-
-    private val postDetailPlanViewModel by lazy {
-        ViewModelProvider(
-            this,
-            PostDetailPlanViewModelFactory()
-        )[PostDetailPlanViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,7 +72,7 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
 
         //계획 저장하기
         binding.dialogHomeOkBtn.setOnClickListener {
-            initPostDetailPlan()
+            onPostDetailPlan.onPostDetailPlan(selectedPlanetId, binding.dialogHomeToDoEditText.text.toString(), getType())
             dismiss()
         }
     }
@@ -95,14 +88,6 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
         viewModel.getPlanet(
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
             6
-        )
-    }
-
-    //오늘의 성장 계획 추가하기
-    private fun initPostDetailPlan() {
-        postDetailPlanViewModel.postDetailPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6, selectedPlanetId, PostDetailPlanRequest(binding.dialogHomeToDoEditText.text.toString(),getType())
         )
     }
 

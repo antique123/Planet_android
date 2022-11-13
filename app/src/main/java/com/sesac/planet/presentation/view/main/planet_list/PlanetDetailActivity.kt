@@ -25,7 +25,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGetCreatePlanetPlanResult, DialogInterface.OnDismissListener  {
+class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGetCreatePlanetPlanResult  {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
@@ -83,10 +83,6 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
         binding.planetDetailAddPlansBtn.setOnClickListener {
             CreatePlanetPlanDialog(this).show(supportFragmentManager, "dialog")
         }
-    }
-
-    override fun onDismiss(dialog: DialogInterface?) {
-        planetDetailAdapter.notifyDataSetChanged()
     }
 
     private fun setData(){
@@ -149,6 +145,8 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
                 detailedId
             )
         }
+
+        initialize()
     }
 
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {

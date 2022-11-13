@@ -1,6 +1,9 @@
 package com.sesac.planet.presentation.view.main.home.adapter
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
@@ -31,6 +34,11 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
         fun bind(position: Int){
             binding.itemHomeTodayGrowthPlanTextView.text = items!![position].plan_content
 
+            when(items!![position].is_completed){
+                1 -> binding.itemHomeTodayGrowthPlanTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#E1E1E1")))
+                0 -> binding.itemHomeTodayGrowthPlanTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#5E5E5E")))
+            }
+
             when(items!![position].color){
                 "#896DF3" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_purple)
                 "#7AE3AA" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mint)
@@ -45,7 +53,21 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
                 else -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_basic)
             }
 
+            binding.root.setOnClickListener {
+                binding.itemHomeTodayGrowthPlanTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#E1E1E1")))
+                itemClickListener.onClick(it, position, items!![position].detailed_plan_id)
+            }
+
         }
     }
 
+    interface OnItemClickListener{
+        fun onClick(v: View, position: Int, detailedPlanId: Int)
+    }
+
+    fun setItemClickListener(onItemClickListener: OnItemClickListener){
+        this.itemClickListener = onItemClickListener
+    }
+
+    private lateinit var itemClickListener: OnItemClickListener
 }
