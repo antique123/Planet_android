@@ -1,6 +1,5 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
-import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.graphics.Color
@@ -13,7 +12,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentActivity
 import com.sesac.planet.R
 import com.sesac.planet.databinding.DialogCreatePlanetPlanBinding
 
@@ -58,10 +56,6 @@ class CreatePlanetPlanDialog(private val onGetCreatePlanetPlanResult: OnGetCreat
     override fun onResume() {
         super.onResume()
         context?.dialogFragmentResize(this, 0.9f)
-    }
-
-    override fun onDismiss(dialog: DialogInterface) {
-        super.onDismiss(dialog)
     }
 
     //타입 데이터 저장하기

@@ -22,7 +22,7 @@ import com.sesac.planet.R
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
-import com.sesac.planet.presentation.viewmodel.main.KeywordViewModel
+import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModel
 import com.sesac.planet.presentation.viewmodel.main.report.GetTodayInfoViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PlanViewModel

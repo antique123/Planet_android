@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_planet_empty.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_plus_backgroundless.xml" value="0.17" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_plus_gray.xml" value="0.17" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/selector_dialog_select_planet_color.xml" value="0.159" />

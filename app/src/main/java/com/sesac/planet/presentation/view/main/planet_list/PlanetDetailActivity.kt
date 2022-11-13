@@ -82,8 +82,6 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
 
         binding.planetDetailAddPlansBtn.setOnClickListener {
             CreatePlanetPlanDialog(this).show(supportFragmentManager, "dialog")
-
-
         }
     }
 
