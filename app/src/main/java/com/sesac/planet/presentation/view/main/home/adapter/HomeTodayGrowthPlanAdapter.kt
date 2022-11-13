@@ -24,9 +24,13 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
     }
 
     override fun getItemCount(): Int {
-        return when(isShowMore){
-            true -> items!!.size
-            false -> 3
+        return if(items!!.size > 3){
+            when(isShowMore){
+                true -> items!!.size
+                false -> 3
+            }
+        } else{
+            items!!.size
         }
     }
 

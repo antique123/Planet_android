@@ -36,7 +36,7 @@ class PlanetListAdapter(private val items: List<ResultPlanetInfo>?) : RecyclerVi
             planetId = items!![position].planet_id
 
             binding.itemPlanetListImg.imageTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
-            binding.itemPlanetListPlanetTextView.text = items!![position].planet_name
+            binding.itemPlanetListPlanetTextView.text = "${items!![position].planet_name} 행성"
             binding.itemPlanetListExplainPlanetTextView.text = items!![position].planet_intro
             binding.itemPlanetListLevelTextView.text = "LV.${items!![position].planet_level}"
             binding.itemPlanetListLevelProgressBar.max = items!![position].plan_count

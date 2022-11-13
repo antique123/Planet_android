@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.planet.RevisePlanetRequest
 import com.sesac.planet.databinding.ActivityPlanetDetailModifyBinding
 import com.sesac.planet.presentation.view.main.home.OnSelectColorResult
@@ -19,11 +20,15 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModelFactory
+import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailModifyActivity() : AppCompatActivity(), ItemDragListener, OnSelectColorResult,
     OnGetCreatePlanetPlanResult, OnDeletePlanResult {
     private val binding by lazy { ActivityPlanetDetailModifyBinding.inflate(layoutInflater) }
+
+    private var token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+
     private lateinit var planetDetailModifyAdapter: PlanetDetailModifyAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
 
@@ -95,11 +100,13 @@ class PlanetDetailModifyActivity() : AppCompatActivity(), ItemDragListener, OnSe
             }
 
             //행성 정보 수정 API 연결
-            revisePlanetViewMode.revisePlanet(
-                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-                keyword,
-                RevisePlanetRequest(planetName, planetIntro, selectedColor)
-            )
+            token?.let { it1 ->
+                revisePlanetViewMode.revisePlanet(
+                    it1,
+                    keyword,
+                    RevisePlanetRequest(planetName, planetIntro, selectedColor)
+                )
+            }
 
             finish()
         }
@@ -109,10 +116,12 @@ class PlanetDetailModifyActivity() : AppCompatActivity(), ItemDragListener, OnSe
         keyword = intent.getIntExtra("keyword", 0)
 
         initPlanetDetailInfoObservers()
-        planetDetailViewModel.getPlanetDetailInfo(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            keyword
-        )
+        token?.let {
+            planetDetailViewModel.getPlanetDetailInfo(
+                it,
+                keyword
+            )
+        }
     }
 
     private fun initPlanetDetailInfoObservers() {
@@ -183,10 +192,12 @@ class PlanetDetailModifyActivity() : AppCompatActivity(), ItemDragListener, OnSe
 
     override fun onDeletePlanResult(detailedPlanId: Int) {
         //세부계획 삭제 API 연결
-        deleteDetailPlanViewModel.deleteDetailPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            detailedPlanId
-        )
+        token?.let {
+            deleteDetailPlanViewModel.deleteDetailPlan(
+                it,
+                detailedPlanId
+            )
+        }
     }
 
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {

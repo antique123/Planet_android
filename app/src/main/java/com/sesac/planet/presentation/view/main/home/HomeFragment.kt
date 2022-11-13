@@ -42,9 +42,9 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
     private lateinit var homeTodayGrowthPlanAdapter: HomeTodayGrowthPlanAdapter
     private var isShowMore: Boolean = false
 
-    private var token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
-    private var userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, 0)
-    private var journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, 0)
+    private var token = ""
+    private var userId = 0
+    private var journeyId = 0
 
     private val entry1 = ArrayList<Entry>() //차트 1
     private val entry2 = ArrayList<Entry>() //차트 2
@@ -115,6 +115,8 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
     private fun initialize() {
         SystemUtility.applyWindowInsetsTopPadding(binding.root)
 
+        fetch()
+
         //키워드 데이터 세팅
         initKeyword()
 
@@ -149,29 +151,41 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
         setChart()
     }
 
+    private fun fetch() {
+        token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "").toString()
+        userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
+        journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, -1)
+    }
+
     //뷰모델
     private fun initKeyword() {
         initKeywordObservers()
-        keywordViewModel.getKeyword(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6
-        )
+        token?.let {
+            keywordViewModel.getKeyword(
+                it,
+                journeyId
+            )
+        }
     }
 
     private fun initGetTodayInfo() {
         initGetTodayInfoObservers()
-        getTodayInfoViewModel.getTodayInfo(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            11
-        )
+        token?.let {
+            getTodayInfoViewModel.getTodayInfo(
+                it,
+                userId
+            )
+        }
     }
 
     private fun initHomeTodayGrowthRcv() {
         initObservers()
-        viewModel.getPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6
-        )
+        token?.let {
+            viewModel.getPlan(
+                it,
+                journeyId
+            )
+        }
     }
 
     //옵저버
@@ -192,10 +206,12 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
 
     private fun initReport() {
         initReportObservers()
-        reportViewModel.getReport(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            11
-        )
+        token?.let {
+            reportViewModel.getReport(
+                it,
+                userId
+            )
+        }
         binding.homeMyReportChart.invalidate()
     }
 
@@ -225,23 +241,43 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
             if (response.isSuccessful) {
                 response.body()?.result.let { body ->
                     if (body == null) {
-                        binding.homeNoResultTv.visibility = View.VISIBLE
-                        binding.homeShowMoreBtn.visibility = View.GONE
-                    } else {
-                        homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(body, isShowMore)
-                        binding.homeAddToDoRcv.layoutManager =
-                            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-                        binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
 
-                        homeTodayGrowthPlanAdapter.setItemClickListener(object :
-                            HomeTodayGrowthPlanAdapter.OnItemClickListener {
-                            override fun onClick(v: View, position: Int, detailedPlanId: Int) {
-                                //계획 완료/미완료 API 연결
-                                patchDetailPlanViewModel.patchDetailPlan(
-                                    "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-                                    detailedPlanId)
+                    } else {
+                        if (body.isEmpty()) {
+                            binding.homeNoResultTv.visibility = View.VISIBLE
+                            binding.homeAddToDoRcv.visibility = View.GONE
+                            binding.homeShowMoreBtn.visibility = View.GONE
+                        } else {
+                            if (body.size < 3) {
+                                binding.homeNoResultTv.visibility = View.GONE
+                                binding.homeAddToDoRcv.visibility = View.VISIBLE
+                                binding.homeShowMoreBtn.visibility = View.GONE
+                            } else {
+                                binding.homeNoResultTv.visibility = View.GONE
+                                binding.homeAddToDoRcv.visibility = View.VISIBLE
+                                binding.homeShowMoreBtn.visibility = View.VISIBLE
                             }
-                        })
+
+                            homeTodayGrowthPlanAdapter =
+                                HomeTodayGrowthPlanAdapter(body, isShowMore)
+                            binding.homeAddToDoRcv.layoutManager =
+                                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                            binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
+
+                            homeTodayGrowthPlanAdapter.setItemClickListener(object :
+                                HomeTodayGrowthPlanAdapter.OnItemClickListener {
+                                override fun onClick(v: View, position: Int, detailedPlanId: Int) {
+                                    //계획 완료/미완료 API 연결
+                                    token?.let {
+                                        patchDetailPlanViewModel.patchDetailPlan(
+                                            it,
+                                            detailedPlanId
+                                        )
+                                    }
+                                }
+                            })
+
+                        }
                     }
                 }
             } else {
@@ -253,10 +289,12 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
     override fun onPostDetailPlan(planetId: Int?, toDoText: String?, type: String?) {
         //오늘의 성장 계획 추가하기
         if (planetId != null && toDoText != null && type != null) {
-            postDetailPlanViewModel.postDetailPlan(
-                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-                6, planetId, PostDetailPlanRequest(toDoText, type)
-            )
+            token?.let {
+                postDetailPlanViewModel.postDetailPlan(
+                    it,
+                    journeyId, planetId, PostDetailPlanRequest(toDoText, type)
+                )
+            }
 
             //activity?.let { refreshFragment(this, it.supportFragmentManager) }
             //homeTodayGrowthPlanAdapter.notifyDataSetChanged()

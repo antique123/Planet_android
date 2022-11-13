@@ -12,12 +12,16 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.DialogDeletePlanetBinding
 import com.sesac.planet.presentation.viewmodel.main.planet.DeletePlanetViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.DeletePlanetViewModelFactory
+import com.sesac.planet.utility.Constant
 
 class DeletePlanetDialog(private val deletePlanetId: Int): DialogFragment(){
     private lateinit var binding: DialogDeletePlanetBinding
+
+    private var token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
 
     private val deletePlanetViewModel by lazy {
         ViewModelProvider(
@@ -53,10 +57,12 @@ class DeletePlanetDialog(private val deletePlanetId: Int): DialogFragment(){
     }
 
     private fun deletePlanet(){
-        deletePlanetViewModel.deletePlanet(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            deletePlanetId
-        )
+        token?.let {
+            deletePlanetViewModel.deletePlanet(
+                it,
+                deletePlanetId
+            )
+        }
     }
 
     override fun onResume() {

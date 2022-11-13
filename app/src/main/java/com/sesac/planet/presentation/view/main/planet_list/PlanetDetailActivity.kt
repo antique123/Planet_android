@@ -14,6 +14,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.plan.PostDetailPlanRequest
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailAdapter
@@ -23,10 +24,15 @@ import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
+import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGetCreatePlanetPlanResult  {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
+
+    private var token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+    private var journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, 0)
+
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
     private var keyword: Int= 0
@@ -89,10 +95,12 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
         keyword = intent.getIntExtra("planet_id",0)
 
         initPlanetDetailInfoObservers()
-        planetDetailViewModel.getPlanetDetailInfo(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            keyword
-        )
+        token?.let {
+            planetDetailViewModel.getPlanetDetailInfo(
+                it,
+                keyword
+            )
+        }
     }
 
     private fun initPlanetDetailInfoObservers(){
@@ -140,10 +148,12 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
     override fun getDetailPlansIdForPatch(detailedId: Int?) {
         if(detailedId != null){
             //세부계획 완료 미완료 API 연결
-            patchDetailPlanViewModel.patchDetailPlan(
-                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-                detailedId
-            )
+            token?.let {
+                patchDetailPlanViewModel.patchDetailPlan(
+                    it,
+                    detailedId
+                )
+            }
         }
 
         initialize()
@@ -152,12 +162,14 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {
         //서버에 저장해주고 리사이클러뷰 갱신
         if(planContent != null && type != null){
-            planDataViewModel.postDetailPlan(
-                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-                6,
-                keyword,
-                PostDetailPlanRequest(planContent, type)
-            )
+            token?.let {
+                planDataViewModel.postDetailPlan(
+                    it,
+                    journeyId,
+                    keyword,
+                    PostDetailPlanRequest(planContent, type)
+                )
+            }
         }
     }
 }
