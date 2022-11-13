@@ -2,6 +2,7 @@ package com.sesac.planet.presentation.view.main.planet_list
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.sesac.planet.data.model.planet.RevisePlanetRequest
 import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetInfoViewModel
@@ -20,9 +22,13 @@ import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetListFragment : Fragment(){
+class PlanetListFragment() : Fragment(){
     private var _binding: FragmentPlanetListBinding? = null
     private val binding get() = _binding!!
+
+    private var args = Bundle()
+    private var delPlanetId: Int = 0
+
     private lateinit var planetListAdapter: PlanetListAdapter
 
     private val viewModel by lazy {
@@ -86,6 +92,19 @@ class PlanetListFragment : Fragment(){
                                     startActivity(intent)
                                 }
                             })
+
+                        planetListAdapter.setItemLongClickListener(
+                            object : PlanetListAdapter.OnItemLongClickListener{
+                                override fun onLongClick(
+                                    v: View,
+                                    position: Int,
+                                    deletePlanetId: Int
+                                ) {
+                                    val deleteDialog = DeletePlanetDialog(deletePlanetId)
+                                    activity?.let { deleteDialog.show(it.supportFragmentManager, "DeletePlanetDialog") }
+                                }
+                            }
+                        )
 
                     }
                 }
