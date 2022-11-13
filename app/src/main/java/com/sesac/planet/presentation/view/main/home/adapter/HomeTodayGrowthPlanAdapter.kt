@@ -20,16 +20,7 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
         holder.bind(position)
     }
 
-    override fun getItemCount(): Int {
-        var returnAmount: Int = 0
-        if(isShowMore){
-            returnAmount = items!!.size
-        } else if(!isShowMore){
-            returnAmount = 3
-        }
-
-        return returnAmount
-    }
+    override fun getItemCount() = items!!.size
 
     inner class HomeTodayGrowthPlanViewHolder(private val binding : ItemHomeTodayGrowthPlanBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
@@ -44,7 +35,8 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
                 "#F2606A" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_hotpink)
                 "#E0DFFE" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_navy)
                 "#D3FB03" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_lime)
-                "#B4C9FF" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_lemon)
+                "#FDFE00" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_lemon)
+                "#B4C9FF" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_sora)
                 "#E1E1E1" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mono)
                 else -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_basic)
             }
