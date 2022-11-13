@@ -5,10 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,7 +31,6 @@ import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModel
 import com.sesac.planet.presentation.viewmodel.main.report.ReportViewModelFactory
 import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
-import okhttp3.internal.notify
 
 class HomeFragment : Fragment(), OnPostDetailPlan {
     private var _binding: FragmentHomeBinding? = null

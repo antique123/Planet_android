@@ -66,6 +66,7 @@ class MyPageFragment : Fragment()  {
                 }
             }
         }
+
     }
 
     private fun initObservers() {
