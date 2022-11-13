@@ -4,7 +4,6 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -16,16 +15,14 @@ import com.sesac.planet.presentation.view.main.home.OnSelectColorResult
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailModifyAdapter
 import com.sesac.planet.presentation.viewmodel.main.plan.DeleteDetailPlanViewModel
 import com.sesac.planet.presentation.viewmodel.main.plan.DeleteDetailPlanViewModelFactory
-import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModel
-import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSelectColorResult,
-    OnGetCreatePlanetPlanResult, OnRevisePlanResult {
+class PlanetDetailModifyActivity() : AppCompatActivity(), ItemDragListener, OnSelectColorResult,
+    OnGetCreatePlanetPlanResult, OnDeletePlanResult {
     private val binding by lazy { ActivityPlanetDetailModifyBinding.inflate(layoutInflater) }
     private lateinit var planetDetailModifyAdapter: PlanetDetailModifyAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -97,17 +94,14 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSele
                 selectedColor = originalColor
             }
 
-            Toast.makeText(
-                this,
-                "${planetName}의 행성은 ${planetIntro}...한 행성이고 $color 색입니다. ",
-                Toast.LENGTH_SHORT
-            ).show()
-
+            //행성 정보 수정 API 연결
             revisePlanetViewMode.revisePlanet(
                 "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
                 keyword,
                 RevisePlanetRequest(planetName, planetIntro, selectedColor)
             )
+
+            finish()
         }
     }
 
@@ -187,7 +181,7 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSele
         }
     }
 
-    override fun onRevisePlanResult(detailedPlanId: Int) {
+    override fun onDeletePlanResult(detailedPlanId: Int) {
         //세부계획 삭제 API 연결
         deleteDetailPlanViewModel.deleteDetailPlan(
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",

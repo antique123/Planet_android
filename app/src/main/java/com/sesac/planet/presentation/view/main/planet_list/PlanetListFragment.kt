@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.sesac.planet.databinding.FragmentPlanetListBinding
@@ -18,7 +20,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetListFragment : Fragment() {
+class PlanetListFragment : Fragment(){
     private var _binding: FragmentPlanetListBinding? = null
     private val binding get() = _binding!!
     private lateinit var planetListAdapter: PlanetListAdapter

@@ -1,5 +1,6 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -7,6 +8,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,11 +25,12 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
-class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCreatePlanetPlanResult  {
+class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGetCreatePlanetPlanResult, DialogInterface.OnDismissListener  {
     private val binding by lazy { ActivityPlanetDetailBinding.inflate(layoutInflater) }
     private lateinit var planetDetailAdapter: PlanetDetailAdapter
 
     private var keyword: Int= 0
+    private var planSize: Int=0
 
     private val planetDetailViewModel by lazy {
         ViewModelProvider(
@@ -64,10 +69,6 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
     }
 
     private fun initView(){
-        binding.planetDetailAddPlansBtn.setOnClickListener {
-            //HomeAddToDoDialog(this).show()
-        }
-
         binding.planetDetailBackImageView.setOnClickListener{
             finish()
         }
@@ -81,7 +82,13 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
 
         binding.planetDetailAddPlansBtn.setOnClickListener {
             CreatePlanetPlanDialog(this).show(supportFragmentManager, "dialog")
+
+
         }
+    }
+
+    override fun onDismiss(dialog: DialogInterface?) {
+        planetDetailAdapter.notifyDataSetChanged()
     }
 
     private fun setData(){
@@ -123,6 +130,9 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
                             planetDetailAdapter = PlanetDetailAdapter(body.plans, this)
                             binding.planetDetailDetailsPlanRecyclerView.layoutManager = LinearLayoutManager(applicationContext, RecyclerView.VERTICAL, false)
                             binding.planetDetailDetailsPlanRecyclerView.adapter = planetDetailAdapter
+
+                            planSize = body.plans.size
+
                         } else{
                             binding.planetDetailDetailsPlanRecyclerView.visibility = View.GONE
                             binding.planetDetailDetailsPlanTextView.visibility = View.VISIBLE
@@ -152,8 +162,6 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
                 keyword,
                 PostDetailPlanRequest(planContent, type)
             )
-
-            //현재 리사이클러뷰 갱신 안됨
         }
     }
 }
