@@ -23,6 +23,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactor
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanVIewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
 
+
 class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
     private lateinit var binding: DialogHomeAddToDoBinding
 
@@ -92,6 +93,7 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
     //데이터 가져오기
     private fun initPlanetRcv() {
         initObservers()
+
         viewModel.getPlanet(
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
             6
@@ -104,6 +106,9 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
             6, selectedPlanetId, PostDetailPlanRequest(binding.dialogHomeToDoEditText.text.toString(),getType())
         )
+
+
+        //viewModel.getPlanet(PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")!!, 4)
     }
 
     private fun initObservers() {

@@ -14,6 +14,7 @@ class DialogSelectAdapter(val items: List<ResultPlanetInfo>?, private val onSele
     RecyclerView.Adapter<DialogSelectAdapter.ViewHolder>() {
     private lateinit var binding: ItemDialogAddToDoPlanetBinding
 
+    private var mSelectedItem = -1
     private var selectedPosition = -1
     private var lastSelectedPosition = -1
 
@@ -58,4 +59,10 @@ class DialogSelectAdapter(val items: List<ResultPlanetInfo>?, private val onSele
             binding.itemDialogPlanetTv.text = items!![position].planet_name
         }
     }
+
+
+    fun getSelectedPlanet(): ResultPlanetInfo? {
+        return items?.get(lastSelectedPosition)
+    }
+
 }
