@@ -2,11 +2,9 @@ package com.sesac.planet.presentation.view.main.home
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -84,6 +82,10 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        isShowMore = false
+        binding.homeShowMoreBtn.setImageResource(R.drawable.ic_down_arrow)
+
         initViews()
         return binding.root
     }
@@ -203,17 +205,12 @@ class HomeFragment : Fragment() {
                         binding.homeShowMoreBtn.visibility = View.GONE
                     } else {
                         homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(body, isShowMore)
-                        binding.homeAddToDoRcv.layoutManager =
-                            LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+                        binding.homeAddToDoRcv.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                         binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
                     }
                 }
             } else {
-                //서버에 문제가 생겼을 때
-                Toast.makeText(requireContext(), "문제가 생겼습니다.", Toast.LENGTH_LONG).show()
-                binding.homeNoResultTv.visibility = View.VISIBLE
-                binding.homeNoResultTv.text = "개발자에게 문의해주세요"
-                binding.homeShowMoreBtn.visibility = View.GONE
+
             }
         }
     }

@@ -20,11 +20,15 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
         holder.bind(position)
     }
 
-    override fun getItemCount() = items!!.size
+    override fun getItemCount(): Int {
+        return when(isShowMore){
+            true -> items!!.size
+            false -> 3
+        }
+    }
 
     inner class HomeTodayGrowthPlanViewHolder(private val binding : ItemHomeTodayGrowthPlanBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            //binding.itemHomeTodayGrowthPlanImageView.setImageResource(items[position].)
             binding.itemHomeTodayGrowthPlanTextView.text = items!![position].plan_content
 
             when(items!![position].color){
