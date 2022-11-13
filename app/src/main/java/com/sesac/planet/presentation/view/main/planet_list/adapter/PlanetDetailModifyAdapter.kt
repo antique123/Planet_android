@@ -6,7 +6,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.data.model.ResultPlanetDetailPlan
+import com.sesac.planet.data.model.planet.ResultPlanetDetailPlan
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsModifyPlanBinding
 import com.sesac.planet.presentation.view.main.planet_list.ItemActionListener
 import com.sesac.planet.presentation.view.main.planet_list.ItemDragListener

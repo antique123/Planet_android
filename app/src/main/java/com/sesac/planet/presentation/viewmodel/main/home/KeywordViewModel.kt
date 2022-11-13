@@ -1,4 +1,4 @@
-package com.sesac.planet.presentation.viewmodel.main
+package com.sesac.planet.presentation.viewmodel.main.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,7 +20,7 @@ class KeywordViewModel(private val getKeywordUseCase: GetKeywordUseCase) : ViewM
         KeywordRepository.keywordService =
             PlanetApplication.getInstance().create(KeywordAPI::class.java)
     }
-
+    
     fun getKeyword(token: String, journeyId: Int) {
         if (_keywordData.value == null) {
             viewModelScope.launch {
