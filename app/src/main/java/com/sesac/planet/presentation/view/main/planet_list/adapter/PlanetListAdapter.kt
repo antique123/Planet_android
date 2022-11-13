@@ -30,6 +30,7 @@ class PlanetListAdapter(val items: List<ResultPlanetInfo>?) : RecyclerView.Adapt
             binding.itemPlanetListPlanetTextView.text = items!![position].planet_name
             binding.itemPlanetListExplainPlanetTextView.text = items!![position].planet_intro
             binding.itemPlanetListLevelTextView.text = "LV.${items!![position].planet_level}"
+            binding.itemPlanetListLevelProgressBar.max = items!![position].plan_count
             binding.itemPlanetListLevelProgressBar.progress = items!![position].planet_exp
             binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
         }

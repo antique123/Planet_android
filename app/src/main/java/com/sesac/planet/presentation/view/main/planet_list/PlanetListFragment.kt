@@ -14,6 +14,8 @@ import com.sesac.planet.databinding.FragmentPlanetListBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetListAdapter
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetInfoViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
+import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModelFactory
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetListFragment : Fragment() {
