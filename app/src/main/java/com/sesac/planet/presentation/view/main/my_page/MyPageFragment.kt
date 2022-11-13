@@ -54,7 +54,6 @@ class MyPageFragment : Fragment()  {
                                 putInt(Constant.USER_ID, -1)
                                 putInt(Constant.LOGIN_TYPE, -1)
                                 Snackbar.make(binding.root, "로그아웃에 성공했습니다.", Snackbar.LENGTH_SHORT).show()
-
                             }
                         }
                     }

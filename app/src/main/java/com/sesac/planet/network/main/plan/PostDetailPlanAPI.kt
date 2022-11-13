@@ -1,6 +1,7 @@
 package com.sesac.planet.network.main.plan
 
 import com.sesac.planet.data.model.BaseResponse
+import com.sesac.planet.data.model.CheckNickNameResponse
 import com.sesac.planet.data.model.plan.PostDetailPlanRequest
 import retrofit2.Response
 import retrofit2.http.*
@@ -19,4 +20,6 @@ interface PostDetailPlanAPI {
         @Header("X-ACCESS-TOKEN") token: String,
         @Path("detailed_plan_id") detailedPlanId: Int,
     ): Response<BaseResponse>
+
+
 }

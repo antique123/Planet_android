@@ -85,10 +85,13 @@ class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : Dialog
     //데이터 가져오기
     private fun initPlanetRcv() {
         initObservers()
+
         viewModel.getPlanet(
             "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
             6
         )
+
+        //viewModel.getPlanet(PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")!!, 4)
     }
 
     private fun initObservers() {
@@ -108,6 +111,19 @@ class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : Dialog
             }
         }
     }
+
+    //월~금 체크박스 초기화
+    private fun initWeekGroup() {
+        binding.dialogHomeMonCheckBtn.isChecked = false
+        binding.dialogHomeTueCheckBtn.isChecked = false
+        binding.dialogHomeWedCheckBtn.isChecked = false
+        binding.dialogHomeThurCheckBtn.isChecked = false
+        binding.dialogHomeFriCheckBtn.isChecked = false
+        binding.dialogHomeSatCheckBtn.isChecked = false
+        binding.dialogHomeSunCheckBtn.isChecked = false
+    }
+
+
 
     //디바이스 가로의 90% 사이즈
     private fun Context.dialogFragmentResize(dialogFragment: DialogFragment, width: Float) {
@@ -135,17 +151,6 @@ class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : Dialog
 
             window?.setLayout(x, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
-    }
-
-    //월~금 체크박스 초기화
-    private fun initWeekGroup() {
-        binding.dialogHomeMonCheckBtn.isChecked = false
-        binding.dialogHomeTueCheckBtn.isChecked = false
-        binding.dialogHomeWedCheckBtn.isChecked = false
-        binding.dialogHomeThurCheckBtn.isChecked = false
-        binding.dialogHomeFriCheckBtn.isChecked = false
-        binding.dialogHomeSatCheckBtn.isChecked = false
-        binding.dialogHomeSunCheckBtn.isChecked = false
     }
 
     //데이터를 넣기 위해 선택 확인
