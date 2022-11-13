@@ -68,20 +68,16 @@ class PlanetListFragment : Fragment() {
             if (response.isSuccessful) {
                 response.body()?.result.let { body ->
                     if (body == null) {
-                        //연결은 됐지만 값이 없을 때
-                        Toast.makeText(requireContext(), "연결은 됐지만 값이 없습니다.", Toast.LENGTH_LONG)
-                            .show()
+
                     } else {
                         planetListAdapter = PlanetListAdapter(body)
-                        binding.planetListRecyclerView.layoutManager =
-                            GridLayoutManager(requireContext(), 2)
+                        binding.planetListRecyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
                         binding.planetListRecyclerView.adapter = planetListAdapter
 
                         planetListAdapter.setItemClickListener(
                             object : PlanetListAdapter.OnItemClickListener {
                                 override fun onClick(v: View, position: Int) {
-                                    val intent =
-                                        Intent(requireContext(), PlanetDetailActivity::class.java)
+                                    val intent = Intent(requireContext(), PlanetDetailActivity::class.java)
                                     intent.putExtra("planet_id", body?.get(position)?.planet_id)
                                     startActivity(intent)
                                 }
@@ -91,7 +87,6 @@ class PlanetListFragment : Fragment() {
                 }
             } else {
                 //서버에 문제가 생겼을 때
-                Toast.makeText(requireContext(), "서버 문제가 생겼습니다.", Toast.LENGTH_LONG).show()
             }
         }
     }

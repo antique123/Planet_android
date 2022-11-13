@@ -14,7 +14,7 @@ interface PostDetailPlanAPI {
         @Body params: PostDetailPlanRequest
     ): Response<BaseResponse>
 
-    @PATCH("/plans/delete/{detailed_plan_id}")
+    @PATCH("/plans/{detailed_plan_id}")
     suspend fun patchDetailPlan(
         @Header("X-ACCESS-TOKEN") token: String,
         @Path("detailed_plan_id") detailedPlanId: Int,

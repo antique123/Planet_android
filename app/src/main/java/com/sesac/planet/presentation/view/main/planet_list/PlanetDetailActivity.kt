@@ -4,16 +4,19 @@ import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.R
+import com.sesac.planet.data.model.plan.PostDetailPlanRequest
 import com.sesac.planet.databinding.ActivityPlanetDetailBinding
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailAdapter
+import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModel
+import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
+import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModelFactory
 import com.sesac.planet.utility.SystemUtility
@@ -29,6 +32,20 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
             this,
             PlanetDetailViewModelFactory()
         )[PlanetDetailViewModel::class.java]
+    }
+
+    private val planDataViewModel by lazy{
+        ViewModelProvider(
+            this,
+            PostDetailPlanViewModelFactory()
+        )[PostDetailPlanViewModel::class.java]
+    }
+
+    private val patchDetailPlanViewModel by lazy{
+        ViewModelProvider(
+            this,
+            PatchDetailPlanViewModelFactory()
+        )[PatchDetailPlanViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -94,8 +111,8 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
                             binding.planetDetailExplainPlanetTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#C4C4C4")))
                         }
 
-
                         binding.planetDetailGrowthLevelTextView.text = "LV.${body.planet_level}"
+                        binding.itemPlanetListLevelProgressBar.max = body.plans.size
                         binding.itemPlanetListLevelProgressBar.progress = body.planet_exp
                         binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(body.color))
 
@@ -118,13 +135,25 @@ class PlanetDetailActivity : AppCompatActivity(), DetailPlansIdForPatch, OnGetCr
 
     override fun getDetailPlansIdForPatch(detailedId: Int?) {
         if(detailedId != null){
-            //Toast.makeText(this, "$detailedId", Toast.LENGTH_SHORT).show()
-            //여기서 API 연결
-
+            //세부계획 완료 미완료 API 연결
+            patchDetailPlanViewModel.patchDetailPlan(
+                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+                detailedId
+            )
         }
     }
 
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {
+        //서버에 저장해주고 리사이클러뷰 갱신
+        if(planContent != null && type != null){
+            planDataViewModel.postDetailPlan(
+                "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+                6,
+                keyword,
+                PostDetailPlanRequest(planContent, type)
+            )
 
+            //현재 리사이클러뷰 갱신 안됨
+        }
     }
 }

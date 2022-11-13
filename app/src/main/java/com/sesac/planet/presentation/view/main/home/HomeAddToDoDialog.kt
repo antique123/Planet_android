@@ -20,7 +20,7 @@ import com.sesac.planet.databinding.DialogHomeAddToDoBinding
 import com.sesac.planet.presentation.view.main.home.adapter.DialogSelectAdapter
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetInfoViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactory
-import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanVIewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
 
 class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
@@ -39,7 +39,7 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
     private val postDetailPlanViewModel by lazy {
         ViewModelProvider(
             this,
-            PostDetailPlanVIewModelFactory()
+            PostDetailPlanViewModelFactory()
         )[PostDetailPlanViewModel::class.java]
     }
 
