@@ -14,6 +14,8 @@ import com.sesac.planet.data.model.planet.RevisePlanetRequest
 import com.sesac.planet.databinding.ActivityPlanetDetailModifyBinding
 import com.sesac.planet.presentation.view.main.home.OnSelectColorResult
 import com.sesac.planet.presentation.view.main.planet_list.adapter.PlanetDetailModifyAdapter
+import com.sesac.planet.presentation.viewmodel.main.plan.DeleteDetailPlanViewModel
+import com.sesac.planet.presentation.viewmodel.main.plan.DeleteDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModel
 import com.sesac.planet.presentation.viewmodel.main.plan.PatchDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetDetailViewModel
@@ -23,7 +25,7 @@ import com.sesac.planet.presentation.viewmodel.main.planet.RevisePlanetViewModel
 import com.sesac.planet.utility.SystemUtility
 
 class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSelectColorResult,
-    OnGetCreatePlanetPlanResult {
+    OnGetCreatePlanetPlanResult, OnRevisePlanResult {
     private val binding by lazy { ActivityPlanetDetailModifyBinding.inflate(layoutInflater) }
     private lateinit var planetDetailModifyAdapter: PlanetDetailModifyAdapter
     private lateinit var itemTouchHelper: ItemTouchHelper
@@ -47,6 +49,13 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSele
             this,
             RevisePlanetViewModelFactory()
         )[RevisePlanetViewModel::class.java]
+    }
+
+    private val deleteDetailPlanViewModel by lazy {
+        ViewModelProvider(
+            this,
+            DeleteDetailPlanViewModelFactory()
+        )[DeleteDetailPlanViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -140,7 +149,8 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSele
                             binding.planetDetailModifyDetailsPlanRecyclerView.visibility =
                                 View.VISIBLE
 
-                            planetDetailModifyAdapter = PlanetDetailModifyAdapter(body.plans, this)
+                            planetDetailModifyAdapter =
+                                PlanetDetailModifyAdapter(body.plans, this, this)
                             binding.planetDetailModifyDetailsPlanRecyclerView.layoutManager =
                                 LinearLayoutManager(
                                     applicationContext,
@@ -175,6 +185,14 @@ class PlanetDetailModifyActivity : AppCompatActivity(), ItemDragListener, OnSele
 
             selectedColor = colorId
         }
+    }
+
+    override fun onRevisePlanResult(detailedPlanId: Int) {
+        //세부계획 삭제 API 연결
+        deleteDetailPlanViewModel.deleteDetailPlan(
+            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
+            detailedPlanId
+        )
     }
 
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {

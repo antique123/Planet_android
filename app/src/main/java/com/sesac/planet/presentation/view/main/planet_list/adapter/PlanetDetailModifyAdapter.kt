@@ -1,19 +1,23 @@
 package com.sesac.planet.presentation.view.main.planet_list.adapter
 
 import android.annotation.SuppressLint
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.data.model.ResultPlanetDetailPlan
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsModifyPlanBinding
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsPlanBinding
 import com.sesac.planet.presentation.view.main.planet_list.ItemActionListener
 import com.sesac.planet.presentation.view.main.planet_list.ItemDragListener
+import com.sesac.planet.presentation.view.main.planet_list.OnRevisePlanResult
 
 class PlanetDetailModifyAdapter(
     private val items: MutableList<ResultPlanetDetailPlan>,
+    private val onRevisePlanResult: OnRevisePlanResult,
     private val listener: ItemDragListener
 ): RecyclerView.Adapter<PlanetDetailModifyAdapter.PlanDetailModifyViewHolder>(), ItemActionListener {
     @SuppressLint("ClickableViewAccessibility")
@@ -31,7 +35,17 @@ class PlanetDetailModifyAdapter(
 
             binding.itemPlanetDetailModifyDeleteImageView.setOnClickListener {
                 val position: Int = adapterPosition
-                //삭제
+
+                //Log.e("BEFORE REMOVE -> ", "${items!![position]}")
+                //Log.e("BEFORE DETAILED_PLAN_ID REMOVE -> ", "${items!![position].detailed_plan_id}")
+
+                //Log.e("CODE START -> ", "${items!![position].detailed_plan_id}")
+
+                //삭제 API 연결
+                onRevisePlanResult.onRevisePlanResult(items!![position].detailed_plan_id)
+
+                items.removeAt(position)
+                notifyItemRemoved(position)
             }
         }
 
