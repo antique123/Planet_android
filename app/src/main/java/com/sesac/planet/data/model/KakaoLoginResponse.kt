@@ -8,6 +8,7 @@ data class KakaoLoginResponse(
 )
 
 data class LoginResult(
+    val journey_id: Int,
     val jwt: String,
     val user_id: Int
 )
