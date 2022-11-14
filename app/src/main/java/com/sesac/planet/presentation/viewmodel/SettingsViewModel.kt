@@ -45,7 +45,7 @@ class SettingsViewModel(
 
     fun checkNickName(nickName: String) {
         viewModelScope.launch {
-            _isAvailableNickName.value = checkNickNameUseCase(nickName)
+            _isAvailableNickName.value = checkNickNameUseCase(nickName)!!
         }
     }
 

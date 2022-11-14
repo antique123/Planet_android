@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.sesac.planet.data.model.ResultPlanetDetailPlan
+import com.sesac.planet.data.model.planet.ResultPlanetDetailPlan
 import com.sesac.planet.databinding.ItemPlanetDetailDetailsPlanBinding
 import com.sesac.planet.presentation.view.main.planet_list.DetailPlansIdForPatch
 

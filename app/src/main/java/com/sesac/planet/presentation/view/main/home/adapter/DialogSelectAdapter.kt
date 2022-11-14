@@ -1,12 +1,14 @@
 package com.sesac.planet.presentation.view.main.home.adapter
 
 import android.annotation.SuppressLint
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
-import com.sesac.planet.data.model.ResultPlanetInfo
+import com.sesac.planet.data.model.planet.ResultPlanetInfo
 import com.sesac.planet.databinding.ItemDialogAddToDoPlanetBinding
 import com.sesac.planet.presentation.view.main.home.OnSelectPlanetResult
 
@@ -38,9 +40,11 @@ class DialogSelectAdapter(val items: List<ResultPlanetInfo>?, private val onSele
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             if(selectedPosition == position) {
-                binding.itemDialogPlanetImageView.background = ResourcesCompat.getDrawable(binding.root.resources, R.drawable.shape_rectangle_radius_10dp_purple_solid, null)
+                binding.itemDialogPlanetImageView.background = ResourcesCompat.getDrawable(binding.root.resources, R.drawable.ic_checked_planet, null)
+                binding.itemDialogPlanetImageView.backgroundTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
             } else {
                 binding.itemDialogPlanetImageView.background = ResourcesCompat.getDrawable(binding.root.resources, R.drawable.shape_rectangle_radius_10dp_stroke_1dp, null)
+                binding.itemDialogPlanetImageView.backgroundTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
             }
 
             binding.root.setOnClickListener {
