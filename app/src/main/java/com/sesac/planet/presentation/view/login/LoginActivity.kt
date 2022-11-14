@@ -9,6 +9,7 @@ import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.databinding.ActivityLoginBinding
 import com.sesac.planet.presentation.view.main.MainActivity
 import com.sesac.planet.presentation.view.settings.MakePlanningActivity
+import com.sesac.planet.utility.Constant
 import com.sesac.planet.utility.SystemUtility
 
 /*
@@ -47,8 +48,23 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
+        /*
         if(PlanetApplication.isLoginUser()) {
             startMainPage()
+        }
+
+         */
+
+        val userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
+        val jwt = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+        val journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, -1)
+
+        jwt?.let { token ->
+            if(userId != -1 &&  token.isNotEmpty()) {
+                if(journeyId != -1) {
+                    startMainPage()
+                }
+            }
         }
     }
 

@@ -130,6 +130,7 @@
                 app:layout_constraintStart_toStartOf="@id/my_future_look_header_first_line_text_view"
                 app:layout_constraintTop_toBottomOf="@id/my_future_look_title_text_view" />
 
+            <!--
             <EditText
                 android:id="@+id/add_future_look_edit_text"
                 android:layout_width="0dp"
@@ -154,6 +155,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/add_future_look_edit_text"
                 app:layout_constraintTop_toTopOf="@id/add_future_look_edit_text" />
+                -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

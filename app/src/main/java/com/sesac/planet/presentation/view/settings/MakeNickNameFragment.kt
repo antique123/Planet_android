@@ -1,11 +1,14 @@
 package com.sesac.planet.presentation.view.settings
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.view.inputmethod.InputMethod
+import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
@@ -37,7 +40,7 @@ class MakeNickNameFragment : Fragment() {
     }
 
     private fun initialize() {
-        SystemUtility.setSoftInputMode(requireActivity().window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
+        //SystemUtility.setSoftInputMode(requireActivity().window, WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
         initViews()
         initObservers()
@@ -51,6 +54,9 @@ class MakeNickNameFragment : Fragment() {
         }
 
         binding.checkThisNickNameButton.setOnClickListener {
+            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(binding.nickNameEditText.windowToken, 0)
+            binding.nickNameEditText.clearFocus()
             viewModel.checkNickName(binding.nickNameEditText.text.toString())
         }
     }

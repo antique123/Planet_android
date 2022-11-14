@@ -41,12 +41,15 @@ class PlanetApplication : Application() {
             return instance!!
         }
 
+
         fun isLoginUser(): Boolean {
             val jwt = sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
             jwt?.let {
                 return it.isNotEmpty()
             } ?: return false
         }
+
+
 
         fun getLoginType(): Int {
             return sharedPreferences.getInt(Constant.LOGIN_TYPE, -1)
