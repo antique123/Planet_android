@@ -6,6 +6,7 @@ import android.graphics.Point
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -107,6 +108,7 @@ class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : Dialog
                 response.body()?.result.let { body ->
                     if(body == null){
                     } else{
+                        Log.d("PlanetTest", response.body()?.result.toString())
                         dialogSelectAdapter = DialogSelectAdapter(body, this)
                         binding.dialogHomeSelectPlanetRecycler.layoutManager =
                             LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
