@@ -98,6 +98,7 @@ class SignUpFragment : Fragment() {
                             putString(Constant.X_ACCESS_TOKEN, response.jwt)
                             putInt(Constant.USER_ID, response.user_id)
                             putInt(Constant.LOGIN_TYPE, Constant.KAKAO_LOGIN)
+                            putInt(Constant.JOURNEY_ID, response.journey_id)
                             commit()
                         }
                     }
@@ -121,19 +122,17 @@ class SignUpFragment : Fragment() {
                         putString(Constant.X_ACCESS_TOKEN, response.body()?.result?.jwt.toString())
                         putInt(Constant.USER_ID, response?.body()?.result?.userIdx!!)
                         putInt(Constant.LOGIN_TYPE, Constant.EMAIL_LOGIN)
+                        putInt(Constant.JOURNEY_ID, response.body()?.result?.journey_id!!)
                     }
                     checkJourneyExist()
                 }
             }
         }
 
-        //TODO 다시 로그인한 사용자일 경우 기존에 생성된 여정이 있는지 확인이 필요한데 API 가 없음
         viewModel.isSuccessMakeJourney.observe(viewLifecycleOwner) { response ->
             when(response.body()?.code) {
                 2053 -> {
                     activity.startMainPage()
-                    Log.d("JourneyTest", response.body()?.result?.journey_id.toString())
-
                 }
                 else -> {
                     activity.startNextPage()
@@ -143,20 +142,12 @@ class SignUpFragment : Fragment() {
     }
 
     private fun checkJourneyExist() {
-        val planet = mutableListOf<Planet>()
-        planet.add(Planet(planet_name = "다이어트", detailed_plans = listOf("테스트")))
-
-        val journey = MakeJourneyRequest(
-            listOf("예의바른"),
-            26,
-            "테스트",
-            planet
-        )
-
-        val token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
-        val userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
-
-        viewModel.makeJourney(journey, token!!, userId)
+        val journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, -1)
+        if(journeyId == -1) {
+            activity.startNextPage()
+        } else {
+            activity.startMainPage()
+        }
     }
 
     override fun onAttach(context: Context) {
