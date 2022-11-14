@@ -283,6 +283,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@drawable/shape_rectangle_radius_10dp_gray_solid"
+        android:backgroundTint="@color/purple_896DF3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dialog_home_content_layout">
 

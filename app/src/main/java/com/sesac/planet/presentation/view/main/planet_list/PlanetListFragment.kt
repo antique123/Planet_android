@@ -65,6 +65,15 @@ class PlanetListFragment() : Fragment(){
             val intent = Intent(requireContext(), CreatePlanetActivity::class.java)
             startActivity(intent)
         }
+
+        binding.refreshContainer.setOnRefreshListener {
+            token?.let {
+                viewModel.getPlanet(
+                    it,
+                    journeyId
+                )
+            }
+        }
     }
 
     private fun initPlanetListRecyclerView() {
@@ -79,6 +88,7 @@ class PlanetListFragment() : Fragment(){
 
     private fun initObservers() {
         viewModel.planetData.observe(viewLifecycleOwner) { response ->
+            binding.refreshContainer.isRefreshing = false
             if (response.isSuccessful) {
                 response.body()?.result.let { body ->
                     if (body == null) {

@@ -156,7 +156,6 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
             }
         }
 
-        initialize()
     }
 
     override fun onGetCreatePlanetPlanResult(planContent: String?, type: String?) {

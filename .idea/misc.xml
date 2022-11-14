@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_background.xml" value="0.1005" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_home_background.xml" value="0.1515" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_home_question.xml" value="0.11" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_planet_empty.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_plus_backgroundless.xml" value="0.17" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/ic_plus_gray.xml" value="0.17" />
@@ -21,14 +24,18 @@
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/drawable/shape_rectangle_radius_10dp_stroke_1dp.xml" value="0.229" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_create_planet.xml" value="0.24564102564102563" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_main.xml" value="0.24947916666666667" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_manage_goal.xml" value="0.2484375" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_planet_detail_modify.xml" value="0.24564102564102563" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/activity_report.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_create_planet_plan.xml" value="0.24564102564102563" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_delete_planet.xml" value="0.22870370370370371" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_home_add_to_do.xml" value="0.1" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/dialog_select_planet_color.xml" value="0.24564102564102563" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_home.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_my_page.xml" value="0.18055555555555555" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_planet_list.xml" value="0.24564102564102563" />
+        <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/fragment_s_m_s_auth.xml" value="0.20925925925925926" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_create_planet_plan.xml" value="0.2484375" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_detail_plan.xml" value="0.24947916666666667" />
         <entry key="..\:/Android/Workspace/Planet_android/app/src/main/res/layout/item_home_today_growth_plan.xml" value="0.24947916666666667" />

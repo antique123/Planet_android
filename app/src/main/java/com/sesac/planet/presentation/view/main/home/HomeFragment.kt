@@ -20,6 +20,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.sesac.planet.R
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.plan.PostDetailPlanRequest
+import com.sesac.planet.data.model.plan.ResultTodayGrowthPlans
 import com.sesac.planet.databinding.FragmentHomeBinding
 import com.sesac.planet.presentation.view.main.home.adapter.HomeTodayGrowthPlanAdapter
 import com.sesac.planet.presentation.viewmodel.main.home.KeywordViewModel
@@ -70,6 +71,7 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
             PlanViewModelFactory()
         )[PlanViewModel::class.java]
     }
+
 
     private val postDetailPlanViewModel by lazy {
         ViewModelProvider(
@@ -143,6 +145,15 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
                     "Dialog"
                 )
             }
+
+            /*
+            var dialog = HomeAddToDoDialog(this)
+            activity?.let { it1 -> dialog.show(it1.supportFragmentManager, "DIALOG") }
+            activity?.supportFragmentManager?.executePendingTransactions()
+            dialog.dialog?.setOnDismissListener {
+                initHomeTodayGrowthRcv()
+            }
+             */
         }
 
         setChart()
@@ -234,6 +245,11 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
     }
 
     private fun initObservers() {
+        postDetailPlanViewModel.detailPlan.observe(viewLifecycleOwner) { response ->
+            if(response.isSuccessful) {
+
+            }
+        }
         viewModel.planData.observe(viewLifecycleOwner) { response ->
             if (response.isSuccessful) {
                 response.body()?.result.let { body ->
@@ -256,7 +272,7 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
                             }
 
                             homeTodayGrowthPlanAdapter =
-                                HomeTodayGrowthPlanAdapter(body, isShowMore)
+                                HomeTodayGrowthPlanAdapter(body as MutableList<ResultTodayGrowthPlans>?, isShowMore)
                             binding.homeAddToDoRcv.layoutManager =
                                 LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
                             binding.homeAddToDoRcv.adapter = homeTodayGrowthPlanAdapter
@@ -292,10 +308,6 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
                     journeyId, planetId, PostDetailPlanRequest(toDoText, type)
                 )
             }
-
-            //activity?.let { refreshFragment(this, it.supportFragmentManager) }
-            //homeTodayGrowthPlanAdapter.notifyDataSetChanged()
-            //initHomeTodayGrowthRcv()
         }
     }
 
