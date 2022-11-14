@@ -1,6 +1,6 @@
 package com.sesac.planet.network.main.planet
 
-import com.sesac.planet.data.model.PlanetInfoResponse
+import com.sesac.planet.data.model.planet.PlanetInfoResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header

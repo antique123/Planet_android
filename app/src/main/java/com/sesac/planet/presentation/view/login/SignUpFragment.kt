@@ -127,14 +127,15 @@ class SignUpFragment : Fragment() {
             }
         }
 
+        //TODO 다시 로그인한 사용자일 경우 기존에 생성된 여정이 있는지 확인이 필요한데 API 가 없음
         viewModel.isSuccessMakeJourney.observe(viewLifecycleOwner) { response ->
             when(response.body()?.code) {
                 2053 -> {
-                    Log.d("SignUpTest", "이미 생성된 여정이 있음")
                     activity.startMainPage()
+                    Log.d("JourneyTest", response.body()?.result?.journey_id.toString())
+
                 }
                 else -> {
-                    Log.d("SignUpTest", "여정 생성하러가자")
                     activity.startNextPage()
                 }
             }

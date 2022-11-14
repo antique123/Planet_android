@@ -15,17 +15,21 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
+import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.plan.PostDetailPlanRequest
 import com.sesac.planet.databinding.DialogHomeAddToDoBinding
 import com.sesac.planet.presentation.view.main.home.adapter.DialogSelectAdapter
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetInfoViewModel
 import com.sesac.planet.presentation.viewmodel.main.planet.PlanetViewModelFactory
-import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanVIewModelFactory
+import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModelFactory
 import com.sesac.planet.presentation.viewmodel.main.plan.PostDetailPlanViewModel
+import com.sesac.planet.utility.Constant
 
-
-class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
+class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : DialogFragment(), OnSelectPlanetResult {
     private lateinit var binding: DialogHomeAddToDoBinding
+
+    private var token = PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+    private var journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, 0)
 
     private lateinit var dialogSelectAdapter: DialogSelectAdapter
     private var selectedPlanetId: Int = 0
@@ -35,13 +39,6 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
             this,
             PlanetViewModelFactory()
         )[PlanetInfoViewModel::class.java]
-    }
-
-    private val postDetailPlanViewModel by lazy {
-        ViewModelProvider(
-            this,
-            PostDetailPlanVIewModelFactory()
-        )[PostDetailPlanViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -80,7 +77,7 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
 
         //계획 저장하기
         binding.dialogHomeOkBtn.setOnClickListener {
-            initPostDetailPlan()
+            onPostDetailPlan.onPostDetailPlan(selectedPlanetId, binding.dialogHomeToDoEditText.text.toString(), getType())
             dismiss()
         }
     }
@@ -94,19 +91,12 @@ class HomeAddToDoDialog() : DialogFragment(), OnSelectPlanetResult {
     private fun initPlanetRcv() {
         initObservers()
 
-        viewModel.getPlanet(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6
-        )
-    }
-
-    //오늘의 성장 계획 추가하기
-    private fun initPostDetailPlan() {
-        postDetailPlanViewModel.postDetailPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6, selectedPlanetId, PostDetailPlanRequest(binding.dialogHomeToDoEditText.text.toString(),getType())
-        )
-
+        token?.let {
+            viewModel.getPlanet(
+                it,
+                journeyId
+            )
+        }
 
         //viewModel.getPlanet(PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")!!, 4)
     }

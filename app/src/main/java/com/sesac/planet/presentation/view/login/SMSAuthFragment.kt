@@ -54,8 +54,8 @@ class SMSAuthFragment : Fragment() {
     private fun initViews() {
         binding.startNextPageButton.setOnClickListener {
             // TODO: 회원가입 과정이 끝났으므로 로그인 화면으로 다시 이동하도록 변경 필요
-            if(binding.inputPhoneNumberEditText.text.toString().isNotEmpty() && binding.inputUserNameEditText.text.isNotEmpty()) {
-                val request = EmailSignUpRequest(viewModel.userEmail, viewModel.userPassword, binding.inputPhoneNumberEditText.text.toString(), binding.inputUserNameEditText.text.toString())
+            if( binding.inputUserNameEditText.text.isNotEmpty()) {
+                val request = EmailSignUpRequest(viewModel.userEmail, viewModel.userPassword,"010-0000-0000" , binding.inputUserNameEditText.text.toString())
                 viewModel.requestEmailSignUp(request)
             }
             startActivity(Intent(requireActivity(), MakePlanningActivity::class.java))
