@@ -121,27 +121,30 @@ class SignUpFragment : Fragment() {
                         putString(Constant.X_ACCESS_TOKEN, response.body()?.result?.jwt.toString())
                         putInt(Constant.USER_ID, response?.body()?.result?.userIdx!!)
                         putInt(Constant.LOGIN_TYPE, Constant.EMAIL_LOGIN)
+                        putInt(Constant.JOURNEY_ID, response.body()?.result?.journey_id!!)
                     }
                     checkJourneyExist()
                 }
             }
         }
 
+        /*
         viewModel.isSuccessMakeJourney.observe(viewLifecycleOwner) { response ->
             when(response.body()?.code) {
                 2053 -> {
-                    Log.d("SignUpTest", "이미 생성된 여정이 있음")
                     activity.startMainPage()
                 }
                 else -> {
-                    Log.d("SignUpTest", "여정 생성하러가자")
                     activity.startNextPage()
                 }
             }
         }
+
+         */
     }
 
     private fun checkJourneyExist() {
+        /*
         val planet = mutableListOf<Planet>()
         planet.add(Planet(planet_name = "다이어트", detailed_plans = listOf("테스트")))
 
@@ -156,6 +159,14 @@ class SignUpFragment : Fragment() {
         val userId = PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
 
         viewModel.makeJourney(journey, token!!, userId)
+
+         */
+        val journeyId = PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, -1)
+        if(journeyId != -1 ) {
+            activity.startMainPage()
+        } else {
+            activity.startNextPage()
+        }
     }
 
     override fun onAttach(context: Context) {

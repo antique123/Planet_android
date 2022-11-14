@@ -68,6 +68,8 @@ class SMSAuthFragment : Fragment() {
             Log.d("EmailSignUpTest", response.body()?.message.toString())
             when(response.body()?.code) {
                 1000 -> {
+                    Log.d("EmailSignUpTest", "이메일 회원가입에 성공했습니다")
+
                     Toast.makeText(requireActivity(), "이메일 회원가입에 성공했습니다", Toast.LENGTH_SHORT).show()
                     PlanetApplication.sharedPreferences.edit {
                         putString(Constant.X_ACCESS_TOKEN, response.body()?.result?.jwt)
@@ -76,6 +78,7 @@ class SMSAuthFragment : Fragment() {
                     }
                     activity.startNextPage()
                 } else -> {
+                    Log.d("EmailSignUpTest", "${response.body()?.code} - 이메일 회원가입에 실패했습니다")
                     Toast.makeText(requireActivity(), "${response.body()?.code} - 이메일 회원가입에 실패했습니다", Toast.LENGTH_SHORT).show()
                     activity.restart()
                 }

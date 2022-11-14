@@ -44,6 +44,18 @@ class HomeFragment : Fragment() {
 
     lateinit var keyword: MutableList<String>
 
+    private val journeyId by lazy {
+        PlanetApplication.sharedPreferences.getInt(Constant.JOURNEY_ID, -1)
+    }
+
+    private val token by lazy {
+        PlanetApplication.sharedPreferences.getString(Constant.X_ACCESS_TOKEN, "")
+    }
+
+    private val userId by lazy {
+        PlanetApplication.sharedPreferences.getInt(Constant.USER_ID, -1)
+    }
+
     //...님 안녕하세요 :)
     private val keywordViewModel by lazy {
         ViewModelProvider(
@@ -126,26 +138,17 @@ class HomeFragment : Fragment() {
     //뷰모델
     private fun initKeyword() {
         initKeywordObservers()
-        keywordViewModel.getKeyword(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6
-        )
+        keywordViewModel.getKeyword(token!!, journeyId)
     }
 
     private fun initGetTodayInfo(){
         initGetTodayInfoObservers()
-        getTodayInfoViewModel.getTodayInfo(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            11
-        )
+        getTodayInfoViewModel.getTodayInfo(token!!,  userId)
     }
 
     private fun initHomeTodayGrowthRcv() {
         initObservers()
-        viewModel.getPlan(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            6
-        )
+        viewModel.getPlan(token!!, journeyId)
     }
 
     //옵저버
@@ -192,6 +195,7 @@ class HomeFragment : Fragment() {
                         binding.homeNoResultTv.visibility = View.VISIBLE
                         binding.homeShowMoreBtn.visibility = View.GONE
                     } else {
+                        Log.d("HomeAdapterTest", "${body.size} ${body.toString()}")
                         homeTodayGrowthPlanAdapter = HomeTodayGrowthPlanAdapter(body, isShowMore)
                         binding.homeAddToDoRcv.layoutManager =
                             LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
@@ -273,10 +277,7 @@ class HomeFragment : Fragment() {
 
     private fun initReport() {
         initReportObservers()
-        reportViewModel.getReport(
-            "eyJ0eXBlIjoiand0IiwiYWxnIjoiSFMyNTYifQ.eyJ1c2VySWR4IjoxMSwiaWF0IjoxNjY3NjI2OTA1LCJleHAiOjE2NjkwOTgxMzR9.1IgJRf7fl08M0_5DZPff8a5GCH79hpyFtGkGET5ZtgM",
-            11
-        )
+        reportViewModel.getReport(token!!, userId)
         binding.homeMyReportChart.invalidate()
     }
 

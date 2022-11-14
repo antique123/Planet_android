@@ -21,6 +21,7 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
     }
 
     override fun getItemCount(): Int {
+
         var returnAmount: Int = 0
         if(isShowMore){
             returnAmount = items!!.size
@@ -29,6 +30,8 @@ class HomeTodayGrowthPlanAdapter(val items: List<ResultTodayGrowthPlans>?, priva
         }
 
         return returnAmount
+
+
     }
 
     inner class HomeTodayGrowthPlanViewHolder(private val binding : ItemHomeTodayGrowthPlanBinding) : RecyclerView.ViewHolder(binding.root){
