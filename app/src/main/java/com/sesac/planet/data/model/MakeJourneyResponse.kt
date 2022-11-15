@@ -1,5 +1,8 @@
 package com.sesac.planet.data.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class MakeJourneyResponse(
     val code: Int,
     val isSuccess: Boolean,
@@ -7,6 +10,7 @@ data class MakeJourneyResponse(
     val result: MakeJourneyResult
 )
 
+@Keep
 data class MakeJourneyResult(
     val journey_id: Int,
     val keywords: List<String>,

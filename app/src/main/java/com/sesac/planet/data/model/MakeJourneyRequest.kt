@@ -1,5 +1,8 @@
 package com.sesac.planet.data.model
 
+import androidx.annotation.Keep
+
+@Keep
 data class MakeJourneyRequest(
     val keywords: List<String>,
     val period: Int,
@@ -8,6 +11,7 @@ data class MakeJourneyRequest(
     val planets: List<Planet>
 )
 
+@Keep
 data class Planet(
     val detailed_plans: List<String>,
     val planet_name: String

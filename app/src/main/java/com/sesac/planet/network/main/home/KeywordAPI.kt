@@ -1,6 +1,6 @@
 package com.sesac.planet.network.main.home
 
-import com.sesac.planet.data.model.KeywordResponse
+import com.sesac.planet.data.model.home.KeywordResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header

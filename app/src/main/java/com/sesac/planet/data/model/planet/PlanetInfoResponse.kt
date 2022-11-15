@@ -1,12 +1,15 @@
 package com.sesac.planet.data.model.planet
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.sesac.planet.data.model.BaseResponse
 
+@Keep
 data class PlanetInfoResponse(
     @SerializedName("result") val result: List<ResultPlanetInfo>
 ) : BaseResponse()
 
+@Keep
 data class ResultPlanetInfo(
     @SerializedName("planet_id") val planet_id: Int,
     @SerializedName("planet_name") val planet_name: String,
@@ -17,10 +20,12 @@ data class ResultPlanetInfo(
     @SerializedName("color_rgb") val color: String?
 )
 
+@Keep
 data class PlanetDetailInfoResponse(
     @SerializedName("result") val result: ResultPlanetDetailInfo
 ): BaseResponse()
 
+@Keep
 data class ResultPlanetDetailInfo(
     @SerializedName("planet_id") val planet_id: Int,
     @SerializedName("planet_name") val planet_name: String,
@@ -32,6 +37,7 @@ data class ResultPlanetDetailInfo(
     @SerializedName("plans") val plans: ArrayList<ResultPlanetDetailPlan>
 )
 
+@Keep
 data class ResultPlanetDetailPlan(
     @SerializedName("detailed_plan_id") val detailed_plan_id: Int,
     @SerializedName("plan_name") val plan_name: String,
