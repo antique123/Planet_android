@@ -69,7 +69,7 @@ class SignUpFragment : Fragment() {
         }
 
         binding.kakaoLoginButton.setOnClickListener {
-            
+
             if(UserApiClient.instance.isKakaoTalkLoginAvailable(requireActivity())) {
                 Log.d("KakaoLoginTest", "loginWithKakaoTalk")
                 UserApiClient.instance.loginWithKakaoTalk(requireActivity(), callback = callback)
