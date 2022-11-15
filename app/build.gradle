@@ -22,19 +22,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    signingConfigs {
-        release {
-            storeFile file('planet.jks')
-            storePassword "20221119"
-            keyAlias "planet"
-            keyPassword "20221119"
-        }
-    }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
-            debuggable true
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
