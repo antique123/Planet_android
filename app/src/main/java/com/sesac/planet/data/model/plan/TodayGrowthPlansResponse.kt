@@ -1,12 +1,15 @@
 package com.sesac.planet.data.model.plan
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 import com.sesac.planet.data.model.BaseResponse
 
+@Keep
 data class TodayGrowthPlansResponse(
     @SerializedName("result") val result: List<ResultTodayGrowthPlans>
 ) : BaseResponse()
 
+@Keep
 data class ResultTodayGrowthPlans(
     @SerializedName("planet_id") val planet_id: Int,
     @SerializedName("planet_image") val planet_image: String?,
