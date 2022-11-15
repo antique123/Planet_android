@@ -1,11 +1,14 @@
 package com.sesac.planet.data.model
 
+import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
 
+@Keep
 data class ReportResponse(
     @SerializedName("result") val result: ResultReport
 ) : BaseResponse()
 
+@Keep
 data class ResultReport(
     @SerializedName("completed_five_weeks_ago") val completed_five_weeks_ago: Int,
     @SerializedName("completed_four_weeks_ago") val completed_four_weeks_ago: Int,
