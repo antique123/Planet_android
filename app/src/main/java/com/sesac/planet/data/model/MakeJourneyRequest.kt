@@ -11,6 +11,7 @@ data class MakeJourneyRequest(
     val planets: List<Planet>
 )
 
+@Keep
 data class Planet(
     val detailed_plans: List<String>,
     val planet_name: String
