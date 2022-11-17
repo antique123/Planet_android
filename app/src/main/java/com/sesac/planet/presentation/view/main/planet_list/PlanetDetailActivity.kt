@@ -52,6 +52,7 @@ class PlanetDetailActivity() : AppCompatActivity(), DetailPlansIdForPatch, OnGet
         )[PostDetailPlanViewModel::class.java]
     }
 
+
     private val patchDetailPlanViewModel by lazy{
         ViewModelProvider(
             this,
