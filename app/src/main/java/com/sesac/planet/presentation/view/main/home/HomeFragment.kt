@@ -214,6 +214,8 @@ class HomeFragment : Fragment(), OnPostDetailPlan {
                         ))
                     )
 
+                    binding.homeTargetAmountTextView.text = homeTodayGrowthPlanAdapter.itemCount.toString()
+
                 } else {
                 }
             }
