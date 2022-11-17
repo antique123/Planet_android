@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.R
+import com.sesac.planet.data.model.plan.PostDetailPlanResult
 import com.sesac.planet.data.model.plan.ResultTodayGrowthPlans
 import com.sesac.planet.databinding.ItemHomeTodayGrowthPlanBinding
 
-class HomeTodayGrowthPlanAdapter(val items: MutableList<ResultTodayGrowthPlans>?, private val isShowMore: Boolean) : RecyclerView.Adapter<HomeTodayGrowthPlanAdapter.HomeTodayGrowthPlanViewHolder>(){
+class HomeTodayGrowthPlanAdapter(private val isShowMore: Boolean) : RecyclerView.Adapter<HomeTodayGrowthPlanAdapter.HomeTodayGrowthPlanViewHolder>(){
+    private var planList = mutableListOf<ResultTodayGrowthPlans>()
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -25,29 +28,26 @@ class HomeTodayGrowthPlanAdapter(val items: MutableList<ResultTodayGrowthPlans>?
     }
 
     override fun getItemCount(): Int {
-        return if(items!!.size > 3){
+        return if(planList.size > 3){
             when(isShowMore){
-                true -> items!!.size
+                true -> planList.size
                 false -> 3
             }
         } else{
-            items!!.size
+            planList.size
         }
     }
 
     inner class HomeTodayGrowthPlanViewHolder(private val binding : ItemHomeTodayGrowthPlanBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int){
-            binding.itemHomeTodayGrowthPlanTextView.text = items!![position].plan_content
+            binding.itemHomeTodayGrowthPlanTextView.text = planList[position].plan_content
 
-
-            when(items!![position].is_completed){
+            when(planList[position].is_completed){
                 1 -> binding.itemHomeTodayGrowthPlanTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#E1E1E1")))
                 0 -> binding.itemHomeTodayGrowthPlanTextView.setTextColor(ColorStateList.valueOf(Color.parseColor("#5E5E5E")))
             }
 
-
-
-            when(items!![position].color){
+            when(planList[position].color){
                 "#896DF3" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_purple)
                 "#7AE3AA" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mint)
                 "#FFC212" -> binding.itemHomeTodayGrowthPlanImageView.setImageResource(R.drawable.ic_planet_mustard)
@@ -75,15 +75,15 @@ class HomeTodayGrowthPlanAdapter(val items: MutableList<ResultTodayGrowthPlans>?
 
                 }
 
-                itemClickListener.onClick(it, position, items!![position].detailed_plan_id)
+                itemClickListener.onClick(it, position, planList[position].detailed_plan_id)
             }
 
         }
     }
 
-    fun addItem(item: ResultTodayGrowthPlans) {
-        items?.add(item)
-        notifyItemInserted(items?.lastIndex!!)
+    fun setData(item: List<ResultTodayGrowthPlans>) {
+        planList.addAll(0, item)
+        notifyDataSetChanged()
     }
 
     interface OnItemClickListener{

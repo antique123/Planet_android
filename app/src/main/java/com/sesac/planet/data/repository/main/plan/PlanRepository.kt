@@ -4,6 +4,7 @@ import com.sesac.planet.data.model.MakeJourneyRequest
 import com.sesac.planet.data.model.BaseResponse
 import com.sesac.planet.data.model.CheckNickNameResponse
 import com.sesac.planet.data.model.plan.PostDetailPlanRequest
+import com.sesac.planet.data.model.plan.PostDetailPlanResponse
 import com.sesac.planet.data.model.plan.TodayGrowthPlansResponse
 import com.sesac.planet.network.main.plan.DeleteDetailPlanAPI
 import com.sesac.planet.network.main.plan.PlanAPI
@@ -31,8 +32,8 @@ object PlanRepository {
         planService.makeJourney(userId, token, journeyRequest)
     }
 
-    suspend fun postPlan(token: String, journeyId: Int, planetId: Int, postDetailPlanRequest: PostDetailPlanRequest): Response<BaseResponse>{
-        val postPlanResponse: Response<BaseResponse>
+    suspend fun postPlan(token: String, journeyId: Int, planetId: Int, postDetailPlanRequest: PostDetailPlanRequest): Response<PostDetailPlanResponse>{
+        val postPlanResponse: Response<PostDetailPlanResponse>
 
         withContext(Dispatchers.IO){
             postPlanResponse = postPlanService.postDetailPlan(token, journeyId, planetId, postDetailPlanRequest)

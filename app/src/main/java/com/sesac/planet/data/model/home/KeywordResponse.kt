@@ -1,7 +1,8 @@
-package com.sesac.planet.data.model
+package com.sesac.planet.data.model.home
 
 import androidx.annotation.Keep
 import com.google.gson.annotations.SerializedName
+import com.sesac.planet.data.model.BaseResponse
 
 @Keep
 data class KeywordResponse(

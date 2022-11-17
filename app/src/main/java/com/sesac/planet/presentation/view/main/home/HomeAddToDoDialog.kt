@@ -44,7 +44,6 @@ class HomeAddToDoDialog(private val onPostDetailPlan: OnPostDetailPlan) : Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(

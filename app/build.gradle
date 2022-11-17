@@ -16,12 +16,11 @@ android {
         applicationId "com.sesac.planet"
         minSdk 23
         targetSdk 32
-        versionCode 1
+        versionCode 5
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
 
     buildTypes {
         release {

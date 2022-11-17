@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sesac.planet.config.PlanetApplication
-import com.sesac.planet.data.model.KeywordResponse
+import com.sesac.planet.data.model.home.KeywordResponse
 import com.sesac.planet.data.repository.main.home.KeywordRepository
 import com.sesac.planet.domain.usecase.main.home.GetKeywordUseCase
 import com.sesac.planet.network.main.home.KeywordAPI
