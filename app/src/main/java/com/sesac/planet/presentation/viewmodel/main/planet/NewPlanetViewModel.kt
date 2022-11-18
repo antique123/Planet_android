@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sesac.planet.config.PlanetApplication
 import com.sesac.planet.data.model.BaseResponse
+import com.sesac.planet.data.model.CreatePlanetResponse
 import com.sesac.planet.data.model.planet.CreateNewPlanetRequest
 import com.sesac.planet.data.repository.main.planet.PostPlanetRepository
 import com.sesac.planet.domain.usecase.main.planet.CreateNewPlanetUseCase
@@ -14,8 +15,8 @@ import kotlinx.coroutines.launch
 import retrofit2.Response
 
 class NewPlanetViewModel(private val createNewPlanetUseCase: CreateNewPlanetUseCase) : ViewModel() {
-    private val _newPlanetData = MutableLiveData<Response<BaseResponse>>()
-    val newPlanetData: LiveData<Response<BaseResponse>> get() = _newPlanetData
+    private val _newPlanetData = MutableLiveData<Response<CreatePlanetResponse>>()
+    val newPlanetData: LiveData<Response<CreatePlanetResponse>> get() = _newPlanetData
 
     init {
         PostPlanetRepository.createNewPlanetService =

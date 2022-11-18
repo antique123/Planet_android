@@ -1,6 +1,7 @@
 package com.sesac.planet.network.main.planet
 
 import com.sesac.planet.data.model.BaseResponse
+import com.sesac.planet.data.model.CreatePlanetResponse
 import com.sesac.planet.data.model.planet.CreateNewPlanetRequest
 import retrofit2.Response
 import retrofit2.http.*
@@ -11,5 +12,5 @@ interface PostPlanetAPI {
         @Header("X-ACCESS-TOKEN") token: String,
         @Path("journey_id") journeyId: Int,
         @Body params: CreateNewPlanetRequest
-    ): Response<BaseResponse>
+    ): Response<CreatePlanetResponse>
 }
