@@ -1,8 +1,10 @@
 package com.sesac.planet.presentation.view.main.planet_list
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -43,6 +45,7 @@ class CreatePlanetActivity : AppCompatActivity(), OnSelectColorResult, OnGetCrea
 
         initialize()
         initView()
+        initObservers()
     }
 
     private fun initialize() {
@@ -68,7 +71,6 @@ class CreatePlanetActivity : AppCompatActivity(), OnSelectColorResult, OnGetCrea
 
         binding.createPlanetSaveBtn.setOnClickListener {
             createNewPlanet()
-            finish()
         }
     }
 
@@ -78,6 +80,32 @@ class CreatePlanetActivity : AppCompatActivity(), OnSelectColorResult, OnGetCrea
                 it,
                 journeyId, CreateNewPlanetRequest(binding.createPlanetNameEdt.text.toString(), binding.createPlanetExplainPlanetTextView.text.toString(), selectedColor, planData)
             )
+        }
+    }
+
+    private fun initObservers() {
+        newPlanetViewModel.newPlanetData.observe(this) { response ->
+            when(response.body()?.code) {
+                1000 -> {
+                    Log.d("CreatePlanetTest", "${response.body()?.result.toString()}")
+                    val returnIntent = intent
+                    returnIntent.putExtra("color", response.body()?.result?.color)
+                    returnIntent.putExtra("planetId", response.body()?.result?.planetId)
+                    returnIntent.putExtra("planetIntro", response.body()?.result?.planetIntro)
+                    returnIntent.putExtra("planetName", response.body()?.result?.planetName)
+                    returnIntent.putExtra("planCount", createDetailPlanAdapter.itemCount)
+
+                    Log.d("planet_count", createDetailPlanAdapter.itemCount.toString())
+
+                    setResult(RESULT_OK, returnIntent)
+
+                    finish()
+                }
+                else -> {
+                    Log.d("CreatePlanetTest", "error: ${response.body()?.code}")
+                    finish()
+                }
+            }
         }
     }
 

@@ -2,6 +2,7 @@ package com.sesac.planet.presentation.view.main.planet_list.adapter
 
 import android.content.res.ColorStateList
 import android.graphics.Color
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.sesac.planet.data.model.planet.ResultPlanetInfo
 import com.sesac.planet.databinding.ItemPlanetListBinding
 
-class PlanetListAdapter(private val items: List<ResultPlanetInfo>?) : RecyclerView.Adapter<PlanetListAdapter.PlanetListViewHolder>(){
+class PlanetListAdapter(private val items: MutableList<ResultPlanetInfo>?) : RecyclerView.Adapter<PlanetListAdapter.PlanetListViewHolder>(){
     private var planetId: Int = 0
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlanetListViewHolder {
@@ -42,7 +43,14 @@ class PlanetListAdapter(private val items: List<ResultPlanetInfo>?) : RecyclerVi
             binding.itemPlanetListLevelProgressBar.max = items!![position].plan_count
             binding.itemPlanetListLevelProgressBar.progress = items!![position].planet_exp
             binding.itemPlanetListLevelProgressBar.progressTintList = ColorStateList.valueOf(Color.parseColor(items!![position].color))
+
+            Log.d("PlanetAdapterTest", "${items!![position].plan_count} / ${items!![position].planet_exp} / ${items!![position].planet_level}")
         }
+    }
+
+    fun addItem(item: ResultPlanetInfo) {
+        items?.add(item)
+        notifyDataSetChanged()
     }
 
     interface OnItemClickListener {
